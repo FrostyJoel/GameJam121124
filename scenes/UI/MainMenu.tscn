@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpjtbxilmg04s"]
+
+[ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_4ku65"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_108nf"]
+font_size = 48
+font_color = Color(0.898039, 0.945098, 1, 1)
+outline_size = 28
+outline_color = Color(0.364706, 0.662745, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72lix"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y2uu"]
+bg_color = Color(0.364706, 0.662745, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.36402, 0.664256, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwct8"]
+bg_color = Color(0, 0.47717, 0.875217, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_he6oy"]
+bg_color = Color(0.898351, 0.944453, 1, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.36402, 0.664256, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ku65")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -149.0
+offset_right = 287.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0422151
+pivot_offset = Vector2(287, 48)
+theme_override_font_sizes/font_size = 32
+text = "Our Godot Game
+"
+label_settings = SubResource("LabelSettings_108nf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = 52.0
+offset_right = 149.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonStart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_72lix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_he6oy")
+text = "Start Game"
+
+[node name="ButtonQuit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_72lix")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_he6oy")
+text = "Quit Game"
+
+[connection signal="pressed" from="VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
