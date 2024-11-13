@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=4 format=3 uid="uid://wqfyynhl4uec"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_053pv"]
+[ext_resource type="PackedScene" uid="uid://4l7h7uugyb66" path="res://scenes/Microgames/TestMicroGame.tscn" id="2_1appy"]
+[ext_resource type="PackedScene" uid="uid://q3g1stufv5fe" path="res://scenes/Microgames/TestMicroGameVar2.tscn" id="3_0hu71"]
+
+[resource]
+script = ExtResource("1_053pv")
+instruction = "Wait"
+variations = Array[PackedScene]([ExtResource("2_1appy"), ExtResource("3_0hu71"), ExtResource("3_0hu71")])

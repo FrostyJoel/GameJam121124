@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b10mqefnp705t"]
+
+[ext_resource type="Script" path="res://scripts/Fishing/fishing.gd" id="1_2xsly"]
+[ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_h481k"]
+
+[node name="Fishing" type="Node2D"]
+script = ExtResource("1_2xsly")
+
+[node name="DebugSquare" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_h481k")
+
+[node name="InputButton" type="Sprite2D" parent="."]
+position = Vector2(342, 342)
+
+[node name="BobberTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FishGetAwayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="BobberTimer" to="." method="_on_bobber_timer_timeout"]
+[connection signal="timeout" from="FishGetAwayTimer" to="." method="_on_fish_get_away_timer_timeout"]

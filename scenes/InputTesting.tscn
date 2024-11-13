@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://civn85yqdprtt"]
+
+[ext_resource type="Script" path="res://scripts/input_testing.gd" id="1_qvqxf"]
+[ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assest/images/Square.png" id="2_krk2f"]
+
+[node name="InputTesting" type="Node2D"]
+script = ExtResource("1_qvqxf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.501016, 0.96128, 0, 1)
+position = Vector2(80, 30)
+scale = Vector2(3, 3)
+texture = ExtResource("2_krk2f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
