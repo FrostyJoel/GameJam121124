@@ -19,6 +19,6 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Laser"):
 		var _explosion = load("res://scenes/Microgames/defendtheflag/scenes/explosion_particles.tscn")
 		var _explosion_instance = _explosion.instantiate()
-		get_tree().current_scene.add_child(_explosion_instance)
+		$".".add_child(_explosion_instance)
 		_explosion_instance.global_position = global_position
 		queue_free()
