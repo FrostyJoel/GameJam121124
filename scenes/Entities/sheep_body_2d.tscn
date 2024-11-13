@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://r5ir2trq03s"]
+
+[ext_resource type="Script" path="res://scenes/Entities/sheep_body_2d.gd" id="1_jjh2v"]
+[ext_resource type="Texture2D" uid="uid://q5lmt6be6x16" path="res://assets/images/Sheep-PNG.png" id="1_qnxs7"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_buaxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgsm4"]
+size = Vector2(21, 24)
+
+[node name="SheepBody2D" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_jjh2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ImageTexture_buaxq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 4.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_bgsm4")
+
+[node name="Sheep-png" type="Sprite2D" parent="."]
+position = Vector2(3, 3)
+scale = Vector2(0.0778, 0.0778)
+texture = ExtResource("1_qnxs7")
