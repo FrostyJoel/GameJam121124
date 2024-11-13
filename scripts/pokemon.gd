@@ -15,6 +15,7 @@ func _ready() -> void:
 	var badmoves= ["Fluffy Slap", "Cute Dance", "Wink", "Cuddle Clap", "Huggy Dash", "Snuggle Slide"]
 	var goodmoves = ["Hyper Shock", "Mega Blast", "Techtonic Shift", "Volcanic Beam", "Tsunami Terror", "Hurricane Rage"]
 	
+	# Assign moves to each slot
 	for n in 4:
 		var random = randi_range(0,3-n)
 		var move = "null"
@@ -39,6 +40,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
+	#Player input
 	if Input.is_action_just_pressed("DirLeft") or Input.is_action_just_pressed("NegativeHorizontal"):
 		if currentlabel == move_2:
 			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
@@ -85,6 +87,6 @@ func _process(delta: float) -> void:
 		else:
 			print("you lose")
 
-
+# Fail state when timer runs out
 func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
