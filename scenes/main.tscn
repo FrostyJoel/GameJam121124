@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ygwc3"]
-[ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/GameManager.tscn" id="2_fgo63"]
+[ext_resource type="PackedScene" path="res://scenes/GameManager.tscn" id="2_fgo63"]
 [ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/MicrogameManager.tscn" id="3_512op"]
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_wl5e3"]
 [ext_resource type="Resource" uid="uid://wqfyynhl4uec" path="res://microgameData/TestGame.tres" id="5_76x0o"]
