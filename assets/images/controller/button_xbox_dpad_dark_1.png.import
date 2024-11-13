@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmt7s8boduf3b"
-path="res://.godot/imported/Square.png-e487714db1b262d4ea2924a8cd0d736f.ctex"
+uid="uid://drs0cdaik2xqg"
+path="res://.godot/imported/button_xbox_dpad_dark_1.png-152983da2004a6f209f6f288ab216174.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assest/images/Square.png"
-dest_files=["res://.godot/imported/Square.png-e487714db1b262d4ea2924a8cd0d736f.ctex"]
+source_file="res://assets/images/controller/button_xbox_dpad_dark_1.png"
+dest_files=["res://.godot/imported/button_xbox_dpad_dark_1.png-152983da2004a6f209f6f288ab216174.ctex"]
 
 [params]
 
