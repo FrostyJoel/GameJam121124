@@ -7,12 +7,12 @@ var maxHealth : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	StartGame()
 
 
 # Tells the microgame manager to start spawning microgames
 func StartGame():
-	pass
+	print("Starting game")
 
 
 # Tells the UI to show the current microgame timer

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=2 format=3 uid="uid://wqfyynhl4uec"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_053pv"]
+
+[resource]
+script = ExtResource("1_053pv")
+variations = Array[PackedScene]([])

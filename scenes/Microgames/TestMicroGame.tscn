@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://4l7h7uugyb66"]
+
+[ext_resource type="Script" path="res://scripts/Microgames/test_micro_game.gd" id="1_qv0ts"]
+
+[node name="TestMicroGame" type="Node2D"]
+script = ExtResource("1_qv0ts")
+
+[node name="MicrogameTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="MicrogameTimer" to="." method="_on_microgame_timer_timeout"]
