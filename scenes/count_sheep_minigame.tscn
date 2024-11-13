@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://btutj8w673cxr"]
+[gd_scene load_steps=3 format=3 uid="uid://b3my4i8on8f3a"]
 
 [ext_resource type="Script" path="res://scripts/count_sheep_minigame.gd" id="1_snuaf"]
 [ext_resource type="PackedScene" uid="uid://cxply5sdvsb4n" path="res://ui/sheep_counter_ui.tscn" id="2_805o5"]

@@ -17,7 +17,7 @@ func _ready() -> void:
 		_sheep_instance.global_position.x = randf_range(-500, 400)
 		_sheep_instance.global_position.y = randf_range(-500, 500)
 		_sheep_instance.rotation = randi_range(0, 359)
-		var Sheep_Size_Set = randf_range(0.5, 2.5)
+		var Sheep_Size_Set = randf_range(1, 2.5)
 		_sheep_instance.scale.x = Sheep_Size_Set
 		_sheep_instance.scale.y = Sheep_Size_Set
 	$CooldownTimer.start()
