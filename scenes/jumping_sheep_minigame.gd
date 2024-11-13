@@ -1,6 +1,4 @@
-extends Area2D
-
-
+extends microgame_base
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,6 +11,10 @@ func _process(delta: float) -> void:
 
 
 
-func _on_body_entered(body: Node2D) -> void:
-	print("Game Win")
-	$".."
+func _on_win_area_body_entered(body: Node2D) -> void:
+		microgameEnded.emit(true)
+		print("Awesome")
+
+func hit_fence(body: Node2D) -> void:
+	microgameEnded.emit(false)
+	print("loser")

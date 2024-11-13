@@ -12,3 +12,6 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("Game Over")
+	var parent_scene = get_parent()
+	parent_scene.hit_fence(body)
+	
