@@ -18,6 +18,7 @@ offset_left = 58.0
 offset_top = 400.0
 offset_right = 114.0
 offset_bottom = 423.0
+theme_override_font_sizes/font_size = 24
 text = "MOVE1"
 metadata/Tag = ""
 
@@ -26,6 +27,7 @@ offset_left = 276.0
 offset_top = 400.0
 offset_right = 332.0
 offset_bottom = 423.0
+theme_override_font_sizes/font_size = 24
 text = "MOVE2"
 metadata/Tag = ""
 
@@ -34,6 +36,7 @@ offset_left = 58.0
 offset_top = 485.0
 offset_right = 114.0
 offset_bottom = 508.0
+theme_override_font_sizes/font_size = 24
 text = "MOVE3"
 metadata/Tag = ""
 
@@ -42,6 +45,7 @@ offset_left = 280.0
 offset_top = 483.0
 offset_right = 336.0
 offset_bottom = 506.0
+theme_override_font_sizes/font_size = 24
 text = "MOVE4"
 metadata/Tag = ""
 
