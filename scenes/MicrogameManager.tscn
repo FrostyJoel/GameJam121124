@@ -4,3 +4,7 @@
 
 [node name="MicrogameManager" type="Node2D"]
 script = ExtResource("1_vlvpw")
+
+[node name="BetweenMicrogames" type="Timer" parent="."]
+
+[connection signal="timeout" from="BetweenMicrogames" to="." method="_on_between_microgames_timeout"]

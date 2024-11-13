@@ -2,7 +2,7 @@ extends Node2D
 
 @export var microgames : Array[MicrogameData]
 var lastPickedMicrogame : int = 999
-var currentMicrogame
+var currentMicrogame : Node
 
 signal microGameWin
 signal microGameLose
@@ -36,3 +36,11 @@ func MicrogameOver(win: bool) -> void:
 		microGameWin.emit()
 	else:
 		microGameLose.emit()
+	
+	# despawn old microgame and spawn another
+	currentMicrogame.queue_free()
+	$BetweenMicrogames.start()
+
+
+func _on_between_microgames_timeout() -> void:
+	SpawnMicrogame()
