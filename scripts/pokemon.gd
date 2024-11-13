@@ -4,7 +4,7 @@ extends Node2D
 @onready var move_2: Label = $Move2
 @onready var move_3: Label = $Move3
 @onready var move_4: Label = $Move4
-
+@onready var timer: Timer = $Timer
 @onready var currentlabel = move_1
 
 
@@ -33,7 +33,8 @@ func _ready() -> void:
 		movetypes.remove_at(random)
 		
 	currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-
+	
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -83,3 +84,7 @@ func _process(delta: float) -> void:
 			print("you win")
 		else:
 			print("you lose")
+
+
+func _on_timer_timeout() -> void:
+	print("YOU LOSE") # Replace with function body.

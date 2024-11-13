@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var opponent: Label = $Opponent
 @onready var player: Label = $Player
+@onready var timer: Timer = $Timer
+
 
 
 func _ready() -> void:
@@ -16,6 +18,8 @@ func _ready() -> void:
 		
 	player.text = "ROCK"
 
+	timer.start()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Change answer with stick(left)
@@ -53,3 +57,7 @@ func _process(delta: float) -> void:
 				print("YOU WIN")
 			else:
 				print("YOU LOSE")
+
+
+func _on_timer_timeout() -> void:
+	print("YOU LOSE") # Replace with function body.
