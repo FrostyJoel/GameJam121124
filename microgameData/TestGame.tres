@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=2 format=3 uid="uid://wqfyynhl4uec"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://wqfyynhl4uec"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_053pv"]
+[ext_resource type="PackedScene" uid="uid://4l7h7uugyb66" path="res://scenes/Microgames/TestMicroGame.tscn" id="2_1appy"]
 
 [resource]
 script = ExtResource("1_053pv")
-variations = Array[PackedScene]([])
+variations = Array[PackedScene]([ExtResource("2_1appy")])
