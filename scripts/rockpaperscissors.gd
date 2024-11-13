@@ -1,4 +1,4 @@
-extends Node2D
+extends microgame_base
 
 @onready var opponent: Label = $Opponent
 @onready var player: Label = $Player
@@ -65,19 +65,26 @@ func _process(delta: float) -> void:
 		if opponent.text == "ROCK":
 			if player.text == "PAPER":
 				print("YOU WIN")
+				microgameEnded.emit(true)
 			else:
 				print("YOU LOSE")
+				microgameEnded.emit(false)
 		if opponent.text == "PAPER":
 			if player.text == "SCISSORS":
 				print("YOU WIN")	
+				microgameEnded.emit(true)
 			else:
 				print("YOU LOSE")
+				microgameEnded.emit(false)
 		if opponent.text == "SCISSORS":
 			if player.text == "ROCK":
 				print("YOU WIN")
+				microgameEnded.emit(true)
 			else:
 				print("YOU LOSE")
-
+				microgameEnded.emit(false)
+				
 # Fail state when timer runs out
 func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
+	microgameEnded.emit(false)

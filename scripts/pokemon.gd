@@ -1,4 +1,4 @@
-extends Node2D
+extends microgame_base
 
 @onready var move_1: Label = $Move1
 @onready var move_2: Label = $Move2
@@ -84,9 +84,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
 		if currentlabel.get_meta("Tag") == "good":
 			print("you win")
+			microgameEnded.emit(true)
 		else:
 			print("you lose")
+			microgameEnded.emit(false)
 
 # Fail state when timer runs out
 func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
+	microgameEnded.emit(false)
