@@ -1,13 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=11 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ygwc3"]
-[ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/GameManager.tscn" id="2_fgo63"]
-[ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/MicrogameManager.tscn" id="3_512op"]
+[ext_resource type="PackedScene" path="res://scenes/GameManager.tscn" id="2_fgo63"]
+[ext_resource type="PackedScene" path="res://scenes/MicrogameManager.tscn" id="3_512op"]
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_wl5e3"]
 [ext_resource type="Resource" uid="uid://i0q1k0gt88qf" path="res://microgameData/Fishing.tres" id="6_2lell"]
 [ext_resource type="Resource" uid="uid://ctxefxfbxi4v1" path="res://microgameData/rockpaperscissor.tres" id="6_s6to6"]
-[ext_resource type="Resource" path="res://microgameData/pokemon.tres" id="7_pcwx1"]
-[ext_resource type="Resource" path="res://microgameData/defendtheflag.tres" id="8_ht2pl"]
+[ext_resource type="Resource" uid="uid://cmp1vxrjjfxf8" path="res://microgameData/pokemon.tres" id="7_pcwx1"]
+[ext_resource type="Resource" uid="uid://wi7adwugqg4b" path="res://microgameData/defendtheflag.tres" id="8_ht2pl"]
+[ext_resource type="PackedScene" uid="uid://bwcomim0lfya8" path="res://scenes/jumping_sheep_minigame.tscn" id="9_85rvs"]
+
+[sub_resource type="Resource" id="Resource_3blod"]
+script = ExtResource("4_wl5e3")
+instruction = ""
+variations = Array[PackedScene]([ExtResource("9_85rvs")])
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ygwc3")
@@ -17,4 +23,4 @@ position = Vector2(-3, -5)
 
 [node name="MicrogameManager" parent="." instance=ExtResource("3_512op")]
 position = Vector2(0, 2)
-microgames = Array[ExtResource("4_wl5e3")]([ExtResource("6_s6to6"), ExtResource("6_2lell"), ExtResource("7_pcwx1"), ExtResource("8_ht2pl")])
+microgames = Array[ExtResource("4_wl5e3")]([ExtResource("6_s6to6"), ExtResource("6_2lell"), ExtResource("7_pcwx1"), ExtResource("8_ht2pl"), SubResource("Resource_3blod")])
