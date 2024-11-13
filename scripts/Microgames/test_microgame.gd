@@ -7,7 +7,6 @@ func _ready() -> void:
 	randomize()
 	var newPos = randf_range(200, 1700)
 	$Sprite2D.transform.origin.x = newPos
-	print("Ready m")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
