@@ -9,3 +9,9 @@ script = ExtResource("1_snuaf")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Control" parent="." instance=ExtResource("2_805o5")]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
