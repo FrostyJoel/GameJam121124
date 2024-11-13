@@ -1,6 +1,8 @@
 extends Node2D
 var RandAmountOfSheep : int = randi_range(1,6)
 var CurrentAmountOfSheep : int
+@onready var UI : RichTextLabel = $Control.get_child(0)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
