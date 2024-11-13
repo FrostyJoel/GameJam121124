@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btutj8w673cxr"]
+
+[ext_resource type="Script" path="res://scripts/count_sheep_minigame.gd" id="1_snuaf"]
+
+[node name="CountingSheep" type="Node2D"]
+script = ExtResource("1_snuaf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
