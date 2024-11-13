@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpjtbxilmg04s"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_4ku65"]
+[ext_resource type="Script" path="res://scripts/UI/button_setfocus.gd" id="2_xofhs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_108nf"]
 font_size = 48
@@ -8,10 +9,8 @@ font_color = Color(0.898039, 0.945098, 1, 1)
 outline_size = 28
 outline_color = Color(0.364706, 0.662745, 1, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_72lix"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y2uu"]
-bg_color = Color(0.364706, 0.662745, 1, 1)
+bg_color = Color(0.898039, 0.945098, 1, 1)
 border_width_left = 6
 border_width_top = 6
 border_width_right = 6
@@ -35,7 +34,7 @@ border_width_left = 6
 border_width_top = 6
 border_width_right = 6
 border_width_bottom = 6
-border_color = Color(0.36402, 0.664256, 1, 1)
+border_color = Color(0.364706, 0.662745, 1, 0)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -98,11 +97,12 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_72lix")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_he6oy")
 text = "Start Game"
+script = ExtResource("2_xofhs")
 
 [node name="ButtonQuit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -115,7 +115,7 @@ theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
-theme_override_styles/focus = SubResource("StyleBoxEmpty_72lix")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_he6oy")
