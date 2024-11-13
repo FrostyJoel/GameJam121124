@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccl1woy6gxx5n"]
+
+[ext_resource type="Script" path="res://scripts/rockpaperscissors.gd" id="1_crxe6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4fam"]
+size = Vector2(1080, 1080)
+
+[node name="RPS" type="Node2D"]
+script = ExtResource("1_crxe6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s4fam")
+
+[node name="Player" type="Label" parent="."]
+offset_left = -415.0
+offset_top = 383.0
+offset_right = -357.0
+offset_bottom = 406.0
+text = "PLAYER"
+
+[node name="Opponent" type="Label" parent="."]
+offset_left = 328.0
+offset_top = -393.0
+offset_right = 416.0
+offset_bottom = -370.0
+text = "OPPONENT
+"
