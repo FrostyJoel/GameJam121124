@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://biaqyl767ctvh"]
+
+[ext_resource type="Script" path="res://scripts/diffuse_bomb_microgame.gd" id="1_kfhjw"]
+[ext_resource type="Texture2D" uid="uid://b4l253pq3p1c6" path="res://assets/images/bomb_image.png" id="2_d60au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85tik"]
+size = Vector2(1080, 1080)
+
+[node name="Diffuse_Bomb_Microgame" type="Node2D"]
+script = ExtResource("1_kfhjw")
+
+[node name="BackgroundSquare" type="StaticBody2D" parent="."]
+
+[node name="BackgroundCollision" type="CollisionShape2D" parent="BackgroundSquare"]
+position = Vector2(960, 540)
+shape = SubResource("RectangleShape2D_85tik")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(991, 366)
+scale = Vector2(0.80125, 0.85375)
+texture = ExtResource("2_d60au")
