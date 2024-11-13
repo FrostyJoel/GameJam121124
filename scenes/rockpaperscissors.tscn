@@ -11,14 +11,17 @@ script = ExtResource("1_crxe6")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 13)
 shape = SubResource("RectangleShape2D_s4fam")
 
 [node name="Player" type="Label" parent="."]
 offset_left = -415.0
-offset_top = 383.0
+offset_top = 397.0
 offset_right = -357.0
-offset_bottom = 406.0
+offset_bottom = 420.0
 text = "PLAYER"
+
+[node name="PlayerSprite" type="Sprite2D" parent="Player"]
 
 [node name="Opponent" type="Label" parent="."]
 offset_left = 328.0
@@ -27,6 +30,8 @@ offset_right = 416.0
 offset_bottom = -370.0
 text = "OPPONENT
 "
+
+[node name="OpponentSprite" type="Sprite2D" parent="Opponent"]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
