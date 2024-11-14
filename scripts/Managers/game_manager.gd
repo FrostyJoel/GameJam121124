@@ -20,7 +20,7 @@ var timesSpedUp : int
 func _ready() -> void:
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
 	$MicrogameManager.microGameLose.connect(MicrogameLose)
-	#$SaveManager.load_game()
+	$SaveManager.load_game()
 	init()
 
 func init() -> void:
