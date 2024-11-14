@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjg0dscobd4p1"]
 
 [ext_resource type="Script" path="res://scripts/UI/ui_manager.gd" id="1_kkol2"]
-[ext_resource type="PackedScene" uid="uid://dd2e4sfys61bm" path="res://scenes/UI/TimerUI.tscn" id="2_4bp77"]
+[ext_resource type="PackedScene" uid="uid://dv8vcluoohkeu" path="res://scenes/UI/TimerUI.tscn" id="2_4bp77"]
 
-[node name="UiManager" type="Node"]
+[node name="UiManager" type="Node" groups=["Ui"]]
 script = ExtResource("1_kkol2")
 
 [node name="Health Amount" type="Label" parent="."]

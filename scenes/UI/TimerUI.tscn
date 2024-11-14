@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd2e4sfys61bm"]
+[gd_scene load_steps=4 format=3 uid="uid://dv8vcluoohkeu"]
 
 [ext_resource type="Script" path="res://scripts/UI/timer_ui.gd" id="1_8iehj"]
 [ext_resource type="Texture2D" uid="uid://bnecg1heuqxq0" path="res://assets/UI/timer-bold (1).svg" id="1_c2d5n"]
@@ -10,16 +10,19 @@ corner_radius_top_right = 50
 corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
-[node name="TimerUi" type="Control"]
+[node name="TimerUi" type="Node"]
+script = ExtResource("1_8iehj")
+
+[node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8iehj")
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,26 +39,26 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 650
 text = "10"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 51.0
 offset_right = 369.0
 offset_bottom = 106.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fjbeu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_c2d5n")
 
-[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/HBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4

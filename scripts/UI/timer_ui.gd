@@ -1,16 +1,26 @@
-extends Control
+extends Node
 
-var currentTimer: Timer
+@onready var progress_bar: ProgressBar = $Control/PanelContainer/HBoxContainer/ProgressBar
+var timerRef: Timer = null
+var percentage_of_time
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func Init(gameTimer : Timer) -> void:
+	timerRef = gameTimer
+	print(gameTimer.is_stopped())
+	print(timerRef.is_stopped())
 
+func EnableTimer() -> void:
+	print("Enable Timer")
+	$Control.visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func DisableTimer() -> void:
+	print("Disable Timer")
+	$Control.visible = false
+
 func _process(delta: float) -> void:
-	currentTimer.get_time_left()
-
-func _init(timer: Timer) -> void:
-	currentTimer = timer
-	$PanelContainer/HBoxContainer/ProgressBar.max_value = currentTimer.
+	if timerRef != null:
+		if timerRef.get_time_left() > 0:
+			percentage_of_time = (
+				(1-timerRef.get_time_left() / timerRef.get_wait_time()) * 100
+			)
+			progress_bar.value = percentage_of_time
