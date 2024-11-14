@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://wi7adwugqg4b"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_to4b8"]
-[ext_resource type="PackedScene" uid="uid://dts172lxhj0vs" path="res://scenes/Microgames/defendtheflag/scenes/level_1.tscn" id="2_us2mk"]
+[ext_resource type="PackedScene" uid="uid://dts172lxhj0vs" path="res://scenes/Microgames/defendtheflag/scenes/astroid_easy.tscn" id="2_us2mk"]
 
 [resource]
 script = ExtResource("1_to4b8")

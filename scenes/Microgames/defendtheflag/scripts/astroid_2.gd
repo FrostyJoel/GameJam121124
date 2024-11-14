@@ -1,8 +1,8 @@
 extends CharacterBody2D
-class_name Astroid
+class_name Astroid_2
 
-@export var speed: int = 25
-var health : int = 6
+@export var speed: int = 35
+var health : int = 3
 
 func _ready():
 	$Sprite2D.rotation -= rotation
@@ -22,7 +22,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		var _explosion_instance = _explosion.instantiate()
 		$"..".add_child(_explosion_instance)
 		_explosion_instance.global_position = global_position
-		var _explosion_audio = load("res://scenes/Microgames/defendtheflag/scenes/explosion_audio_player.tscn")
-		var _explosion_audio_instance = _explosion_audio.instantiate()
-		$"..".add_child(_explosion_audio_instance)
-		queue_free()
+		if health <= 0:
+			var _explosion_audio = load("res://scenes/Microgames/defendtheflag/scenes/explosion_audio_player.tscn")
+			var _explosion_audio_instance = _explosion_audio.instantiate()
+			$"..".add_child(_explosion_audio_instance)
+			queue_free()
+		else:
+			health = health - 1
