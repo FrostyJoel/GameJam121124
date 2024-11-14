@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85tik"]
 size = Vector2(1080, 1080)
 
-[node name="Diffuse_Bomb_Microgame" type="Node2D"]
+[node name="Diffuse_Bomb_Microgame2" type="Node2D"]
 script = ExtResource("1_uolc8")
 
 [node name="BackgroundSquare" type="StaticBody2D" parent="."]

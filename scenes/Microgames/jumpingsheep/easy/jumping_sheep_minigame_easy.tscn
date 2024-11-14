@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://bwcomim0lfya8"]
 
-[ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="1_3nhx6"]
-[ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_7ee1g"]
-[ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="2_puamx"]
+[ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_a81kf"]
+[ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="2_iwlx8"]
+[ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="3_uronb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gktq"]
 
@@ -10,9 +10,9 @@
 size = Vector2(31, 41.25)
 
 [node name="JumpingSheepMinigame" type="Node2D"]
-script = ExtResource("1_7ee1g")
+script = ExtResource("1_a81kf")
 
-[node name="SheepBody2D" parent="." instance=ExtResource("1_3nhx6")]
+[node name="SheepBody2D" parent="." instance=ExtResource("2_iwlx8")]
 position = Vector2(19, 102)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -28,7 +28,7 @@ rotation = 3.14159
 scale = Vector2(1.02005, -0.981161)
 shape = SubResource("WorldBoundaryShape2D_4gktq")
 
-[node name="Area2D" parent="." instance=ExtResource("2_puamx")]
+[node name="Area2D" parent="." instance=ExtResource("3_uronb")]
 position = Vector2(145, 107)
 scale = Vector2(0.095858, 0.095858)
 
