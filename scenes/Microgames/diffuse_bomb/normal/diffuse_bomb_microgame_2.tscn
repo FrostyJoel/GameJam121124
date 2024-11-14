@@ -1,14 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://0kr7xm6q45vx"]
+[gd_scene load_steps=10 format=3 uid="uid://0kr7xm6q45vx"]
 
 [ext_resource type="Script" path="res://scripts/Microgames/diffuse_bomb/normal/diffuse_bomb_microgame_2.gd" id="1_5qs2d"]
+[ext_resource type="Texture2D" uid="uid://b8i4s3gxvl2ln" path="res://assets/DiffuseBomb/Microgame_Bomb_BG.png" id="2_cijvu"]
 [ext_resource type="PackedScene" uid="uid://bb6vwab14vtnp" path="res://scenes/Microgames/diffuse_bomb/normal/bomb_order_normal.tscn" id="2_d6smg"]
-[ext_resource type="Texture2D" uid="uid://b4l253pq3p1c6" path="res://assets/images/bomb_image.png" id="3_rxh4e"]
+[ext_resource type="Texture2D" uid="uid://bq4bhriok6dgi" path="res://assets/DiffuseBomb/Microgame_Bomb_Bomb.png" id="3_rfxfe"]
+[ext_resource type="Texture2D" uid="uid://0hxdio548di" path="res://assets/DiffuseBomb/Microgame_Bomb_Spark01.png" id="4_gb8ai"]
+[ext_resource type="Texture2D" uid="uid://dcfad5hxxotmv" path="res://assets/DiffuseBomb/Microgame_Bomb_Spark02.png" id="5_16bay"]
+[ext_resource type="Texture2D" uid="uid://bj5d1ld88xo4b" path="res://assets/DiffuseBomb/Microgame_Bomb_CommandBG.png" id="6_3hvrs"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cyhif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_gb8ai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_16bay")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85tik"]
 size = Vector2(1080, 1080)
 
 [node name="Diffuse_Bomb_Microgame2" type="Node2D"]
 script = ExtResource("1_5qs2d")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("2_cijvu")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(960, 545)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("3_rfxfe")
+
+[node name="Sparks" type="AnimatedSprite2D" parent="Bomb"]
+z_index = 2
+position = Vector2(571.429, -389.286)
+rotation = -3.14159
+scale = Vector2(1.78571, 1.78571)
+sprite_frames = SubResource("SpriteFrames_cyhif")
+autoplay = "default"
 
 [node name="BackgroundSquare" type="StaticBody2D" parent="."]
 
@@ -18,14 +55,14 @@ z_index = -1
 position = Vector2(964, 540)
 shape = SubResource("RectangleShape2D_85tik")
 
-[node name="BombOrder" parent="BackgroundSquare" instance=ExtResource("2_d6smg")]
-offset_left = 350.0
-offset_top = 775.0
-offset_right = 3250.0
-offset_bottom = 1255.0
-scale = Vector2(0.375, 0.375)
+[node name="BG" type="Sprite2D" parent="BackgroundSquare"]
+position = Vector2(960, 844)
+scale = Vector2(1.335, 1.00385)
+texture = ExtResource("6_3hvrs")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(966, 426)
-scale = Vector2(0.80125, 0.85375)
-texture = ExtResource("3_rxh4e")
+[node name="BombOrder" parent="BackgroundSquare" instance=ExtResource("2_d6smg")]
+offset_left = 440.0
+offset_top = 763.0
+offset_right = 3340.0
+offset_bottom = 1243.0
+scale = Vector2(0.375, 0.375)
