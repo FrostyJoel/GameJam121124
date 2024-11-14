@@ -11,7 +11,7 @@ func _physics_process(delta):
 	
 	get_input()
 	
-	if Input.is_action_pressed("Action2") and laser_cooldown == false:
+	if laser_cooldown == false:
 		spawn_projectile()
 	
 	rotation += rotation_dir * rotation_speed * delta

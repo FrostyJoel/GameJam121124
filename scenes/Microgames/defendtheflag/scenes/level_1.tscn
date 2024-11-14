@@ -55,7 +55,7 @@ max_range = 8.0
 zoom = Vector2(5, 5)
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 8.0
 one_shot = true
 autostart = true
 
