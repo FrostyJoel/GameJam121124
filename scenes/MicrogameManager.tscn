@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://civxkwl2ao6im"]
+
+[ext_resource type="Script" path="res://scripts/microgame_manager.gd" id="1_vlvpw"]
+
+[node name="MicrogameManager" type="Node2D"]
+script = ExtResource("1_vlvpw")
+
+[node name="BetweenMicrogames" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="timeout" from="BetweenMicrogames" to="." method="_on_between_microgames_timeout"]

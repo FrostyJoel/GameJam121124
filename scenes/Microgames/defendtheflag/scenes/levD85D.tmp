@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dts172lxhj0vs"]
+
+[ext_resource type="PackedScene" uid="uid://dngta4t20csb5" path="res://scenes/space_ship.tscn" id="1_3mk7o"]
+[ext_resource type="PackedScene" uid="uid://bdcd1giov0jik" path="res://scenes/astroid_1.tscn" id="2_ecqdx"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="SpaceShip" parent="." instance=ExtResource("1_3mk7o")]
+position = Vector2(417, 344)
+
+[node name="Astroid1" parent="." instance=ExtResource("2_ecqdx")]
+position = Vector2(558, 260)
+rotation = -2.87979
+
+[node name="Astroid2" parent="." instance=ExtResource("2_ecqdx")]
+position = Vector2(604, 477)
+
+[node name="Astroid3" parent="." instance=ExtResource("2_ecqdx")]
+position = Vector2(79, 350)
+
+[node name="Astroid4" parent="." instance=ExtResource("2_ecqdx")]
+position = Vector2(201, 54)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(417, 344)
+zoom = Vector2(5, 5)
