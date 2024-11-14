@@ -25,7 +25,7 @@ var inputImage: Dictionary = {
 @onready var total_time: Timer = $TotalTime
 
 @onready var input_button: Sprite2D = $InputButton
-@onready var debug_square: Sprite2D = $DebugSquare
+@export var debug_square: Sprite2D
 
 var correctInput: bool = false;
 var completedFishingBobbing : bool = false;
@@ -53,7 +53,7 @@ func _ready() -> void:
 		
 		node.call("Enabletimer",total_time)
 	
-	debug_square.modulate = Color.BLUE
+	debug_square.modulate = Color.FIREBRICK
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Action1"):
@@ -97,13 +97,13 @@ func ReelFishingRod():
 	#Return Completed good
 	else:
 		print("Fished Wrong")
-		debug_square.modulate = Color.RED
+		debug_square.modulate = Color.WEB_GRAY
 		microgameEnded.emit(false)
 	#Return Completed False
 
 func _on_bobber_timer_timeout() -> void:
 	completedFishingBobbing = true;
-	debug_square.modulate = Color.ORANGE
+	debug_square.modulate = Color.YELLOW
 	
 	input_button.texture = load(inputImage.get(currentInput))
 	
