@@ -24,6 +24,7 @@ func _ready() -> void:
 	init()
 
 func init() -> void:
+	timesSpedUp = 0
 	StartGame()
 
 # Tells the microgame manager to start spawning microgames
