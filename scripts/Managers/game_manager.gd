@@ -20,6 +20,7 @@ var timesSpedUp : int
 func _ready() -> void:
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
 	$MicrogameManager.microGameLose.connect(MicrogameLose)
+	$SaveManager.load_game()
 	init()
 
 func init() -> void:
@@ -82,4 +83,5 @@ func CheckScore():
 # Called when the player loses all health
 func GameOver():
 	onGameOver.emit(currentScore)
+	$SaveManager.save_game()
 	Engine.time_scale = 1
