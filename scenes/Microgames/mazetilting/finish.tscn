@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2vaja5hfqfjl"]
+
+[ext_resource type="Texture2D" uid="uid://br4crwooqjg6m" path="res://assets/MazeTilting/hole.png" id="1_4u4u3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5v2t7"]
+radius = 17.0
+
+[node name="Finish" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5v2t7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.133333, 0.133333)
+texture = ExtResource("1_4u4u3")
