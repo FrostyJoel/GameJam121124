@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcqtxbt01sa6u"]
+[gd_scene load_steps=8 format=3 uid="uid://bcqtxbt01sa6u"]
 
+[ext_resource type="Script" path="res://scripts/DoodleJump/doodle_jump.gd" id="1_l7nvi"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_7wgv5"]
 [ext_resource type="PackedScene" uid="uid://bjr4dyw1ekamf" path="res://scenes/Microgames/doodlejump/platform.tscn" id="2_jdnwa"]
 [ext_resource type="Script" path="res://scripts/DoodleJump/DoodleCharacter.gd" id="3_m052m"]
@@ -16,6 +17,7 @@ func _on_area_2d_body_entered(body) -> void:
 size = Vector2(34, 35)
 
 [node name="DoodleJump" type="Node2D"]
+script = ExtResource("1_l7nvi")
 
 [node name="Square" type="Sprite2D" parent="."]
 modulate = Color(0.701448, 0.790884, 0.672883, 1)
@@ -105,7 +107,7 @@ position = Vector2(529, -232)
 script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 174)
+position = Vector2(70, 176)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 5
@@ -125,5 +127,14 @@ position = Vector2(0, 386)
 [node name="Area2D" parent="." instance=ExtResource("4_teb1l")]
 position = Vector2(0, -356)
 
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="EndTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="screen_exited" from="Platforms/StaticBody2D9/VisibleOnScreenEnabler2D" to="Player" method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D" to="Player" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

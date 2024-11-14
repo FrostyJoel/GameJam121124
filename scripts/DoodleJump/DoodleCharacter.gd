@@ -10,6 +10,9 @@ var screenend = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 
+func _ready() -> void:
+	$"../GameTimer".start()
+	
 func _process(delta: float) -> void:
 	if not screenend:
 		if (position.y - playerbase < maxheight):
@@ -40,10 +43,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	gameended = true
-	
-
-
-
 	
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
