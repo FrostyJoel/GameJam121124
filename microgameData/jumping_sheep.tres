@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://oeijiif7vtu4"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_2rgsp"]
+[ext_resource type="PackedScene" path="res://scenes/jumping_sheep_minigame.tscn" id="2_ubj4e"]
+
+[resource]
+script = ExtResource("1_2rgsp")
+instruction = ""
+variations = Array[PackedScene]([ExtResource("2_ubj4e")])
