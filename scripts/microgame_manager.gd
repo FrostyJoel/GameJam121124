@@ -8,28 +8,17 @@ var currentMicrogame : Node
 
 signal microGameWin
 signal microGameLose
-signal onMicroGameUnloaded
-signal onMicroGameLoaded
 
-func init() -> void:
+func _ready() -> void:
 	# Initialize picked array
-	if timesPicked.size() > 0:
-		timesPicked.clear()
-	
 	timesPicked.resize(microgames.size())
 	timesPicked.fill(0)
-	StartSpawningTimer()
-
-func StartSpawningTimer() -> void:
-	$BetweenMicrogames.start()
 
 # Spawns a random microgame
 func SpawnMicrogame():
-	print("SpawnMinigame")
 	var index = GetRandomIndex()
 	var variationIndex = GetVariationIndex(index)
 	var variationToSpawn = microgames[index].variations[variationIndex]
-	
 	print(variationIndex)
 	currentMicrogame = variationToSpawn.instantiate()
 	add_child(currentMicrogame)
@@ -39,8 +28,6 @@ func SpawnMicrogame():
 	
 	# Connect to microgame ended signal
 	currentMicrogame.microgameEnded.connect(MicrogameOver)
-	
-	onMicroGameLoaded.emit()
 
 func GetRandomIndex() -> int:
 	var randomIndex : int
@@ -72,8 +59,8 @@ func MicrogameOver(win: bool) -> void:
 	
 	# despawn old microgame and spawn another
 	currentMicrogame.queue_free()
-	
-	onMicroGameUnloaded.emit()
+	$BetweenMicrogames.start()
+
 
 func _on_between_microgames_timeout() -> void:
 	SpawnMicrogame()

@@ -1,9 +1,10 @@
 extends microgame_base
-var RandAmountOfSheep : int = randi_range(1,6)
+var RandAmountOfSheep : int = randi_range(2,6)
 var CurrentAmountOfSheep : int
 @onready var UI : Label = $Control.get_child(0).get_child(1)
 var counter : int = 0
 var Game_Ongoing : bool = true
+var SheepsArray : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 		var Sheep_Size_Set = randf_range(1, 2.5)
 		_sheep_instance.scale.x = Sheep_Size_Set
 		_sheep_instance.scale.y = Sheep_Size_Set
+		SheepsArray.append(_sheep_instance)
 	$CooldownTimer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -52,3 +54,10 @@ func _on_cooldown_timer_timeout() -> void:
 	else:
 		#return failure here
 		microgameEnded.emit(false)
+	
+	_delete_all_sheep()
+
+func _delete_all_sheep():
+	for _sheep_instance in SheepsArray:
+		_sheep_instance.queue_free()
+	

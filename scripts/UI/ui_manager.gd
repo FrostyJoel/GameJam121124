@@ -40,6 +40,17 @@ func EnableUI() -> void:
 	health_amount.visible = true
 	score_amount.visible = true
 
+func sadve() -> Dictionary:
+	var save_dict = {
+		"highscore" : highScore,
+	}
+	return save_dict
+
+func loadData(data : Dictionary):
+	for i in data.keys():
+		if i == "highscore":
+			highScore = data.get(i)
+	print("Loaded Highscore: '%f' ",highScore)
 
 func _on_microgame_manager_on_micro_game_loaded() -> void:
 	print("Disable UI Cause Micro game Loaded")
