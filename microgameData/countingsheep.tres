@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://26i0gvs3yeyd"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_2ev6s"]
+[ext_resource type="PackedScene" uid="uid://b3my4i8on8f3a" path="res://scenes/Microgames/countthesheep/count_sheep_minigame.tscn" id="2_faooc"]
+
+[resource]
+script = ExtResource("1_2ev6s")
+instruction = "Count"
+variations = Array[PackedScene]([ExtResource("2_faooc")])
