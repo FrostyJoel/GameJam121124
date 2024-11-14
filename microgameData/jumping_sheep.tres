@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://oeijiif7vtu4"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://oeijiif7vtu4"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_2rgsp"]
-[ext_resource type="PackedScene" path="res://scenes/jumping_sheep_minigame.tscn" id="2_ubj4e"]
+[ext_resource type="PackedScene" uid="uid://bwcomim0lfya8" path="res://scenes/Microgames/jumpingsheep/easy/jumping_sheep_minigame_easy.tscn" id="2_pymwq"]
+[ext_resource type="PackedScene" uid="uid://bpm5arucp2pmh" path="res://scenes/Microgames/jumpingsheep/medium/jumping_sheep_minigame_medium.tscn" id="3_wm33c"]
+[ext_resource type="PackedScene" uid="uid://bvelx5iwg4nvw" path="res://scenes/Microgames/jumpingsheep/hard/jumping_sheep_minigame_hard.tscn" id="4_e2moq"]
 
 [resource]
 script = ExtResource("1_2rgsp")
 instruction = ""
-variations = Array[PackedScene]([ExtResource("2_ubj4e")])
+variations = Array[PackedScene]([ExtResource("2_pymwq"), ExtResource("3_wm33c"), ExtResource("4_e2moq")])
