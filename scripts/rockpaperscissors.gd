@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 			playersprite.texture = papertexture
 			
 	# Change answer with stick(right)
-	if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PostiveHorizontal"):
+	if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PositiveHorizontal"):
 		if player.text == "ROCK":
 			player.text = "PAPER"
 			playersprite.texture = papertexture
