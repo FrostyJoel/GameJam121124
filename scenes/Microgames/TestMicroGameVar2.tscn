@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://q3g1stufv5fe"]
+
+[ext_resource type="Script" path="res://scripts/Microgames/test_microgame.gd" id="1_dy8qy"]
+[ext_resource type="Texture2D" uid="uid://bwnrg2tattulu" path="res://icon.svg" id="2_0wscw"]
+
+[node name="TestMicroGame" type="Node2D"]
+script = ExtResource("1_dy8qy")
+
+[node name="MicrogameTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(950, 304)
+rotation = 0.61441
+texture = ExtResource("2_0wscw")
+
+[connection signal="timeout" from="MicrogameTimer" to="." method="_on_microgame_timer_timeout"]

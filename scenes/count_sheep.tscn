@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgvn8y262ouhe"]
+
+[ext_resource type="Texture2D" uid="uid://q5lmt6be6x16" path="res://assets/images/Sheep-PNG.png" id="1_jsq6c"]
+
+[node name="Count_Sheep" type="Node2D"]
+
+[node name="SheepPicture" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_jsq6c")
