@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://bapq7wk0pwxhw"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_qd0nd"]
-[ext_resource type="PackedScene" uid="uid://x0dnuqnd6lde" path="res://scenes/Microgames/diffuse_bomb/diffuse_bomb_microgame.tscn" id="2_w3eo0"]
+[ext_resource type="PackedScene" uid="uid://x0dnuqnd6lde" path="res://scenes/Microgames/diffuse_bomb/easy/diffuse_bomb_microgame.tscn" id="2_nkm2h"]
 
 [resource]
 script = ExtResource("1_qd0nd")
 instruction = "Diffuse!"
-variations = Array[PackedScene]([ExtResource("2_w3eo0")])
+variations = Array[PackedScene]([ExtResource("2_nkm2h")])
