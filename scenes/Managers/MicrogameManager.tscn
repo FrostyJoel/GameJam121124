@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://islw187lc0mp"]
 
-[ext_resource type="Script" path="res://scripts/microgame_manager.gd" id="1_vlvpw"]
+[ext_resource type="Script" path="res://scripts/Managers/microgame_manager.gd" id="1_vlvpw"]
 
 [node name="MicrogameManager" type="Node2D"]
 script = ExtResource("1_vlvpw")

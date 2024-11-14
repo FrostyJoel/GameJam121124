@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3my4i8on8f3a"]
 
-[ext_resource type="Script" path="res://scripts/Microgames/countthesheep/count_sheep_minigame.gd" id="1_e0s4r"]
+[ext_resource type="Script" path="res://scripts/Microgames/countthesheep/easy/count_sheep_minigame.gd" id="1_e0s4r"]
 [ext_resource type="PackedScene" uid="uid://cxply5sdvsb4n" path="res://ui/sheep_counter_ui.tscn" id="2_s8yq2"]
 
 [node name="CountingSheep" type="Node2D"]

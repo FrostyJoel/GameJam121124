@@ -4,6 +4,7 @@ var  rotation_dir = 0
 var rotation_speed: float = 6
 var laser_cooldown = false
 
+signal player_death
 
 func _physics_process(delta):
 	var _input = Vector2.ZERO
@@ -46,4 +47,5 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		var _explosion_instance = _explosion.instantiate()
 		$"..".add_child(_explosion_instance)
 		_explosion_instance.global_position = global_position
+		emit_signal("player_death")
 		queue_free()
