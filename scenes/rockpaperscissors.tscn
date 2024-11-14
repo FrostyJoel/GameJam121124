@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccl1woy6gxx5n"]
+[gd_scene load_steps=3 format=3 uid="uid://dxn3l68pd10cs"]
 
 [ext_resource type="Script" path="res://scripts/rockpaperscissors.gd" id="1_crxe6"]
 [ext_resource type="Texture2D" uid="uid://e88jyq8q8gl5" path="res://assets/images/Thoughtcloud.png" id="2_o5mnl"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dts172lxhj0vs"]
+
+[ext_resource type="PackedScene" uid="uid://dngta4t20csb5" path="res://scenes/Microgames/defendtheflag/scenes/space_ship.tscn" id="1_3mk7o"]
+[ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/level_1.gd" id="1_xxec0"]
+[ext_resource type="PackedScene" uid="uid://85os7ld5ybji" path="res://scenes/Microgames/defendtheflag/scenes/spawner.tscn" id="2_457ox"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_xxec0")
+
+[node name="SpaceShip" parent="." instance=ExtResource("1_3mk7o")]
+
+[node name="Spawner" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(-203, -115)
+
+[node name="Spawner2" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(-151, 123)
+
+[node name="Spawner3" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(94, 119)
+
+[node name="Spawner4" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(212, -32)
+
+[node name="Spawner5" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(144, -174)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Spawner6" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(-254, 12)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Spawner7" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(-2, -141)
+min_range = 2.0
+max_range = 6.0
+
+[node name="Spawner8" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(197, 108)
+min_range = 2.0
+max_range = 6.0
+
+[node name="Spawner9" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(-1, 115)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Spawner10" parent="." instance=ExtResource("2_457ox")]
+position = Vector2(196, -111)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="FailTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="SpaceShip/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="FailTimer" to="." method="_on_fail_timer_timeout"]
+
+[editable path="SpaceShip"]

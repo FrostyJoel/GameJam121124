@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdcd1giov0jik"]
+
+[ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/astroid_1.gd" id="1_0v5v1"]
+[ext_resource type="Texture2D" uid="uid://bfmg4g7bb8ie1" path="res://scenes/Microgames/defendtheflag/assets/Astroid1.png" id="1_x06wm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vcsna"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyssr"]
+radius = 9.0
+
+[node name="Astroid1" type="CharacterBody2D"]
+script = ExtResource("1_0v5v1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x06wm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vcsna")
+disabled = true
+
+[node name="HurtBox" type="Area2D" parent="." groups=["Enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_iyssr")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
