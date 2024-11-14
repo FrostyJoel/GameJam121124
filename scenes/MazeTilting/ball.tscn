@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://df8ikf8tmbx1h" path="res://assets/MazeTilting/ball.png" id="1_mrrh8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jdep0"]
-radius = 750.67
+radius = 808.99
 
 [node name="Ball" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2(0.0257511, 0.0257511)
+scale = Vector2(0.295, 0.295)
 shape = SubResource("CircleShape2D_jdep0")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(0.0232986, 0.0232985)
+scale = Vector2(0.295, 0.295)
 texture = ExtResource("1_mrrh8")
