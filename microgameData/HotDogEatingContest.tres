@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=4 format=3 uid="uid://cdjpp0kec4sny"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_02ly2"]
+[ext_resource type="PackedScene" uid="uid://bw5y0evbtor4o" path="res://scenes/HotdogContest/HotDogEater.tscn" id="2_b84q3"]
+[ext_resource type="PackedScene" uid="uid://dsf8mokkxt4ty" path="res://scenes/HotdogContest/HotDogEater2.tscn" id="3_cbm3d"]
+
+[resource]
+script = ExtResource("1_02ly2")
+instruction = "Eat"
+variations = Array[PackedScene]([ExtResource("2_b84q3"), ExtResource("3_cbm3d")])

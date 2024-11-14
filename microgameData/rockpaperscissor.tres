@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://ctxefxfbxi4v1"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://cghykce07b5xy"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_rbxhn"]
-[ext_resource type="PackedScene" path="res://scenes/rockpaperscissors.tscn" id="2_qxkfn"]
+[ext_resource type="PackedScene" uid="uid://ccl1woy6gxx5n" path="res://scenes/rockpaperscissors.tscn" id="2_qxkfn"]
 
 [resource]
 script = ExtResource("1_rbxhn")

@@ -1,5 +1,5 @@
 extends microgame_base
-var RandAmountOfSheep : int = randi_range(1,6)
+var RandAmountOfSheep : int = randi_range(2,6)
 var CurrentAmountOfSheep : int
 @onready var UI : Label = $Control.get_child(0).get_child(1)
 var counter : int = 0
