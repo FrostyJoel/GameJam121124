@@ -6,9 +6,9 @@ var currentHealth : int :
 		currentHealth = clamp(value,0,maxHealth)
 
 @export var maxHealth : int
-@export var speedUpScoreThreshold : int = 6
-@export var maxSpeedUpSteps : int = 8
-@export var speedUpMultiplierStep : float = 0.2
+@export var speedUpScoreThreshold : int = 8
+@export var maxSpeedUpSteps : int = 10
+@export var speedUpMultiplierStep : float = 0.1
 
 signal onGameOver(finalScore:int)
 signal onHealthUpdate(newHealth:int)
