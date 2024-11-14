@@ -1,16 +1,17 @@
-[gd_scene load_steps=10 format=4 uid="uid://o38qh6jveygv"]
+[gd_scene load_steps=11 format=4 uid="uid://dyn7kff6los64"]
 
-[ext_resource type="Script" path="res://scenes/MazeTilting/maze_tilting_top.gd" id="1_absxa"]
-[ext_resource type="Texture2D" uid="uid://bhb0nu20tmpfu" path="res://assets/MazeTilting/plank.png" id="1_hk08r"]
-[ext_resource type="Script" path="res://scenes/MazeTilting/maze_tilting.gd" id="3_ujrdl"]
-[ext_resource type="Texture2D" uid="uid://br4crwooqjg6m" path="res://assets/MazeTilting/hole.png" id="4_4y5sq"]
-[ext_resource type="PackedScene" uid="uid://i61qwkc8ha0l" path="res://scenes/MazeTilting/ball.tscn" id="4_no3om"]
+[ext_resource type="Script" path="res://scenes/Microgames/mazetilting/maze_tilting_top.gd" id="1_xyhbk"]
+[ext_resource type="Texture2D" uid="uid://bhb0nu20tmpfu" path="res://assets/MazeTilting/plank.png" id="2_gdyaj"]
+[ext_resource type="Script" path="res://scenes/Microgames/mazetilting/maze_tilting.gd" id="3_l0hgl"]
+[ext_resource type="PackedScene" uid="uid://c2vaja5hfqfjl" path="res://scenes/Microgames/mazetilting/finish.tscn" id="4_axan7"]
+[ext_resource type="PackedScene" uid="uid://71n1mn428yea" path="res://scenes/Microgames/mazetilting/mazetiltingspawnlocation.tscn" id="5_lyw62"]
+[ext_resource type="Texture2D" uid="uid://df8ikf8tmbx1h" path="res://assets/MazeTilting/ball.png" id="6_wvft0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lhavw"]
 tile_data = PackedInt32Array(0, 1048576, 6, 65536, 1048576, 6, 131072, 1048576, 6, 196608, 1048576, 6, 262144, 1048576, 6, 327680, 1048576, 6, 1, 1048576, 6, 131073, 1048576, 6, 196609, 1, 0, 327681, 1048576, 6, 2, 1048576, 6, 131074, 1048576, 6, 196610, 1048576, 6, 327682, 1048576, 6, 3, 1048576, 6, 327683, 1048576, 6, 4, 1048576, 6, 131076, 1048576, 6, 262148, 1048576, 6, 327684, 1048576, 6, 5, 1048576, 6, 65541, 1048576, 6, 131077, 1048576, 6, 196613, 1048576, 6, 262149, 1048576, 6, 327685, 1048576, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4ujy"]
-texture = ExtResource("1_hk08r")
+texture = ExtResource("2_gdyaj")
 texture_region_size = Vector2i(48, 48)
 0:4/0 = 0
 1:4/0 = 0
@@ -158,35 +159,66 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_c4ujy")
 pattern_0 = SubResource("TileMapPattern_lhavw")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5v2t7"]
-radius = 17.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_rht7d"]
+radius = 927.793
 
-[node name="MazeTilting" type="Node2D"]
-script = ExtResource("1_absxa")
+[node name="MazeTilting" type="Node2D" node_paths=PackedStringArray("spawn_locations")]
+script = ExtResource("1_xyhbk")
+spawn_locations = [NodePath("Mazetiltingspawnlocation"), NodePath("Mazetiltingspawnlocation2"), NodePath("Mazetiltingspawnlocation3"), NodePath("Mazetiltingspawnlocation4")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(573, 331)
-tile_map_data = PackedByteArray("AAD+////AAAQAAYAAAD/////AAAQAAYAAAD9/wMAAAAQAAYAAAD+/wMAAAAQAAYAAAD//wMAAAAQAAYAAAAAAAMAAAAQAAYAAAABAAMAAAAQAAYAAAACAAMAAAAQAAYAAAD8//7/AAAQAAYAAAD8////AAAQAAYAAAD8/wAAAAAQAAYAAAD8/wEAAAAQAAYAAAD8/wIAAAAQAAYAAAD8//3/AAAQAAYAAAD9//z/AAAQAAYAAAD+//z/AAAQAAYAAAD///z/AAAQAAYAAAAAAPz/AAAQAAYAAAABAPz/AAAQAAYAAAACAPz/AAAQAAYAAAADAP3/AAAQAAYAAAADAP7/AAAQAAYAAAADAP//AAAQAAYAAAADAAAAAAAQAAYAAAADAAEAAAAQAAYAAAADAAIAAAAQAAYAAAD8//z/AAAQAAYAAAADAPz/AAAQAAYAAAADAAMAAAAQAAYAAAD8/wMAAAAQAAYAAAD9/wAAAAAQAAYAAAD9////AAAQAAYAAAD+//3/AAAQAAYAAAAAAP7/AAAQAAYAAAABAAAAAAAQAAYAAAD+/wIAAAAQAAYAAAABAP//AAAQAAYAAAABAAEAAAAQAAYAAAD//wEAAAAQAAYAAAACAP3/AAAQAAYAAAAAAP//AAAQAAYAAAA=")
+position = Vector2(975, 528)
+scale = Vector2(1.9934, 1.9633)
+tile_map_data = PackedByteArray("AAD9/wMAAAAQAAYAAAD+/wMAAAAQAAYAAAD//wMAAAAQAAYAAAAAAAMAAAAQAAYAAAABAAMAAAAQAAYAAAACAAMAAAAQAAYAAAD8//7/AAAQAAYAAAD8////AAAQAAYAAAD8/wAAAAAQAAYAAAD8/wEAAAAQAAYAAAD8/wIAAAAQAAYAAAD8//3/AAAQAAYAAAD9//z/AAAQAAYAAAD+//z/AAAQAAYAAAD///z/AAAQAAYAAAAAAPz/AAAQAAYAAAABAPz/AAAQAAYAAAACAPz/AAAQAAYAAAADAP3/AAAQAAYAAAADAP7/AAAQAAYAAAADAP//AAAQAAYAAAADAAAAAAAQAAYAAAADAAEAAAAQAAYAAAADAAIAAAAQAAYAAAD8//z/AAAQAAYAAAADAPz/AAAQAAYAAAADAAMAAAAQAAYAAAD8/wMAAAAQAAYAAAACAP7/AAARAAYAAAACAAIAAAARAAYAAAABAAEAAAARAAYAAAAAAAAAAAARAAYAAAD/////AAARAAYAAAD+//7/AAARAAYAAAA=")
 tile_set = SubResource("TileSet_6u6b5")
-script = ExtResource("3_ujrdl")
+script = ExtResource("3_l0hgl")
 
-[node name="Finish" type="Area2D" parent="TileMapLayer"]
-position = Vector2(-121, 122)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Finish"]
-shape = SubResource("CircleShape2D_5v2t7")
-
-[node name="Sprite2D" type="Sprite2D" parent="TileMapLayer/Finish"]
-scale = Vector2(0.133333, 0.133333)
-texture = ExtResource("4_4y5sq")
-
-[node name="Ball" parent="." instance=ExtResource("4_no3om")]
-position = Vector2(453, 211)
+[node name="Finish" parent="TileMapLayer" instance=ExtResource("4_axan7")]
+position = Vector2(-444.968, -178.271)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 one_shot = true
+autostart = true
+
+[node name="Mazetiltingspawnlocation" parent="." instance=ExtResource("5_lyw62")]
+visible = false
+z_index = -1
+position = Vector2(1212, 290)
+scale = Vector2(1.9934, 1.9633)
+script = null
+
+[node name="Mazetiltingspawnlocation2" parent="." instance=ExtResource("5_lyw62")]
+visible = false
+z_index = -1
+position = Vector2(1117, 765)
+scale = Vector2(1.9934, 1.9633)
+script = null
+
+[node name="Mazetiltingspawnlocation3" parent="." instance=ExtResource("5_lyw62")]
+visible = false
+z_index = -1
+position = Vector2(1215, 671)
+scale = Vector2(1.9934, 1.9633)
+script = null
+
+[node name="Mazetiltingspawnlocation4" parent="." instance=ExtResource("5_lyw62")]
+visible = false
+z_index = -1
+position = Vector2(833, 298)
+scale = Vector2(1.9934, 1.9633)
+script = null
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(80.0001, 73)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("CircleShape2D_rht7d")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("6_wvft0")
 
 [connection signal="body_entered" from="TileMapLayer/Finish" to="." method="_on_finish_body_entered"]
-[connection signal="body_entered" from="TileMapLayer/Finish" to="TileMapLayer/Finish" method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

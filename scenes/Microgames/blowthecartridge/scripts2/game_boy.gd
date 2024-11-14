@@ -21,7 +21,7 @@ func _ready() -> void:
 	$GameTimer.start()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("Action2") and not block_input:
+	if Input.is_action_just_pressed("Action2") || Input.is_action_just_pressed("Action1") and not block_input:
 		button_presses_pressed += 1
 		$WindSprite.show()
 		$DustParticles.emitting = true
@@ -59,6 +59,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$BrokenScreen.show()
 			$EndOfGameTimer.start()
 	if anim_name == "WorkingScreen":
+		$DingAudioPlayer.play()
 		$EndOfGameTimer.start()
 
 

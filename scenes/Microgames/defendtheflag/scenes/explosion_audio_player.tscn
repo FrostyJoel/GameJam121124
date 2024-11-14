@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mtqdeh3l2732"]
+
+[ext_resource type="AudioStream" uid="uid://dcbot5d8b4ebi" path="res://scenes/Microgames/defendtheflag/assets/Explosion Sound.wav" id="1_xedg5"]
+[ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/explosion_audio_player.gd" id="2_2h4wu"]
+
+[node name="ExplosionAudioPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_xedg5")
+autoplay = true
+script = ExtResource("2_2h4wu")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
