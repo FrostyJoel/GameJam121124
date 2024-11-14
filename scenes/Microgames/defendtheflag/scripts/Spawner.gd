@@ -6,9 +6,14 @@ var rng = RandomNumberGenerator.new()
 @onready var player = get_parent().get_node("SpaceShip")
 
 func _ready() -> void:
+	$"../SpaceShip".player_death.connect(remove_from_queue)
+	
 	var random_number = rng.randf_range(min_range, max_range)
 	$Timer.wait_time = random_number
 	$Timer.start()
+
+func remove_from_queue():
+	queue_free()
 
 func _on_timer_timeout() -> void:
 	var _astroid = load("res://scenes/Microgames/defendtheflag/scenes/astroid_1.tscn")
