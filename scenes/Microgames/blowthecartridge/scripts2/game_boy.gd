@@ -57,9 +57,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.play("WorkingScreen")
 		elif win_condition_met == false:
 			$BrokenScreen.show()
-			emit_signal("game_over")
+			$EndOfGameTimer.start()
 	if anim_name == "WorkingScreen":
-		emit_signal("game_won")
+		$EndOfGameTimer.start()
 
 
 func _on_game_timer_timeout() -> void:
@@ -68,3 +68,10 @@ func _on_game_timer_timeout() -> void:
 		
 		
 		
+
+
+func _on_end_of_game_timer_timeout() -> void:
+	if win_condition_met == false:
+		emit_signal("game_over")
+	if win_condition_met == true:
+		emit_signal("game_won")
