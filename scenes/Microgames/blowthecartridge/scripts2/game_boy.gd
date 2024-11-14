@@ -59,6 +59,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$BrokenScreen.show()
 			$EndOfGameTimer.start()
 	if anim_name == "WorkingScreen":
+		$DingAudioPlayer.play()
 		$EndOfGameTimer.start()
 
 
