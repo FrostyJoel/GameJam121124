@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=4 uid="uid://o38qh6jveygv"]
 
+[ext_resource type="Script" path="res://scenes/MazeTilting/maze_tilting_top.gd" id="1_absxa"]
 [ext_resource type="Texture2D" uid="uid://bhb0nu20tmpfu" path="res://assets/MazeTilting/plank.png" id="1_hk08r"]
 [ext_resource type="Script" path="res://scenes/MazeTilting/maze_tilting.gd" id="3_ujrdl"]
 [ext_resource type="Texture2D" uid="uid://br4crwooqjg6m" path="res://assets/MazeTilting/hole.png" id="4_4y5sq"]
-[ext_resource type="Script" path="res://scenes/MazeTilting/maze_tilting_finish.gd" id="4_lc003"]
 [ext_resource type="PackedScene" uid="uid://i61qwkc8ha0l" path="res://scenes/MazeTilting/ball.tscn" id="4_no3om"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_lhavw"]
@@ -162,6 +162,7 @@ pattern_0 = SubResource("TileMapPattern_lhavw")
 radius = 17.0
 
 [node name="MazeTilting" type="Node2D"]
+script = ExtResource("1_absxa")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(573, 331)
@@ -171,7 +172,6 @@ script = ExtResource("3_ujrdl")
 
 [node name="Finish" type="Area2D" parent="TileMapLayer"]
 position = Vector2(-121, 122)
-script = ExtResource("4_lc003")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Finish"]
 shape = SubResource("CircleShape2D_5v2t7")
@@ -183,4 +183,10 @@ texture = ExtResource("4_4y5sq")
 [node name="Ball" parent="." instance=ExtResource("4_no3om")]
 position = Vector2(453, 211)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="body_entered" from="TileMapLayer/Finish" to="." method="_on_finish_body_entered"]
 [connection signal="body_entered" from="TileMapLayer/Finish" to="TileMapLayer/Finish" method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

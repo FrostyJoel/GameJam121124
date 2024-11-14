@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://dfdkefjcllbbw"]
+
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_y0j8e"]
+[ext_resource type="PackedScene" uid="uid://o38qh6jveygv" path="res://scenes/MazeTilting/MazeTilting.tscn" id="2_51po3"]
+
+[resource]
+script = ExtResource("1_y0j8e")
+instruction = "Tilt"
+variations = Array[PackedScene]([ExtResource("2_51po3")])

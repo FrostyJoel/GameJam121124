@@ -8,8 +8,8 @@ func _ready() -> void:
 
 func _on_game_timer_timeout() -> void:
 	microgameEnded.emit(true)
-
-
+	print_debug("Win")
+	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	$FailTimer.start()
 
