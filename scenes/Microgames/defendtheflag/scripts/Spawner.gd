@@ -13,6 +13,6 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	var _astroid = load("res://scenes/Microgames/defendtheflag/scenes/astroid_1.tscn")
 	var _astroid_instance = _astroid.instantiate()
-	get_tree().current_scene.add_child(_astroid_instance)
+	$"..".add_child(_astroid_instance)
 	_astroid_instance.global_position = global_position
 	_astroid_instance.look_at(player.global_position)
