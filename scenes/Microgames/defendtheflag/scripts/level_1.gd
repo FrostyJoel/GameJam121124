@@ -4,8 +4,6 @@ extends microgame_base
 func _ready() -> void:
 	pass # Replace with function body.
 
-	
-
 func _on_game_timer_timeout() -> void:
 	microgameEnded.emit(true)
 	print_debug("Win")

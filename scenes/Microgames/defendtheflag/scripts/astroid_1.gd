@@ -5,7 +5,7 @@ class_name Astroid
 
 func _ready():
 	$Sprite2D.rotation -= rotation
-
+	
 func _physics_process(delta: float) -> void:
 	velocity = Vector2()
 	velocity = Vector2(speed, 0).rotated(rotation)
@@ -21,4 +21,8 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 		var _explosion_instance = _explosion.instantiate()
 		$"..".add_child(_explosion_instance)
 		_explosion_instance.global_position = global_position
+		
+		var _explosion_audio = load("res://scenes/Microgames/defendtheflag/scenes/explosion_audio_player.tscn")
+		var _explosion_audio_instance = _explosion_audio.instantiate()
+		$"..".add_child(_explosion_audio_instance)
 		queue_free()

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkgyqao5p22sw"
+path="res://.godot/imported/Laser Sound.wav-16e91b41938e2a9f6f3dd46734452e08.sample"
+
+[deps]
+
+source_file="res://scenes/Microgames/defendtheflag/assets/Laser Sound.wav"
+dest_files=["res://.godot/imported/Laser Sound.wav-16e91b41938e2a9f6f3dd46734452e08.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
