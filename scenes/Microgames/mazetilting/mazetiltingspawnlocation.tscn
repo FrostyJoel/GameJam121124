@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://71n1mn428yea"]
+
+[ext_resource type="Script" path="res://scenes/Microgames/mazetilting/mazetiltingspawnlocation.gd" id="1_71dwy"]
+[ext_resource type="Texture2D" uid="uid://bwnrg2tattulu" path="res://icon.svg" id="2_prwdf"]
+
+[node name="Mazetiltingspawnlocation" type="Node2D"]
+script = ExtResource("1_71dwy")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_prwdf")
