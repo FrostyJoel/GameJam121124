@@ -46,9 +46,9 @@ func _ready() -> void:
 	#Needed to find and enableTimer
 	var uiManager = get_tree().get_nodes_in_group("Ui")
 	for node in uiManager:
-		# Check the node has a save function.
+		# Check the node has a Enabletimer function.
 		if !node.has_method("Enabletimer"):
-			print("persistent node '%s' is missing a save() function, skipped" % node.name)
+			print("persistent node '%s' is missing a Enabletimer() function, skipped" % node.name)
 			continue
 		
 		node.call("Enabletimer",total_time)
