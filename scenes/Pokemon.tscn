@@ -6,6 +6,7 @@
 size = Vector2(1080, 1080)
 
 [node name="Pokemon" type="Node2D"]
+position = Vector2(1, 1)
 script = ExtResource("1_s6p76")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -67,5 +68,6 @@ DIGIMON"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

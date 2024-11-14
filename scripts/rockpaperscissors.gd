@@ -12,7 +12,7 @@ var papertexture = preload("res://assets/images/Paper.png")
 var paperflippedtexture = preload("res://assets/images/PaperFlipped.png")
 var scissortexture = preload("res://assets/images/Scissor.png")
 var scissorflippedtexture = preload("res://assets/images/ScissorFlipped.png")
-
+var gameended = false
 
 
 func _ready() -> void:
@@ -31,48 +31,69 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Change answer with stick(left)
-	if Input.is_action_just_pressed("DirLeft") or Input.is_action_just_pressed("NegativeHorizontal"):
-		if playersprite.texture == rocktexture:	
-			playersprite.texture = scissortexture
-		elif playersprite.texture == papertexture:
-			playersprite.texture = rocktexture
-		elif playersprite.texture == scissortexture:
-			playersprite.texture = papertexture
-			
-	# Change answer with stick(right)
-	if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PostiveHorizontal"):
-		if playersprite.texture == rocktexture:
-			playersprite.texture = papertexture
-		elif playersprite.texture == papertexture:
-			playersprite.texture = scissortexture
-		elif playersprite.texture == scissortexture:
-			playersprite.texture = rocktexture
-		
-	# Enter answer
-	if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
-		if opponentsprite.texture == rockflippedtexture:
-			if playersprite.texture == papertexture:
-				print("YOU WIN")
-				microgameEnded.emit(true)
-			else:
-				print("YOU LOSE")
-				microgameEnded.emit(false)
-		if opponentsprite.texture == paperflippedtexture:
-			if playersprite.texture == scissortexture:
-				print("YOU WIN")	
-				microgameEnded.emit(true)
-			else:
-				print("YOU LOSE")
-				microgameEnded.emit(false)
-		if opponentsprite.texture == scissorflippedtexture:
+	if gameended == false:
+		if Input.is_action_just_pressed("DirLeft") or Input.is_action_just_pressed("NegativeHorizontal"):
+			if playersprite.texture == rocktexture:	
+				playersprite.texture = scissortexture
+			elif playersprite.texture == papertexture:
+				playersprite.texture = rocktexture
+			elif playersprite.texture == scissortexture:
+				playersprite.texture = papertexture
+				
+		# Change answer with stick(right)
+		if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PostiveHorizontal"):
 			if playersprite.texture == rocktexture:
-				print("YOU WIN")
-				microgameEnded.emit(true)
-			else:
-				print("YOU LOSE")
-				microgameEnded.emit(false)
+				playersprite.texture = papertexture
+			elif playersprite.texture == papertexture:
+				playersprite.texture = scissortexture
+			elif playersprite.texture == scissortexture:
+				playersprite.texture = rocktexture
+			
+		# Enter answer
+		if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
+			if opponentsprite.texture == rockflippedtexture:
+				if playersprite.texture == papertexture:
+					print("YOU WIN")
+					microgameEnded.emit(true)
+					$Square.modulate = Color(0,255,0)
+					timer.stop()
+					gameended = true
+				else:
+					print("YOU LOSE")
+					microgameEnded.emit(false)
+					$Square.modulate = Color(255,0,0)
+					timer.stop()					
+					gameended = true
+			if opponentsprite.texture == paperflippedtexture:
+				if playersprite.texture == scissortexture:
+					print("YOU WIN")	
+					microgameEnded.emit(true)
+					$Square.modulate = Color(0,255,0)
+					timer.stop()
+					gameended = true
+				else:
+					print("YOU LOSE")
+					microgameEnded.emit(false)
+					$Square.modulate = Color(255,0,0)
+					timer.stop()
+					gameended = true
+			if opponentsprite.texture == scissorflippedtexture:
+				if playersprite.texture == rocktexture:
+					print("YOU WIN")
+					microgameEnded.emit(true)
+					$Square.modulate = Color(0,255,0)
+					timer.stop()
+					gameended = true
+				else:
+					print("YOU LOSE")
+					microgameEnded.emit(false)
+					$Square.modulate = Color(255,0,0)
+					timer.stop()
+					gameended = true
 				
 # Fail state when timer runs out
 func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
 	microgameEnded.emit(false)
+	$Square.modulate = Color(255,0,0)
+	gameended = true
