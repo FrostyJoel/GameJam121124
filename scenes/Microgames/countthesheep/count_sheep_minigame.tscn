@@ -9,8 +9,10 @@ script = ExtResource("1_e0s4r")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Control" parent="." instance=ExtResource("2_s8yq2")]
-offset_left = -483.0
-offset_right = 517.0
+offset_left = -499.0
+offset_top = -501.0
+offset_right = 501.0
+offset_bottom = 499.0
 
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 4.0
