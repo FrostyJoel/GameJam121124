@@ -66,13 +66,13 @@ func _input(event: InputEvent) -> void:
 		print("Pressed " + event.as_text())
 		sprite_2d.transform.origin += Vector2(DISTANCEOFFSET,0)
 
-	if Input.get_axis("NegativeHorizontal","PostiveHorizontal") != 0:
-		velocity.x = Input.get_axis("NegativeHorizontal","PostiveHorizontal")
+	if Input.get_axis("NegativeHorizontal","PositiveHorizontal") != 0:
+		velocity.x = Input.get_axis("NegativeHorizontal","PositiveHorizontal")
 	else:
 		velocity.x = 0
 	
 	if Input.get_axis("NegativeVertical","PostiveVertical") != 0:
-		velocity.y = Input.get_axis("NegativeVertical","PostiveVertical")
+		velocity.y = Input.get_axis("NegativeVertical","PositiveVertical")
 	else:
 		velocity.y = 0
 
