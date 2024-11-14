@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://26i0gvs3yeyd"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://26i0gvs3yeyd"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_2ev6s"]
-[ext_resource type="PackedScene" uid="uid://b3my4i8on8f3a" path="res://scenes/Microgames/countthesheep/count_sheep_minigame.tscn" id="2_faooc"]
+[ext_resource type="PackedScene" uid="uid://b3my4i8on8f3a" path="res://scenes/Microgames/countthesheep/easy/count_sheep_minigame.tscn" id="2_auskp"]
+[ext_resource type="PackedScene" uid="uid://x36ekv68b6s1" path="res://scenes/Microgames/countthesheep/medium/count_sheep_minigame_2.tscn" id="3_w6a45"]
+[ext_resource type="PackedScene" uid="uid://ciqm1thjxefw5" path="res://scenes/Microgames/countthesheep/hard/count_sheep_minigame_3.tscn" id="4_iddna"]
 
 [resource]
 script = ExtResource("1_2ev6s")
 instruction = "Count"
-variations = Array[PackedScene]([ExtResource("2_faooc")])
+variations = Array[PackedScene]([ExtResource("2_auskp"), ExtResource("3_w6a45"), ExtResource("4_iddna")])

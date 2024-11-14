@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpjtbxilmg04s"]
+[gd_scene load_steps=8 format=3 uid="uid://cpjtbxilmg04s"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_4ku65"]
+[ext_resource type="FontFile" uid="uid://doismeynb03k1" path="res://ui/Fonts/Dangrek-Regular.ttf" id="2_u2ro0"]
 [ext_resource type="Script" path="res://scripts/UI/button_setfocus.gd" id="2_xofhs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_108nf"]
@@ -96,7 +97,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_u2ro0")
+theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
@@ -114,7 +116,8 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_fonts/font = ExtResource("2_u2ro0")
+theme_override_font_sizes/font_size = 28
 theme_override_styles/focus = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
