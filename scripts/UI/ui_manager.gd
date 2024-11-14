@@ -65,3 +65,7 @@ func _on_button_pressed() -> void:
 func _on_restart_game() -> void:
 	EnableUI()
 	DisableFinalScore()
+
+func _spawn_timer(timer: Timer) -> void:
+		$TimerUi.visible = true
+		$TimerUi.init(timer)

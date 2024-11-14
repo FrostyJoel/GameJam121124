@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://wi7adwugqg4b" path="res://microgameData/defendtheflag.tres" id="8_ht2pl"]
 [ext_resource type="PackedScene" uid="uid://bjg0dscobd4p1" path="res://scenes/Managers/ui_manager.tscn" id="9_hnekt"]
 [ext_resource type="Resource" uid="uid://dneq16col0eli" path="res://microgameData/countingsheep.tres" id="9_r0nh5"]
-[ext_resource type="Resource" path="res://microgameData/mazetilting.tres" id="10_e6hhl"]
+[ext_resource type="Resource" uid="uid://cgv2ddty5ynm0" path="res://microgameData/mazetilting.tres" id="10_e6hhl"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ygwc3")

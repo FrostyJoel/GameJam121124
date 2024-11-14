@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd2e4sfys61bm"]
+
+[ext_resource type="Script" path="res://scripts/UI/timer_ui.gd" id="1_8iehj"]
+[ext_resource type="Texture2D" uid="uid://bnecg1heuqxq0" path="res://assets/UI/timer-bold (1).svg" id="1_c2d5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjbeu"]
+bg_color = Color(0.466181, 0.466181, 0.466181, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="TimerUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8iehj")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = -443.0
+offset_right = 375.0
+offset_bottom = 443.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 650
+text = "10"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 43.0
+offset_top = 51.0
+offset_right = 369.0
+offset_bottom = 106.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjbeu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_c2d5n")
+
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+rounded = true
+fill_mode = 1
