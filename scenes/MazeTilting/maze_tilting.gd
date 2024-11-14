@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("NegativeHorizontal") || Input.is_action_pressed("DirLeft"):
 		rotation += rotation_speed * delta
 		
-	if Input.is_action_pressed("PostiveHorizontal") || Input.is_action_pressed("DirRight"):
+	if Input.is_action_pressed("PositiveHorizontal") || Input.is_action_pressed("DirRight"):
 		rotation += rotation_speed * delta * -1
