@@ -79,6 +79,7 @@ func _on_button_pressed() -> void:
 
 
 func _on_restart_game() -> void:
+	Engine.time_scale = 1
 	EnableUI()
 	DisableFinalScore()
 
