@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://x0dnuqnd6lde"]
 
-[ext_resource type="Script" path="res://scripts/Microgames/diffuse_bomb/diffuse_bomb_microgame.gd" id="1_uolc8"]
-[ext_resource type="PackedScene" uid="uid://d3el6nun0snxo" path="res://scenes/Microgames/bomb_order_easy.tscn" id="2_1tgqm"]
+[ext_resource type="Script" path="res://scripts/Microgames/diffuse_bomb/easy/diffuse_bomb_microgame.gd" id="1_uolc8"]
+[ext_resource type="PackedScene" uid="uid://d3el6nun0snxo" path="res://scenes/Microgames/diffuse_bomb/easy/bomb_order_easy.tscn" id="2_1tgqm"]
 [ext_resource type="Texture2D" uid="uid://b4l253pq3p1c6" path="res://assets/images/bomb_image.png" id="2_yegs6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85tik"]
 size = Vector2(1080, 1080)
 
-[node name="Diffuse_Bomb_Microgame" type="Node2D"]
+[node name="Diffuse_Bomb_Microgame2" type="Node2D"]
 script = ExtResource("1_uolc8")
 
 [node name="BackgroundSquare" type="StaticBody2D" parent="."]

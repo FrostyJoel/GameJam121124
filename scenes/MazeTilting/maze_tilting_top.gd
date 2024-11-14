@@ -10,3 +10,4 @@ func _on_finish_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	microgameEnded.emit(false)
+	print("timer ended")

@@ -19,5 +19,8 @@ one_shot = true
 [node name="FishGetAwayTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="TotalTime" type="Timer" parent="."]
+
 [connection signal="timeout" from="BobberTimer" to="." method="_on_bobber_timer_timeout"]
 [connection signal="timeout" from="FishGetAwayTimer" to="." method="_on_fish_get_away_timer_timeout"]
+[connection signal="timeout" from="TotalTime" to="." method="_on_total_time_timeout"]

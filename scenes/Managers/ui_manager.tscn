@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjg0dscobd4p1"]
+[gd_scene load_steps=3 format=3 uid="uid://bjg0dscobd4p1"]
 
 [ext_resource type="Script" path="res://scripts/UI/ui_manager.gd" id="1_kkol2"]
+[ext_resource type="PackedScene" uid="uid://dv8vcluoohkeu" path="res://scenes/UI/TimerUI.tscn" id="2_4bp77"]
 
-[node name="UiManager" type="Node"]
+[node name="UiManager" type="Node" groups=["Ui"]]
 script = ExtResource("1_kkol2")
 
 [node name="Health Amount" type="Label" parent="."]
@@ -81,5 +82,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
 text = "Restart"
+
+[node name="TimerUi" parent="." instance=ExtResource("2_4bp77")]
 
 [connection signal="pressed" from="You Lose/Button" to="." method="_on_button_pressed"]
