@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 			currentlabel = move_4
 			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 			
-	if Input.is_action_just_pressed("DirUp") or Input.is_action_just_pressed("PostiveVertical"):
+	if Input.is_action_just_pressed("DirUp") or Input.is_action_just_pressed("PositiveVertical"):
 		if currentlabel == move_3:
 			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
 			currentlabel = move_1
