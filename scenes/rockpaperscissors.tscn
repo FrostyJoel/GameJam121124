@@ -19,7 +19,6 @@ offset_left = -415.0
 offset_top = 397.0
 offset_right = -357.0
 offset_bottom = 420.0
-text = "PLAYER"
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
 
@@ -28,7 +27,7 @@ offset_left = 328.0
 offset_top = -393.0
 offset_right = 416.0
 offset_bottom = -370.0
-text = "OPPONENT
+text = "
 "
 
 [node name="OpponentSprite" type="Sprite2D" parent="Opponent"]
