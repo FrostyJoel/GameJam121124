@@ -44,7 +44,7 @@ func Enabletimer(gameTimer : Timer) -> void:
 	$TimerUi.Init(gameTimer)
 	$TimerUi.EnableTimer()
 
-func sadve() -> Dictionary:
+func save() -> Dictionary:
 	var save_dict = {
 		"highscore" : highScore,
 	}
