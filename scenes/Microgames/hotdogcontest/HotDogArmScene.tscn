@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c54of5w13vi05"]
 
 [ext_resource type="Texture2D" uid="uid://bwdvrjh2e743m" path="res://assets/images/HotDogStuff/HotDogArm.png" id="1_gwmpf"]
-[ext_resource type="Script" path="res://scenes/HotdogContest/hot_dog_arm_scene.gd" id="1_y2j4l"]
+[ext_resource type="Script" path="res://scenes/Microgames/hotdogcontest/hot_dog_arm_scene.gd" id="1_y2j4l"]
 
 [sub_resource type="Animation" id="Animation_ryxkk"]
 resource_name = "DestroyHotDog"

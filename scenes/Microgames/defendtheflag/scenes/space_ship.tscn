@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dngta4t20csb5"]
+[gd_scene load_steps=6 format=3 uid="uid://dngta4t20csb5"]
 
 [ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/space_ship.gd" id="1_ee0qp"]
 [ext_resource type="Texture2D" uid="uid://yo0pm3exlkqb" path="res://scenes/Microgames/defendtheflag/assets/Spaceship.png" id="1_pdc11"]
+[ext_resource type="AudioStream" uid="uid://bkgyqao5p22sw" path="res://scenes/Microgames/defendtheflag/assets/Laser Sound.wav" id="3_nkcxl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8mx6"]
 radius = 7.0
@@ -26,6 +27,9 @@ wait_time = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_2xliw")
+
+[node name="LaserAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nkcxl")
 
 [connection signal="timeout" from="LaserCooldownTimer" to="." method="_on_laser_cooldown_timer_timeout"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

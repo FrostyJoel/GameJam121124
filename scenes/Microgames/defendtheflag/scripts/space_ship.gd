@@ -33,6 +33,7 @@ func spawn_projectile():
 	$"..".add_child(_laser_instance)
 	_laser_instance.global_position = global_position
 	_laser_instance.rotation = self.rotation - PI / 4
+	$LaserAudioPlayer.play()
 	laser_cooldown = true
 	$LaserCooldownTimer.start()
 

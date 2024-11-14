@@ -1,9 +1,167 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1b2e3hjnjer0"]
+[gd_scene load_steps=22 format=3 uid="uid://d1b2e3hjnjer0"]
 
 [ext_resource type="Script" path="res://scripts/pokemon.gd" id="1_s6p76"]
+[ext_resource type="Texture2D" uid="uid://lnrc2pdd62by" path="res://assets/images/Pokemon/ButtonTest.png" id="2_83kp1"]
+[ext_resource type="FontFile" uid="uid://c07hepaevrfep" path="res://ui/Fonts/Gamer.ttf" id="2_iw3ya"]
+[ext_resource type="Texture2D" uid="uid://bw2t1kd400brm" path="res://assets/images/Pokemon/BattleBackground.png" id="2_sh63i"]
+[ext_resource type="Texture2D" uid="uid://cxrxshc6658h3" path="res://assets/images/Pokemon/PlantMan.png" id="3_2iarp"]
+[ext_resource type="Texture2D" uid="uid://crbnf05i8g2bs" path="res://assets/images/Pokemon/Platform.png" id="3_4fiwj"]
+[ext_resource type="Texture2D" uid="uid://ch07308q2mig1" path="res://assets/images/Pokemon/Wormman.png" id="4_6j36b"]
+[ext_resource type="Texture2D" uid="uid://dp00d0253yk7v" path="res://assets/images/Pokemon/MenuBG.png" id="4_cxfdh"]
+[ext_resource type="Texture2D" uid="uid://bypn0q4tlu4v4" path="res://assets/images/Pokemon/Foreground.png" id="5_4godo"]
+[ext_resource type="Texture2D" uid="uid://dpgclegqk45j4" path="res://assets/images/Pokemon/ForegroundPlatform.png" id="6_34f2t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnhrf"]
 size = Vector2(1080, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55yml"]
+atlas = ExtResource("3_2iarp")
+region = Rect2(0, 0, 400, 420)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxcot"]
+atlas = ExtResource("3_2iarp")
+region = Rect2(400, 0, 400, 420)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tke3l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55yml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxcot")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvh8m"]
+atlas = ExtResource("4_6j36b")
+region = Rect2(0, 0, 560, 560)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c67y"]
+atlas = ExtResource("4_6j36b")
+region = Rect2(560, 0, 560, 560)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggdos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvh8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c67y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_7serl"]
+resource_name = "LoseGame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"_EndGame"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_y28d7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(267, -231)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5s8vh"]
+resource_name = "WinGame"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemySprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.833333, 1.2),
+"transitions": PackedFloat32Array(1, 2.46229),
+"update": 0,
+"values": [Vector2(267, -231), Vector2(267, 300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"_EndGame"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5hgkt"]
+_data = {
+"LoseGame": SubResource("Animation_7serl"),
+"RESET": SubResource("Animation_y28d7"),
+"WinGame": SubResource("Animation_5s8vh")
+}
 
 [node name="Pokemon" type="Node2D"]
 position = Vector2(1, 1)
@@ -11,46 +169,103 @@ script = ExtResource("1_s6p76")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="BattleBackground" type="Sprite2D" parent="."]
+texture = ExtResource("2_sh63i")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bnhrf")
 
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(263, -56)
+texture = ExtResource("3_4fiwj")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(267, -231)
+sprite_frames = SubResource("SpriteFrames_tke3l")
+
+[node name="Foreground" type="Sprite2D" parent="."]
+position = Vector2(1, 259)
+texture = ExtResource("5_4godo")
+
+[node name="Foreground2" type="Sprite2D" parent="."]
+position = Vector2(263, -7)
+texture = ExtResource("6_34f2t")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-233, -160)
+sprite_frames = SubResource("SpriteFrames_ggdos")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 330)
+scale = Vector2(1.00186, 1)
+texture = ExtResource("4_cxfdh")
+
+[node name="ButtonTest1" type="Sprite2D" parent="."]
+position = Vector2(-197.5, 249.5)
+texture = ExtResource("2_83kp1")
+
+[node name="ButtonTest2" type="Sprite2D" parent="."]
+position = Vector2(195.5, 249.5)
+texture = ExtResource("2_83kp1")
+
+[node name="ButtonTest3" type="Sprite2D" parent="."]
+position = Vector2(-197.5, 445.5)
+texture = ExtResource("2_83kp1")
+
+[node name="ButtonTest4" type="Sprite2D" parent="."]
+position = Vector2(195.5, 445.5)
+texture = ExtResource("2_83kp1")
+
 [node name="Move1" type="Label" parent="."]
-offset_left = 58.0
-offset_top = 400.0
-offset_right = 114.0
-offset_bottom = 423.0
-theme_override_font_sizes/font_size = 24
-text = "MOVE1"
+offset_left = -310.0
+offset_top = 245.0
+offset_right = -106.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_iw3ya")
+theme_override_font_sizes/font_size = 48
+text = "MOVE NAME"
+horizontal_alignment = 1
 metadata/Tag = ""
 
 [node name="Move2" type="Label" parent="."]
-offset_left = 276.0
-offset_top = 400.0
-offset_right = 332.0
-offset_bottom = 423.0
-theme_override_font_sizes/font_size = 24
-text = "MOVE2"
+offset_left = 89.0
+offset_top = 241.0
+offset_right = 296.0
+offset_bottom = 279.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_iw3ya")
+theme_override_font_sizes/font_size = 48
+text = "MOVE NAME"
+horizontal_alignment = 1
 metadata/Tag = ""
 
 [node name="Move3" type="Label" parent="."]
-offset_left = 58.0
-offset_top = 485.0
-offset_right = 114.0
-offset_bottom = 508.0
-theme_override_font_sizes/font_size = 24
-text = "MOVE3"
+offset_left = -310.0
+offset_top = 440.0
+offset_right = -103.0
+offset_bottom = 478.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_iw3ya")
+theme_override_font_sizes/font_size = 48
+text = "MOVE NAME"
+horizontal_alignment = 1
 metadata/Tag = ""
 
 [node name="Move4" type="Label" parent="."]
-offset_left = 280.0
-offset_top = 483.0
-offset_right = 336.0
-offset_bottom = 506.0
-theme_override_font_sizes/font_size = 24
-text = "MOVE4"
+offset_left = 92.0
+offset_top = 437.0
+offset_right = 299.0
+offset_bottom = 475.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_iw3ya")
+theme_override_font_sizes/font_size = 48
+text = "MOVE NAME"
+horizontal_alignment = 1
 metadata/Tag = ""
 
 [node name="Enemy" type="Label" parent="."]
+visible = false
 offset_left = 280.0
 offset_top = -413.0
 offset_right = 354.0
@@ -59,6 +274,7 @@ text = "ENEMY
 DIGIMON"
 
 [node name="Player" type="Label" parent="."]
+visible = false
 offset_left = -455.0
 offset_top = 423.0
 offset_right = -381.0
@@ -69,5 +285,10 @@ DIGIMON"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="WinAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5hgkt")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

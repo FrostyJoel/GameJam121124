@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bw5y0evbtor4o"]
 
-[ext_resource type="Script" path="res://scenes/HotdogContest/hot_dog_eater.gd" id="1_kbsyw"]
+[ext_resource type="Script" path="res://scenes/Microgames/hotdogcontest/hot_dog_eater.gd" id="1_kbsyw"]
 [ext_resource type="Texture2D" uid="uid://bbcfi28ul4ugf" path="res://assets/images/HotDogStuff/HDBackground.png" id="1_ry1ou"]
 [ext_resource type="Texture2D" uid="uid://cd1lp5suhgovf" path="res://assets/images/HotDogStuff/HotDogMan.png" id="2_dd6yo"]
-[ext_resource type="PackedScene" uid="uid://c54of5w13vi05" path="res://scenes/HotdogContest/HotDogArmScene.tscn" id="2_yb573"]
+[ext_resource type="PackedScene" uid="uid://c54of5w13vi05" path="res://scenes/Microgames/hotdogcontest/HotDogArmScene.tscn" id="2_yb573"]
 [ext_resource type="Texture2D" uid="uid://d174tpn7td2b0" path="res://assets/images/HotDogStuff/HDTopLayer.png" id="3_gh552"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3uk"]

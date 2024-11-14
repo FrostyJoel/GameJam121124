@@ -17,11 +17,15 @@ var Input_Options : Dictionary = {
 	Input_Keys.Left: "res://assets/images/controller/button_xbox_dpad_dark_4.png",
 	Input_Keys.Right: "res://assets/images/controller/button_xbox_dpad_dark_2.png"
 }
+var win : bool
 var ActiveArraySelection : int = 0
 var AmountOfInputs : int = 6
 var Button_To_Press : Input_Keys
 var Button_Array : Array
 @onready var HorizontalBoxWithInputs : HBoxContainer = $BackgroundSquare/BombOrder
+
+@export var sparksSprite : AnimatedSprite2D
+@export var explosionSprite : AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -79,9 +83,21 @@ func _set_next_active_button():
 		Button_To_Press = Button_Array[ActiveArraySelection]
 		ActiveArraySelection = ActiveArraySelection + 1
 	else:
-		microgameEnded.emit(true)
+		sparksSprite.visible = false
+		win = true
+		$"After Game Timer".start()
 		print("you win")
 
 func _bomb_exploded():
-	microgameEnded.emit(false)
+	sparksSprite.visible = false
+	explosionSprite.visible = true
+	win = false
+	$"After Game Timer".start()
 	print("you lose")
+
+
+func _on_after_game_timer_timeout() -> void:
+	if win:
+		microgameEnded.emit(true)
+	else:
+		microgameEnded.emit(false)

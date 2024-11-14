@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccl1woy6gxx5n"]
+[gd_scene load_steps=4 format=3 uid="uid://dxn3l68pd10cs"]
 
 [ext_resource type="Script" path="res://scripts/rockpaperscissors.gd" id="1_crxe6"]
 [ext_resource type="Texture2D" uid="uid://e88jyq8q8gl5" path="res://assets/images/Thoughtcloud.png" id="2_o5mnl"]
@@ -10,22 +10,26 @@ script = ExtResource("1_crxe6")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" type="Label" parent="."]
-offset_left = -347.0
-offset_top = 409.0
-offset_right = -289.0
-offset_bottom = 432.0
+offset_left = -341.0
+offset_top = 342.0
+offset_right = -283.0
+offset_bottom = 365.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
+scale = Vector2(0.7, 0.7)
 
 [node name="Opponent" type="Label" parent="."]
-offset_left = 328.0
-offset_top = -393.0
-offset_right = 416.0
-offset_bottom = -370.0
+offset_left = 311.0
+offset_top = -360.0
+offset_right = 399.0
+offset_bottom = -337.0
 text = "
 "
 
 [node name="OpponentSprite" type="Sprite2D" parent="Opponent"]
+scale = Vector2(0.7, 0.7)
+flip_h = true
+flip_v = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -40,6 +44,7 @@ scale = Vector2(33.75, 33.75)
 texture = ExtResource("3_8xicg")
 
 [node name="Thoughtcloud" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(227, -317)
 scale = Vector2(1.53208, 1.27656)
