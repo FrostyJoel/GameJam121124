@@ -2,11 +2,7 @@ extends microgame_base
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$MicrogameTimer.start()
-	
-	randomize()
-	var newPos = randf_range(200, 1700)
-	$Sprite2D.transform.origin.x = newPos
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,6 +10,11 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_microgame_timer_timeout() -> void:
-	print("Microgame timeout!")
+
+func _on_win_area_body_entered(body: Node2D) -> void:
+		microgameEnded.emit(true)
+		print("Awesome")
+
+func hit_fence(body: Node2D) -> void:
 	microgameEnded.emit(false)
+	print("loser")
