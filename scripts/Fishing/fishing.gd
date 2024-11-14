@@ -18,6 +18,8 @@ var inputImage: Dictionary = {
 	FishingInputs.DIRDOWN : "res://assets/images/controller/button_xbox_dpad_dark_3.png",
 }
 
+var win : bool = false
+
 @export var currentInput: FishingInputs = FishingInputs.ACTION1
 
 @onready var bobber_timer: Timer = $BobberTimer
@@ -26,6 +28,11 @@ var inputImage: Dictionary = {
 
 @onready var input_button: Sprite2D = $InputButton
 @export var debug_square: Sprite2D
+@export var caught_fish: Sprite2D
+@export var whichFish : int = 0
+@export var fishSprite1: CompressedTexture2D
+@export var fishSprite2: CompressedTexture2D
+@export var fishSprite3: CompressedTexture2D
 
 var correctInput: bool = false;
 var completedFishingBobbing : bool = false;
@@ -53,7 +60,7 @@ func _ready() -> void:
 		
 		node.call("Enabletimer",total_time)
 	
-	debug_square.modulate = Color.FIREBRICK
+	debug_square.modulate = Color.RED
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Action1"):
@@ -93,17 +100,29 @@ func ReelFishingRod():
 	if completedFishingBobbing && correctInput:
 		print("CorrectlyFished")
 		debug_square.modulate = Color.GREEN
-		microgameEnded.emit(true)
+		input_button.visible = false
+		caught_fish.visible = true
+		if whichFish == 0:
+			caught_fish.texture = fishSprite1
+		elif whichFish == 1:
+			caught_fish.texture = fishSprite2
+		else:
+			caught_fish.texture = fishSprite3
+		win = true
+		$AfterGameTimer.start()
 	#Return Completed good
 	else:
 		print("Fished Wrong")
 		debug_square.modulate = Color.WEB_GRAY
-		microgameEnded.emit(false)
+		win = false
+		$AfterGameTimer.start()
+	$Bobber/AnimationPlayer.play("Bobber_Bob")
 	#Return Completed False
 
 func _on_bobber_timer_timeout() -> void:
 	completedFishingBobbing = true;
 	debug_square.modulate = Color.YELLOW
+	$Bobber/AnimationPlayer.play("Bobber_Hold")
 	
 	input_button.texture = load(inputImage.get(currentInput))
 	
@@ -112,8 +131,17 @@ func _on_bobber_timer_timeout() -> void:
 
 func _on_fish_get_away_timer_timeout() -> void:
 	print("Fished Wrong")
-	debug_square.modulate = Color.RED
+	debug_square.modulate = Color.WEB_GRAY
+	$Bobber/AnimationPlayer.play("Bobber_Bob")
+	input_button.visible = false
 
 
 func _on_total_time_timeout() -> void:
 	ReelFishingRod()
+
+
+func _on_after_game_timer_timeout() -> void:
+	if win:
+		microgameEnded.emit(true)
+	else:
+		microgameEnded.emit(false)

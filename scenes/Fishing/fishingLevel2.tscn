@@ -1,12 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b10mqefnp705t"]
+[gd_scene load_steps=12 format=3 uid="uid://q68pib0d51hj"]
 
-[ext_resource type="Script" path="res://scripts/Fishing/fishing.gd" id="1_2xsly"]
-[ext_resource type="Texture2D" uid="uid://bmwwxteedylrw" path="res://assets/Fishing/Microgame_Fishing_CaughtCarp.png" id="2_e7inc"]
-[ext_resource type="Texture2D" uid="uid://dn88sr8gup35p" path="res://assets/Fishing/Microgame_Fishing_CaughtFrog.png" id="2_ip8g1"]
-[ext_resource type="Texture2D" uid="uid://5erwrltlxslf" path="res://assets/Fishing/Microgame_Fishing_Background.png" id="2_m4ydx"]
-[ext_resource type="Texture2D" uid="uid://djx1iimh1mifl" path="res://assets/Fishing/Microgame_Fishing_CaughtEel.png" id="3_c6bmt"]
-[ext_resource type="Texture2D" uid="uid://bdwq8rxaikt6y" path="res://assets/Fishing/Microgame_Fishing_Bobber.png" id="3_q7nvq"]
-[ext_resource type="PackedScene" uid="uid://6xyikmddaqrn" path="res://scenes/Fishing/FishSilhouette.tscn" id="4_muc3y"]
+[ext_resource type="Script" path="res://scripts/Fishing/fishing.gd" id="1_lirrc"]
+[ext_resource type="Texture2D" uid="uid://bmwwxteedylrw" path="res://assets/Fishing/Microgame_Fishing_CaughtCarp.png" id="2_gc185"]
+[ext_resource type="Texture2D" uid="uid://djx1iimh1mifl" path="res://assets/Fishing/Microgame_Fishing_CaughtEel.png" id="3_gf8cr"]
+[ext_resource type="Texture2D" uid="uid://dn88sr8gup35p" path="res://assets/Fishing/Microgame_Fishing_CaughtFrog.png" id="4_qqxas"]
+[ext_resource type="Texture2D" uid="uid://5erwrltlxslf" path="res://assets/Fishing/Microgame_Fishing_Background.png" id="5_ng878"]
+[ext_resource type="Texture2D" uid="uid://bdwq8rxaikt6y" path="res://assets/Fishing/Microgame_Fishing_Bobber.png" id="6_okuf6"]
+[ext_resource type="PackedScene" uid="uid://6xyikmddaqrn" path="res://scenes/Fishing/FishSilhouette.tscn" id="7_0r14t"]
 
 [sub_resource type="Animation" id="Animation_kwmtc"]
 resource_name = "Bobber_Bob"
@@ -25,21 +25,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_5gbhe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Bobber:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_d72v4"]
 resource_name = "Bobber_Hold"
 tracks/0/type = "value"
@@ -55,6 +40,21 @@ tracks/0/keys = {
 "values": [Vector2(0, 3), Vector2(0, 3)]
 }
 
+[sub_resource type="Animation" id="Animation_5gbhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bobber:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7c0v1"]
 _data = {
 "Bobber_Bob": SubResource("Animation_kwmtc"),
@@ -63,22 +63,23 @@ _data = {
 }
 
 [node name="Fishing" type="Node2D" node_paths=PackedStringArray("debug_square", "caught_fish")]
-script = ExtResource("1_2xsly")
+script = ExtResource("1_lirrc")
 debug_square = NodePath("Bobber")
 caught_fish = NodePath("CaughtFish")
-fishSprite1 = ExtResource("2_e7inc")
-fishSprite2 = ExtResource("3_c6bmt")
-fishSprite3 = ExtResource("2_ip8g1")
+whichFish = 1
+fishSprite1 = ExtResource("2_gc185")
+fishSprite2 = ExtResource("3_gf8cr")
+fishSprite3 = ExtResource("4_qqxas")
 
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 scale = Vector2(7.5, 7.5)
-texture = ExtResource("2_m4ydx")
+texture = ExtResource("5_ng878")
 
 [node name="Bobber" type="Sprite2D" parent="."]
 position = Vector2(960, 510)
 scale = Vector2(7.5, 7.5)
-texture = ExtResource("3_q7nvq")
+texture = ExtResource("6_okuf6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bobber"]
 root_node = NodePath("../..")
@@ -92,10 +93,10 @@ z_index = 4
 position = Vector2(700, 300)
 scale = Vector2(0.5, 0.5)
 
-[node name="FishSilhouette" parent="." instance=ExtResource("4_muc3y")]
+[node name="FishSilhouette" parent="." instance=ExtResource("7_0r14t")]
 position = Vector2(662, 769)
 
-[node name="FishSilhouette2" parent="." instance=ExtResource("4_muc3y")]
+[node name="FishSilhouette2" parent="." instance=ExtResource("7_0r14t")]
 position = Vector2(1247, 893)
 flip_x = true
 

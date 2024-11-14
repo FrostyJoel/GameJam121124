@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://i0q1k0gt88qf"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://i0q1k0gt88qf"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_u5671"]
 [ext_resource type="PackedScene" uid="uid://b10mqefnp705t" path="res://scenes/Fishing/fishing.tscn" id="2_yvlw2"]
+[ext_resource type="PackedScene" uid="uid://q68pib0d51hj" path="res://scenes/Fishing/fishingLevel2.tscn" id="3_ey3we"]
+[ext_resource type="PackedScene" uid="uid://cj2hlmx8rmcbw" path="res://scenes/Fishing/fishingLevel3.tscn" id="4_p5gbe"]
 
 [resource]
 script = ExtResource("1_u5671")
 instruction = "Catch"
-variations = Array[PackedScene]([ExtResource("2_yvlw2")])
+variations = Array[PackedScene]([ExtResource("2_yvlw2"), ExtResource("3_ey3we"), ExtResource("4_p5gbe")])
