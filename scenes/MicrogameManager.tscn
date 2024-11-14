@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Managers/microgame_manager.gd" id="1_vlvpw"]
 
 [node name="MicrogameManager" type="Node2D"]
+z_index = 999
 script = ExtResource("1_vlvpw")
 
 [node name="BetweenMicrogames" type="Timer" parent="."]
