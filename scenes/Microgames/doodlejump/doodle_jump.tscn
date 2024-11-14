@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://bcqtxbt01sa6u"]
+
+[ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_7wgv5"]
+[ext_resource type="PackedScene" uid="uid://bjr4dyw1ekamf" path="res://scenes/Microgames/doodlejump/platform.tscn" id="2_jdnwa"]
+[ext_resource type="Script" path="res://scripts/DoodleJump/DoodleCharacter.gd" id="3_m052m"]
+[ext_resource type="PackedScene" uid="uid://s4o7c2rf0s8" path="res://scenes/Microgames/doodlejump/coin.tscn" id="4_teb1l"]
+
+[sub_resource type="GDScript" id="GDScript_3x5gw"]
+script/source = "extends Node
+
+func _on_area_2d_body_entered(body) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv7mp"]
+size = Vector2(34, 35)
+
+[node name="DoodleJump" type="Node2D"]
+
+[node name="Square" type="Sprite2D" parent="."]
+modulate = Color(0.701448, 0.790884, 0.672883, 1)
+position = Vector2(64, -154.845)
+scale = Vector2(33.7499, 72.8847)
+texture = ExtResource("2_7wgv5")
+
+[node name="Platforms" type="Node" parent="."]
+script = SubResource("GDScript_3x5gw")
+
+[node name="StaticBody2D" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(0, 477)
+script = null
+
+[node name="StaticBody2D2" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(377, 265)
+script = null
+
+[node name="StaticBody2D3" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-311, 188)
+script = null
+
+[node name="StaticBody2D4" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-352, 32)
+script = null
+
+[node name="StaticBody2D5" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-85, 104)
+script = null
+
+[node name="StaticBody2D6" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(160, 22)
+script = null
+
+[node name="StaticBody2D7" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(424, 96)
+script = null
+
+[node name="StaticBody2D8" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(215, 382)
+script = null
+
+[node name="StaticBody2D9" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(100, 211)
+script = null
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Platforms/StaticBody2D9"]
+
+[node name="StaticBody2D10" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-156, 308)
+script = null
+
+[node name="StaticBody2D18" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-321, 399)
+script = null
+
+[node name="StaticBody2D19" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(503, 422)
+script = null
+
+[node name="StaticBody2D11" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-174, -88)
+script = null
+
+[node name="StaticBody2D12" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-387, -149)
+script = null
+
+[node name="StaticBody2D16" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(-202, -257)
+script = null
+
+[node name="StaticBody2D17" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(203, -266)
+script = null
+
+[node name="StaticBody2D13" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(78, -132)
+script = null
+
+[node name="StaticBody2D14" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(326, -107)
+script = null
+
+[node name="StaticBody2D15" parent="Platforms" instance=ExtResource("2_jdnwa")]
+position = Vector2(529, -232)
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 174)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+z_index = 5
+script = ExtResource("3_m052m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(0, 387)
+texture = ExtResource("2_7wgv5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 386.5)
+shape = SubResource("RectangleShape2D_qv7mp")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Player"]
+position = Vector2(0, 386)
+
+[node name="Area2D" parent="." instance=ExtResource("4_teb1l")]
+position = Vector2(0, -356)
+
+[connection signal="screen_exited" from="Platforms/StaticBody2D9/VisibleOnScreenEnabler2D" to="Player" method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D" to="Player" method="_on_visible_on_screen_notifier_2d_screen_exited"]
