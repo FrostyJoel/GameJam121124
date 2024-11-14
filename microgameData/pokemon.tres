@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://cmp1vxrjjfxf8"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_iqpue"]
-[ext_resource type="PackedScene" uid="uid://blbg2v0cmj1ej" path="res://scenes/Pokemon.tscn" id="2_0u5kp"]
+[ext_resource type="PackedScene" uid="uid://d1b2e3hjnjer0" path="res://scenes/Pokemon.tscn" id="2_0u5kp"]
 
 [resource]
 script = ExtResource("1_iqpue")

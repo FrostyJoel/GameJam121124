@@ -13,6 +13,7 @@ var paperflippedtexture = preload("res://assets/images/PaperFlipped.png")
 var scissortexture = preload("res://assets/images/Scissor.png")
 var scissorflippedtexture = preload("res://assets/images/ScissorFlipped.png")
 var gameended = false
+var result
 
 
 func _ready() -> void:
@@ -54,46 +55,57 @@ func _process(delta: float) -> void:
 			if opponentsprite.texture == rockflippedtexture:
 				if playersprite.texture == papertexture:
 					print("YOU WIN")
-					microgameEnded.emit(true)
-					$Square.modulate = Color(0,255,0)
 					timer.stop()
+					$Square.modulate = Color(0,255,0)
+					$EndTimer.start()
 					gameended = true
+					result = true
 				else:
 					print("YOU LOSE")
-					microgameEnded.emit(false)
+					timer.stop()
 					$Square.modulate = Color(255,0,0)
-					timer.stop()					
+					$EndTimer.start()					
 					gameended = true
+					result = false
 			if opponentsprite.texture == paperflippedtexture:
 				if playersprite.texture == scissortexture:
 					print("YOU WIN")	
-					microgameEnded.emit(true)
-					$Square.modulate = Color(0,255,0)
 					timer.stop()
+					$Square.modulate = Color(0,255,0)
+					$EndTimer.start()
 					gameended = true
+					result = true
 				else:
 					print("YOU LOSE")
-					microgameEnded.emit(false)
-					$Square.modulate = Color(255,0,0)
 					timer.stop()
+					$Square.modulate = Color(255,0,0)
+					$EndTimer.start()
 					gameended = true
+					result = false
 			if opponentsprite.texture == scissorflippedtexture:
 				if playersprite.texture == rocktexture:
 					print("YOU WIN")
-					microgameEnded.emit(true)
-					$Square.modulate = Color(0,255,0)
 					timer.stop()
+					$Square.modulate = Color(0,255,0)
+					$EndTimer.start()
 					gameended = true
+					result = true
 				else:
 					print("YOU LOSE")
-					microgameEnded.emit(false)
-					$Square.modulate = Color(255,0,0)
 					timer.stop()
+					$Square.modulate = Color(255,0,0)					
+					$EndTimer.start()
 					gameended = true
+					result = false
 				
 # Fail state when timer runs out
 func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
 	microgameEnded.emit(false)
 	$Square.modulate = Color(255,0,0)
+	$EndTimer.start()
 	gameended = true
+
+
+func _on_end_timer_timeout() -> void:
+	microgameEnded.emit(result)
