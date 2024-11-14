@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://blbg2v0cmj1ej"]
+
+[ext_resource type="Script" path="res://scripts/pokemon.gd" id="1_s6p76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnhrf"]
+size = Vector2(1080, 1080)
+
+[node name="Pokemon" type="Node2D"]
+script = ExtResource("1_s6p76")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bnhrf")
+
+[node name="Move1" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 400.0
+offset_right = 114.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 24
+text = "MOVE1"
+metadata/Tag = ""
+
+[node name="Move2" type="Label" parent="."]
+offset_left = 276.0
+offset_top = 400.0
+offset_right = 332.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 24
+text = "MOVE2"
+metadata/Tag = ""
+
+[node name="Move3" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 485.0
+offset_right = 114.0
+offset_bottom = 508.0
+theme_override_font_sizes/font_size = 24
+text = "MOVE3"
+metadata/Tag = ""
+
+[node name="Move4" type="Label" parent="."]
+offset_left = 280.0
+offset_top = 483.0
+offset_right = 336.0
+offset_bottom = 506.0
+theme_override_font_sizes/font_size = 24
+text = "MOVE4"
+metadata/Tag = ""
+
+[node name="Enemy" type="Label" parent="."]
+offset_left = 280.0
+offset_top = -413.0
+offset_right = 354.0
+offset_bottom = -364.0
+text = "ENEMY
+DIGIMON"
+
+[node name="Player" type="Label" parent="."]
+offset_left = -455.0
+offset_top = 423.0
+offset_right = -381.0
+offset_bottom = 472.0
+text = "PLAYER 
+DIGIMON"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
