@@ -56,8 +56,11 @@ zoom = Vector2(5, 5)
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 10.0
+one_shot = true
+autostart = true
 
 [node name="FailTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="SpaceShip/Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
