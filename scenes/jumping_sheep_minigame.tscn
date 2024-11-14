@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwcomim0lfya8"]
+[gd_scene load_steps=6 format=3 uid="uid://bwcomim0lfya8"]
 
 [ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="1_3nhx6"]
-[ext_resource type="Script" path="res://scenes/jumping_sheep_minigame.gd" id="1_7ee1g"]
+[ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_7ee1g"]
 [ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="2_puamx"]
-[ext_resource type="Script" path="res://scenes/win_area.gd" id="3_06vor"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gktq"]
 
@@ -37,12 +36,11 @@ scale = Vector2(0.095858, 0.095858)
 position = Vector2(-1, 1)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_06vor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
 position = Vector2(264, 107)
 shape = SubResource("RectangleShape2D_40clb")
 
-[connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
 [connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
