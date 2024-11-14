@@ -12,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://26i0gvs3yeyd" path="res://microgameData/countingsheep.tres" id="9_yjgvv"]
 [ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="10_iotxq"]
 [ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="10_ktn6t"]
-[ext_resource type="Resource" uid="uid://cdjpp0kec4sny" path="res://microgameData/HotDogEatingContest.tres" id="10_r7yy6"]
+[ext_resource type="Resource" uid="uid://cvt5oc4m66d47" path="res://microgameData/HotDogEatingContest.tres" id="10_r7yy6"]
 [ext_resource type="Resource" uid="uid://yuc3mj7u6g6d" path="res://microgameData/mazetilting.tres" id="11_w4cjo"]
 [ext_resource type="Resource" uid="uid://oeijiif7vtu4" path="res://microgameData/jumping_sheep.tres" id="12_l1xe1"]
 [ext_resource type="Resource" uid="uid://prq3rykl4lhu" path="res://microgameData/blowthecardridge.tres" id="13_v27xj"]

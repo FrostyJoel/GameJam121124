@@ -6,12 +6,12 @@ extends microgame_base
 @onready var playersprite: Sprite2D = $Player/PlayerSprite
 @onready var opponentsprite: Sprite2D = $Opponent/OpponentSprite
 
-var rocktexture = preload("res://assets/images/RockPaperScissors/rock.png")
-var rockflippedtexture = preload("res://assets/images/RockPaperScissors/rock.png")
-var papertexture = preload("res://assets/images/RockPaperScissors/paper.png")
-var paperflippedtexture = preload("res://assets/images/RockPaperScissors/paper.png")
-var scissortexture = preload("res://assets/images/RockPaperScissors/Scissors.png")
-var scissorflippedtexture = preload("res://assets/images/RockPaperScissors/Scissors.png")
+var rocktexture = preload("res://assets/images/RockPaperScissors/rock2.png")
+var rockflippedtexture = preload("res://assets/images/RockPaperScissors/rock2.png")
+var papertexture = preload("res://assets/images/RockPaperScissors/paper2.png")
+var paperflippedtexture = preload("res://assets/images/RockPaperScissors/paper2.png")
+var scissortexture = preload("res://assets/images/RockPaperScissors/Scissors2.png")
+var scissorflippedtexture = preload("res://assets/images/RockPaperScissors/Scissors2.png")
 var gameended = false
 var result
 
