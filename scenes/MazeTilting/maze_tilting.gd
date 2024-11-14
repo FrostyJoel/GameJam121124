@@ -9,8 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("TiltLeft"):
-		rotation += rotation_speed * delta * -1
-		
-	if Input.is_action_pressed("TiltRight"):
+	if Input.is_action_pressed("NegativeHorizontal") || Input.is_action_pressed("DirLeft"):
 		rotation += rotation_speed * delta
+		
+	if Input.is_action_pressed("PostiveHorizontal") || Input.is_action_pressed("DirRight"):
+		rotation += rotation_speed * delta * -1
