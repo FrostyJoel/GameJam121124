@@ -22,6 +22,7 @@ var inputImage: Dictionary = {
 
 @onready var bobber_timer: Timer = $BobberTimer
 @onready var fish_get_away_timer: Timer = $FishGetAwayTimer
+@onready var total_time: Timer = $TotalTime
 
 @onready var input_button: Sprite2D = $InputButton
 @onready var debug_square: Sprite2D = $DebugSquare
@@ -37,6 +38,20 @@ func _ready() -> void:
 	bobber_timer.start()
 	
 	fish_get_away_timer.wait_time = randf_range(2,3)
+	var totalFishTime = bobber_timer.wait_time + fish_get_away_timer.wait_time
+	
+	total_time.wait_time = randf_range(totalFishTime+ 2,totalFishTime + 3)
+	total_time.start();
+	
+	#Needed to find and enableTimer
+	var uiManager = get_tree().get_nodes_in_group("Ui")
+	for node in uiManager:
+		# Check the node has a Enabletimer function.
+		if !node.has_method("Enabletimer"):
+			print("persistent node '%s' is missing a Enabletimer() function, skipped" % node.name)
+			continue
+		
+		node.call("Enabletimer",total_time)
 	
 	debug_square.modulate = Color.BLUE
 
@@ -74,6 +89,7 @@ func _input(event: InputEvent) -> void:
 func ReelFishingRod():
 	bobber_timer.stop()
 	fish_get_away_timer.stop()
+	total_time.stop()
 	if completedFishingBobbing && correctInput:
 		print("CorrectlyFished")
 		debug_square.modulate = Color.GREEN
@@ -95,4 +111,9 @@ func _on_bobber_timer_timeout() -> void:
 
 
 func _on_fish_get_away_timer_timeout() -> void:
+	print("Fished Wrong")
+	debug_square.modulate = Color.RED
+
+
+func _on_total_time_timeout() -> void:
 	ReelFishingRod()

@@ -35,12 +35,16 @@ func DisableUI() -> void:
 	health_amount.visible = false
 	score_amount.visible = false
 
-
 func EnableUI() -> void:
 	health_amount.visible = true
 	score_amount.visible = true
+	$TimerUi.DisableTimer()
 
-func sadve() -> Dictionary:
+func Enabletimer(gameTimer : Timer) -> void:
+	$TimerUi.Init(gameTimer)
+	$TimerUi.EnableTimer()
+
+func save() -> Dictionary:
 	var save_dict = {
 		"highscore" : highScore,
 	}
@@ -58,6 +62,7 @@ func _on_microgame_manager_on_micro_game_loaded() -> void:
 
 func _on_node_2d_on_game_over(finalScore:int) -> void:
 	DisableUI()
+	$TimerUi.DisableTimer()
 	EnableFinalScore(finalScore)
 
 
@@ -76,3 +81,7 @@ func _on_button_pressed() -> void:
 func _on_restart_game() -> void:
 	EnableUI()
 	DisableFinalScore()
+
+func _spawn_timer(timer: Timer) -> void:
+		$TimerUi.visible = true
+		$TimerUi.init(timer)
