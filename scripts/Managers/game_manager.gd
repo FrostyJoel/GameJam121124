@@ -15,12 +15,14 @@ signal onHealthUpdate(newHealth:int)
 signal onScoreUpdate(newScore:int)
 
 var timesSpedUp : int
+var temp = null
 
 @export var dreamBubbles : AnimatedSprite2D
 @export var microgameCloud : Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GameMusicAudioPlayer.play()
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
 	$MicrogameManager.microGameLose.connect(MicrogameLose)
 	$SaveManager.load_game()
@@ -52,15 +54,18 @@ func ShowTimer(time: float):
 # Functions for winning and losing microgames, called from the microgame manager
 func MicrogameLose():
 	print("Microgame Loss...")
+	$LoseAudioPlayer.play()
 	AfterMicrogame()
 	LoseHealth()
 
 func MicrogameWin():
 	print("Microgame Won!")
+	$WinAudioPlayer.play()
 	AfterMicrogame()
 	$GameManager/TransitionTimer.start()
 
 func AfterMicrogame():
+	$GameMusicAudioPlayer.set_volume_db(10)
 	DoDreamBubbleReverse()
 	microgameCloud.visible = false
 
@@ -72,11 +77,12 @@ func LoseHealth():
 		GameOver()
 	
 	onHealthUpdate.emit(currentHealth)
-	
 
 func SpawnNextMicroGame():
 	CheckScore()
 	$GameManager/TransitionTimer.start()
+	$GameMusicAudioPlayer.set_volume_db(24)
+	print("AUDIO?")
 
 # Checks score for speed up & boss triggers
 func CheckScore():
