@@ -1,16 +1,35 @@
 extends Node
 
+@export var healthContainer: HBoxContainer
 @onready var health_amount: Label = $"Health Amount"
 @onready var score_amount: Label = $"Score Amount"
 @onready var you_lose: Label = $"You Lose"
 @onready var final_score: Label = $"You Lose/FinalScore"
 @onready var high_score: Label = $"You Lose/HighScore"
 
+@export var healthIcon1 : TextureRect
+@export var healthIcon2 : TextureRect
+@export var healthIcon3 : TextureRect
+
 signal restartGame
 
 var highScore : int = -1
 
 func UpdateHealthUI(newHealth:int) -> void:
+	healthIcon1.visible = false
+	healthIcon2.visible = false
+	healthIcon3.visible = false
+	
+	if (newHealth == 3):
+		healthIcon1.visible = true
+		healthIcon2.visible = true
+		healthIcon3.visible = true
+	elif (newHealth == 2):
+		healthIcon1.visible = true
+		healthIcon2.visible = true
+	elif (newHealth == 1):
+		healthIcon1.visible = true
+	
 	health_amount.text = "Health Amount: " + str(newHealth) 
 
 
@@ -32,11 +51,13 @@ func DisableFinalScore() -> void:
 	you_lose.visible = false;
 
 func DisableUI() -> void:
+	healthContainer.visible = false
 	health_amount.visible = false
 	score_amount.visible = false
 
 func EnableUI() -> void:
-	health_amount.visible = true
+	healthContainer.visible = true
+	#health_amount.visible = true
 	score_amount.visible = true
 	$TimerUi.DisableTimer()
 
