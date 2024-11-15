@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=29 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_ygwc3"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_fgo63"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" path="res://scenes/main_UI.tscn" id="17_yfuwa"]
 [ext_resource type="Texture2D" uid="uid://q32olkjb2rpg" path="res://assets/UI/thought bubble growing sprite sheet.png" id="19_cvurd"]
 [ext_resource type="Texture2D" uid="uid://b5e0d5dibu7f1" path="res://assets/UI/Minigame Border.png" id="20_ugx14"]
+[ext_resource type="AudioStream" uid="uid://b05taja1kxuok" path="res://audio/Win Sound.wav" id="21_fwsem"]
+[ext_resource type="AudioStream" uid="uid://blml6a6v7oqrq" path="res://audio/Lose Sound.wav" id="22_rfnov"]
+[ext_resource type="AudioStream" uid="uid://3jpjrp03tpyu" path="res://audio/Game Song.wav" id="23_w55f4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
 atlas = ExtResource("19_cvurd")
@@ -59,7 +62,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud")]
 script = ExtResource("1_ygwc3")
-maxHealth = 1
+maxHealth = 3
 dreamBubbles = NodePath("DreamBubbles")
 microgameCloud = NodePath("MicrogameCloud")
 
@@ -107,6 +110,19 @@ z_index = 4
 position = Vector2(960, 540)
 scale = Vector2(1.1, 1.01)
 texture = ExtResource("20_ugx14")
+
+[node name="WinAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_fwsem")
+volume_db = 24.0
+
+[node name="LoseAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_rfnov")
+volume_db = 24.0
+
+[node name="GameMusicAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_w55f4")
+volume_db = 18.0
+autoplay = true
 
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]

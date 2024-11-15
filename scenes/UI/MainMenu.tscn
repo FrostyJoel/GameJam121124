@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scripts/UI/button_setfocus.gd" id="2_xofhs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_108nf"]
+font = ExtResource("2_u2ro0")
 font_size = 48
 font_color = Color(0.898039, 0.945098, 1, 1)
 outline_size = 28

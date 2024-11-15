@@ -10,12 +10,6 @@ script = ExtResource("1_e0s4r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Control" parent="." instance=ExtResource("2_s8yq2")]
-offset_left = 121.0
-offset_top = -507.0
-offset_right = 1121.0
-offset_bottom = 493.0
-
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
@@ -26,5 +20,10 @@ scale = Vector2(0.525, 0.525)
 texture = ExtResource("3_51j7m")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Control" parent="." instance=ExtResource("2_s8yq2")]
+offset_left = 195.0
+offset_right = 1195.0
+scale = Vector2(0.4, 0.4)
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

@@ -43,6 +43,7 @@ _data = {
 }
 
 [node name="RPS" type="Node2D"]
+position = Vector2(960, 540)
 script = ExtResource("1_0n2en")
 
 [node name="DotsRps" type="Sprite2D" parent="."]
