@@ -23,6 +23,7 @@ var temp = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GirlAnimations/AnimationPlayer.play("sleeping")
 	$GameMusicAudioPlayer.play()
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
 	$MicrogameManager.microGameLose.connect(MicrogameLose)
@@ -55,12 +56,14 @@ func ShowTimer(time: float):
 # Functions for winning and losing microgames, called from the microgame manager
 func MicrogameLose():
 	print("Microgame Loss...")
+	$GirlAnimations/AnimationPlayer.play("loselife")
 	$LoseAudioPlayer.play()
 	AfterMicrogame()
 	LoseHealth()
 
 func MicrogameWin():
 	print("Microgame Won!")
+	$GirlAnimations/AnimationPlayer.play("sleeping")
 	CheckScore()
 	$WinAudioPlayer.play()
 	AfterMicrogame()
@@ -98,6 +101,7 @@ func CheckScore():
 
 # Called when the player loses all health
 func GameOver():
+	$GirlAnimations/AnimationPlayer.play("GameOverBad")
 	onGameOver.emit(currentScore)
 	$SaveManager.save_game()
 	Engine.time_scale = 1
@@ -122,6 +126,7 @@ func _on_game_start_timer_timeout() -> void:
 func _on_transition_timer_timeout() -> void:
 	$GameManager/BubbleTimer.start()
 	DoDreamBubbles()
+	$GirlAnimations/AnimationPlayer.play("sleeping")
 	$GameMusicAudioPlayer.set_volume_db(18)
 
 # Small timer to wait for the dream bubbles

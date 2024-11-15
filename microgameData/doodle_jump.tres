@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://hwv85pkrppst"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://cqvada0j3le12"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_8h58m"]
 [ext_resource type="PackedScene" uid="uid://bcqtxbt01sa6u" path="res://scenes/Microgames/doodlejump/doodle_jump1.tscn" id="2_uymjx"]
-[ext_resource type="PackedScene" uid="uid://7hnfy0vxgs72" path="res://scenes/Microgames/doodlejump/doodle_jump2.tscn" id="3_3uyqb"]
-[ext_resource type="PackedScene" uid="uid://3muyrowplwe" path="res://scenes/Microgames/doodlejump/doodle_jump3.tscn" id="4_qxj6n"]
+[ext_resource type="PackedScene" uid="uid://bvj1wtiee5chy" path="res://scenes/Microgames/doodlejump/doodle_jump2.tscn" id="3_3uyqb"]
+[ext_resource type="PackedScene" uid="uid://karkie20j040" path="res://scenes/Microgames/doodlejump/doodle_jump3.tscn" id="4_qxj6n"]
 
 [resource]
 script = ExtResource("1_8h58m")
