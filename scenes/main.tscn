@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=34 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_ygwc3"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_fgo63"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://xu1yww7j5qx0" path="res://assets/UI/ThoughtCorner2.png" id="23_wl88f"]
 [ext_resource type="Texture2D" uid="uid://t7d71yblh58" path="res://assets/UI/THoughtCorner3.png" id="24_e7at5"]
 [ext_resource type="PackedScene" path="res://assets/girl_animations.tscn" id="27_cuawq"]
+[ext_resource type="VideoStream" path="res://assets/Videos/PassMicrogame.ogv" id="28_lhh8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
 atlas = ExtResource("19_cvurd")
@@ -64,9 +65,10 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud", "cloudFrame")]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("videoStream", "dreamBubbles", "microgameCloud", "cloudFrame")]
 script = ExtResource("1_ygwc3")
 maxHealth = 3
+videoStream = NodePath("VideoStreamPlayer")
 dreamBubbles = NodePath("DreamBubbles")
 microgameCloud = NodePath("MicrogameCloud")
 cloudFrame = NodePath("CloudFrame")
@@ -161,6 +163,12 @@ autoplay = true
 [node name="GirlAnimations" parent="." instance=ExtResource("27_cuawq")]
 position = Vector2(1013, 569)
 scale = Vector2(0.6, 0.6)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stream = ExtResource("28_lhh8a")
+autoplay = true
 
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]

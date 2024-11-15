@@ -10,6 +10,8 @@ var currentHealth : int :
 @export var maxSpeedUpSteps : int = 10
 @export var speedUpMultiplierStep : float = 0.1
 
+@export var videoStream : VideoStreamPlayer
+
 signal onGameOver(finalScore:int)
 signal onHealthUpdate(newHealth:int)
 signal onScoreUpdate(newScore:int)
@@ -60,6 +62,8 @@ func MicrogameLose():
 	$LoseAudioPlayer.play()
 	AfterMicrogame()
 	LoseHealth()
+	videoStream.stream = load("res://assets/Videos/LoseMicrogame.ogv")
+	videoStream.play()
 
 func MicrogameWin():
 	print("Microgame Won!")
@@ -68,6 +72,8 @@ func MicrogameWin():
 	$WinAudioPlayer.play()
 	AfterMicrogame()
 	$GameManager/TransitionTimer.start()
+	videoStream.stream = load("res://assets/Videos/PassMicrogame.ogv")
+	videoStream.play()
 
 func AfterMicrogame():
 	$GameMusicAudioPlayer.set_volume_db(10)
@@ -107,6 +113,8 @@ func GameOver():
 	onGameOver.emit(currentScore)
 	$SaveManager.save_game()
 	Engine.time_scale = 1
+	videoStream.stream = load("res://assets/Videos/GameOverVid.ogv")
+	videoStream.play()
 
 
 func DoDreamBubbles():
