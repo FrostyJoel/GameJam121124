@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Astroid
 
-@export var speed: int = 25
+@export var speed: int = 250
 var health : int = 6
 
 func _ready():
