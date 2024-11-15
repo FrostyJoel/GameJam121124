@@ -10,7 +10,7 @@ func _ready() -> void:
 	$Timer.start()
 	$DogEaterNumber.text = str(DogEaterNumber)
 	#Needed to find and enableTimer
-	var uiManager = get_tree().get_nodes_in_group("Uijj")
+	var uiManager = get_tree().get_nodes_in_group("UiManager")
 	for node in uiManager:
 		# Check the node has a save function.
 		if !node.has_method("Enabletimer"):
