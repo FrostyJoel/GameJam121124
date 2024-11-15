@@ -74,6 +74,8 @@ func AfterMicrogame():
 	DoDreamBubbleReverse()
 	microgameCloud.visible = false
 	cloudFrame.visible = false
+	$UiManager.EnableUI()
+
 
 func LoseHealth():
 	if (currentHealth > 1):
@@ -136,7 +138,6 @@ func _on_bubble_timer_timeout() -> void:
 	if (currentScore == 0):
 		StartGame()
 	else:
-		$UiManager.EnableUI()
 		$MicrogameManager.StartSpawningTimer()
 	dreamBubbles.visible = false
 
