@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/Spawner_Medium.gd" id="4_0ldd6"]
 
 [node name="Astroid_Normal" type="Node2D"]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
 script = ExtResource("1_3mn8e")
 
 [node name="SpaceShip" parent="." instance=ExtResource("2_t4ffm")]
@@ -52,7 +54,6 @@ position = Vector2(196, -111)
 script = ExtResource("4_0ldd6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 8.0

@@ -6,6 +6,7 @@ var button_presses_pressed = 0
 var block_input = false
 var hide_cartridge_once = true
 var win_condition_met = false
+var blow_audio_is_playing = false
 
 signal game_won
 signal game_over
@@ -37,6 +38,9 @@ func _physics_process(delta: float) -> void:
 		button_presses_pressed += 1
 		$WindSprite.show()
 		$DustParticles.emitting = true
+		if blow_audio_is_playing == false:
+			$BlowingAudioPlayer.play()
+			blow_audio_is_playing = true
 		$PressTimer.start()
 		#blows away a piece of dirt if there is any left
 		if dirt_pieces.size() > 0:
@@ -51,6 +55,7 @@ func _physics_process(delta: float) -> void:
 		
 	if button_presses_pressed >= amount_of_dirt_pieces:
 		block_input = true
+		$WindSprite.hide()
 		win_condition_met = true
 		game_done()
 
@@ -63,6 +68,8 @@ func game_done():
 
 func _on_press_timer_timeout() -> void:
 	$WindSprite.hide()
+	$BlowingAudioPlayer.stop()
+	blow_audio_is_playing = false
 	$DustParticles.emitting = false
 	$DustParticles2.emitting = false
 
@@ -77,6 +84,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.play("WorkingScreen")
 		elif win_condition_met == false:
 			$BrokenScreen.show()
+			$BrokenAudioPlayer.play()
 			$EndOfGameTimer.start()
 	if anim_name == "WorkingScreen":
 		$DingAudioPlayer.play()
@@ -86,9 +94,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_game_timer_timeout() -> void:
 	if win_condition_met == false:
 		game_done()
-		
-		
-		
 
 
 func _on_end_of_game_timer_timeout() -> void:

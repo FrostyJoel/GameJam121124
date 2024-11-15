@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://c6w1do32qu3g4" path="res://scenes/Microgames/blowthecartridge/scenes2/game_boy.tscn" id="2_48jhr"]
 
 [node name="Level2" type="Node2D"]
+position = Vector2(960, 540)
 script = ExtResource("1_va4j3")
 
 [node name="GameBoy" parent="." instance=ExtResource("2_48jhr")]
+position = Vector2(0, 100)
+scale = Vector2(0.6, 0.6)
 amount_of_dirt_pieces = 17
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(0, -32)
-zoom = Vector2(0.7, 0.7)

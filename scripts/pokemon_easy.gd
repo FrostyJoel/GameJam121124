@@ -22,8 +22,8 @@ func _ready() -> void:
 	
 	
 	# Assign moves to each slot
-	for n in 4:
-		var random = randi_range(0,3-n)
+	for n in 2:
+		var random = randi_range(0,1-n)
 		var move = "null"
 		if movetypes[random] == "bad":
 			var randombad = randi_range(0, badmoves.size()-1)
@@ -58,14 +58,6 @@ func _process(delta: float) -> void:
 				currentbutton = $ButtonTest1
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 				currentbutton.texture = SelectedButton
-			elif currentlabel == move_4:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_3
-				currentbutton = $ButtonTest3
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-				
 		if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PositiveHorizontal"):
 			if currentlabel == move_1:
 				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
@@ -74,46 +66,6 @@ func _process(delta: float) -> void:
 				currentbutton = $ButtonTest2
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 				currentbutton.texture = SelectedButton
-			elif currentlabel == move_3:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_4
-				currentbutton = $ButtonTest4
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-				
-		if Input.is_action_just_pressed("DirUp") or Input.is_action_just_pressed("PostiveVertical"):
-			if currentlabel == move_3:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_1
-				currentbutton = $ButtonTest1
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-			elif currentlabel == move_4:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_2
-				currentbutton = $ButtonTest2
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-				
-		if Input.is_action_just_pressed("DirDown") or Input.is_action_just_pressed("NegativeVertical"):
-			if currentlabel == move_1:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_3
-				currentbutton = $ButtonTest3
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-			elif currentlabel == move_2:
-				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
-				currentbutton.texture = UnselectedButton
-				currentlabel = move_4
-				currentbutton = $ButtonTest4
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-				currentbutton.texture = SelectedButton
-		
 		if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
 			if currentlabel.get_meta("Tag") == "good":
 				$WinAnimationPlayer.play("WinGame")
