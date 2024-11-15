@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjg0dscobd4p1"]
+[gd_scene load_steps=10 format=3 uid="uid://bjg0dscobd4p1"]
 
 [ext_resource type="Script" path="res://scripts/UI/ui_manager.gd" id="1_kkol2"]
+[ext_resource type="Texture2D" uid="uid://caxvjtb0hjh3y" path="res://assets/UI/MenuUI_HealthIcon.png" id="2_3q5ko"]
 [ext_resource type="PackedScene" uid="uid://dv8vcluoohkeu" path="res://scenes/UI/TimerUI.tscn" id="2_4bp77"]
 [ext_resource type="FontFile" uid="uid://doismeynb03k1" path="res://ui/Fonts/Dangrek-Regular.ttf" id="2_p7lay"]
 [ext_resource type="Script" path="res://scripts/UI/button_setfocus.gd" id="4_i856t"]
@@ -48,19 +49,50 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="UiManager" type="Node" groups=["Ui"]]
+[node name="UiManager" type="Node" node_paths=PackedStringArray("healthContainer", "healthIcon1", "healthIcon2", "healthIcon3") groups=["Ui"]]
 script = ExtResource("1_kkol2")
+healthContainer = NodePath("HealthContainer")
+healthIcon1 = NodePath("HealthContainer/TextureRect")
+healthIcon2 = NodePath("HealthContainer/TextureRect2")
+healthIcon3 = NodePath("HealthContainer/TextureRect3")
+
+[node name="HealthContainer" type="HBoxContainer" parent="."]
+offset_left = 70.0
+offset_top = 50.0
+offset_right = 978.0
+offset_bottom = 350.0
+scale = Vector2(0.3, 0.3)
+
+[node name="TextureRect" type="TextureRect" parent="HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_3q5ko")
+
+[node name="TextureRect2" type="TextureRect" parent="HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_3q5ko")
+
+[node name="TextureRect3" type="TextureRect" parent="HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_3q5ko")
 
 [node name="Health Amount" type="Label" parent="."]
+visible = false
 offset_right = 426.0
 offset_bottom = 26.0
 text = "Health Amount:
 "
 
 [node name="Score Amount" type="Label" parent="."]
-offset_top = 20.0
-offset_right = 426.0
-offset_bottom = 46.0
+visible = false
+offset_left = 54.0
+offset_top = 146.0
+offset_right = 480.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0.996078, 0.796078, 0.901961, 1)
+theme_override_colors/font_outline_color = Color(0.403922, 0.427451, 0.537255, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_p7lay")
+theme_override_font_sizes/font_size = 40
 text = "Score Amount:
 "
 
