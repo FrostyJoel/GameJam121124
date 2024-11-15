@@ -51,7 +51,10 @@ corner_radius_bottom_left = 10
 [node name="UiManager" type="Node" groups=["Ui"]]
 script = ExtResource("1_kkol2")
 
-[node name="TimerUi" parent="." instance=ExtResource("2_4bp77")]
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+position = Vector2(960, 540)
+
+[node name="TimerUi" parent="CanvasGroup" instance=ExtResource("2_4bp77")]
 
 [node name="Health Amount" type="Label" parent="."]
 offset_right = 426.0
