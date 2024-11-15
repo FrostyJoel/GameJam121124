@@ -34,7 +34,7 @@ func UpdateHealthUI(newHealth:int) -> void:
 
 
 func UpdateScoreUI(newScore:int) -> void:
-	score_amount.text = "Score Amount: " + str(newScore)
+	score_amount.text = "Days Slept: " + str(newScore)
 	
 	if newScore > highScore:
 		highScore = newScore

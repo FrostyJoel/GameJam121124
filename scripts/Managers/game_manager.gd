@@ -10,6 +10,11 @@ var currentHealth : int :
 @export var maxSpeedUpSteps : int = 10
 @export var speedUpMultiplierStep : float = 0.1
 
+@export var videoStream : VideoStreamPlayer
+@export var lossLast : Sprite2D
+@export var winLast : Sprite2D
+@export var gameoverLast : Sprite2D
+
 signal onGameOver(finalScore:int)
 signal onHealthUpdate(newHealth:int)
 signal onScoreUpdate(newScore:int)
@@ -61,6 +66,13 @@ func MicrogameLose():
 	AfterMicrogame()
 	LoseHealth()
 
+func DisplayLossVideo():
+	videoStream.stream = load("res://assets/Videos/LoseMicrogame.ogv")
+	videoStream.play()
+	gameoverLast.visible = false
+	lossLast.visible = true
+	winLast.visible = false
+
 func MicrogameWin():
 	print("Microgame Won!")
 	$GirlAnimations/AnimationPlayer.play("sleeping")
@@ -68,6 +80,11 @@ func MicrogameWin():
 	$WinAudioPlayer.play()
 	AfterMicrogame()
 	$GameManager/TransitionTimer.start()
+	videoStream.stream = load("res://assets/Videos/PassMicrogame.ogv")
+	videoStream.play()
+	gameoverLast.visible = false
+	lossLast.visible = false
+	winLast.visible = true
 
 func AfterMicrogame():
 	$GameMusicAudioPlayer.set_volume_db(10)
@@ -81,6 +98,7 @@ func LoseHealth():
 	if (currentHealth > 1):
 		currentHealth -= 1
 		SpawnNextMicroGame()
+		DisplayLossVideo()
 	else:
 		GameOver()
 	
@@ -107,6 +125,11 @@ func GameOver():
 	onGameOver.emit(currentScore)
 	$SaveManager.save_game()
 	Engine.time_scale = 1
+	videoStream.stream = load("res://assets/Videos/GameOverVid.ogv")
+	videoStream.play()
+	gameoverLast.visible = true
+	lossLast.visible = false
+	winLast.visible = false
 
 
 func DoDreamBubbles():
