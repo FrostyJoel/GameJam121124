@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb6cjyhfxvofa"]
+
+[ext_resource type="Texture2D" uid="uid://cy0wvr3l1vfic" path="res://scenes/Microgames/blowthecartridge/assets2/CartridgePixel.png" id="1_51ohb"]
+[ext_resource type="Script" path="res://scenes/Microgames/blowthecartridge/scripts2/dirt_for_cartridge.gd" id="1_y4p22"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_y4p22")
+
+[node name="CartridgePixel" type="Sprite2D" parent="."]
+z_index = 100
+texture = ExtResource("1_51ohb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

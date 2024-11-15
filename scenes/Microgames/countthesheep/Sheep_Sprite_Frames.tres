@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://ba7f5vekcpy3u"]
+
+[ext_resource type="Texture2D" uid="uid://cauyu7qdhdvrn" path="res://scenes/Microgames/countthesheep/FlySheep2.png" id="1_jgg1b"]
+[ext_resource type="Texture2D" uid="uid://diag8lcfmqux8" path="res://scenes/Microgames/countthesheep/FlySheep1.png" id="2_oy3kw"]
+[ext_resource type="Texture2D" uid="uid://bodqs8qlslsf3" path="res://scenes/Microgames/countthesheep/FlySheep3.png" id="3_ib830"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jgg1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oy3kw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_jgg1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ib830")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
