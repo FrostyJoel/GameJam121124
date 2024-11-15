@@ -1,21 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjr4dyw1ekamf"]
 
 [ext_resource type="Script" path="res://scripts/DoodleJump/platform.gd" id="1_m6nio"]
-[ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_nvs1p"]
+[ext_resource type="Texture2D" uid="uid://dgbw0hh608104" path="res://assets/images/CloudPlatform.png" id="2_0bvo1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu3yj"]
-size = Vector2(132, 32)
+size = Vector2(132, 54)
 
 [node name="StaticBody2D" type="Node2D"]
 script = ExtResource("1_m6nio")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(7.49035e-07, 0.251337, 0.0200816, 1)
-scale = Vector2(4.12, 1)
-texture = ExtResource("2_nvs1p")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_bu3yj")
 one_way_collision = true
+
+[node name="CloudPlatform" type="Sprite2D" parent="."]
+position = Vector2(1, 10)
+scale = Vector2(0.524078, 0.524079)
+texture = ExtResource("2_0bvo1")

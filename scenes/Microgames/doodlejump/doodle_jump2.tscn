@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://7hnfy0vxgs72"]
+[gd_scene load_steps=8 format=3 uid="uid://7hnfy0vxgs72"]
 
 [ext_resource type="Script" path="res://scripts/DoodleJump/doodle_jump.gd" id="1_w2wwb"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_axiwi"]
+[ext_resource type="Texture2D" uid="uid://rlyaa5uqppun" path="res://assets/images/doodlebackground.png" id="2_batfd"]
 [ext_resource type="PackedScene" uid="uid://bjr4dyw1ekamf" path="res://scenes/Microgames/doodlejump/platform.tscn" id="3_4ccws"]
 [ext_resource type="Script" path="res://scripts/DoodleJump/DoodleCharacter.gd" id="4_eio4l"]
 [ext_resource type="PackedScene" uid="uid://s4o7c2rf0s8" path="res://scenes/Microgames/doodlejump/coin.tscn" id="5_1h1cq"]
@@ -16,9 +17,9 @@ script = ExtResource("1_w2wwb")
 [node name="Square" type="Sprite2D" parent="."]
 modulate = Color(0.701448, 0.790884, 0.672883, 1)
 z_index = -1
-position = Vector2(64, -154.845)
-scale = Vector2(33.7499, 72.8847)
-texture = ExtResource("2_axiwi")
+position = Vector2(72, 175.625)
+scale = Vector2(0.527, 0.527)
+texture = ExtResource("2_batfd")
 
 [node name="Platforms" type="Node2D" parent="."]
 position = Vector2(-900, -208)
@@ -74,6 +75,7 @@ position = Vector2(-9, 569)
 script = ExtResource("4_eio4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
+modulate = Color(1, 0.764706, 0.819608, 1)
 position = Vector2(0, 1)
 texture = ExtResource("2_axiwi")
 
