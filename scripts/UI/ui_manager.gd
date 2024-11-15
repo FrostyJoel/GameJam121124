@@ -59,11 +59,14 @@ func EnableUI() -> void:
 	healthContainer.visible = true
 	#health_amount.visible = true
 	score_amount.visible = true
-	$TimerUi.DisableTimer()
+	DisableTimer()
 
 func Enabletimer(gameTimer : Timer) -> void:
 	$TimerUi.Init(gameTimer)
 	$TimerUi.EnableTimer()
+
+func DisableTimer() -> void:
+	$TimerUi.DisableTimer()
 
 func save() -> Dictionary:
 	var save_dict = {
