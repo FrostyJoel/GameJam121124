@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://wi7adwugqg4b"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://wi7adwugqg4b"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_to4b8"]
-[ext_resource type="PackedScene" uid="uid://dts172lxhj0vs" path="res://scenes/Microgames/defendtheflag/scenes/level_1.tscn" id="2_us2mk"]
+[ext_resource type="PackedScene" uid="uid://dts172lxhj0vs" path="res://scenes/Microgames/defendtheflag/scenes/astroid_easy.tscn" id="2_0olex"]
+[ext_resource type="PackedScene" uid="uid://iuoa0vdrl4g5" path="res://scenes/Microgames/defendtheflag/scenes/astroid_normal.tscn" id="3_6a481"]
+[ext_resource type="PackedScene" uid="uid://cv733x3v6ty5y" path="res://scenes/Microgames/defendtheflag/scenes/astroid_hard.tscn" id="4_3gh6t"]
 
 [resource]
 script = ExtResource("1_to4b8")
-instruction = "Shoot"
-variations = Array[PackedScene]([ExtResource("2_us2mk")])
+instruction = "Survive"
+variations = Array[PackedScene]([ExtResource("2_0olex"), ExtResource("3_6a481"), ExtResource("4_3gh6t")])

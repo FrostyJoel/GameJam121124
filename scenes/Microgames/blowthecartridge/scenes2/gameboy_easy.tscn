@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://br7als71a1mn8"]
+
+[ext_resource type="PackedScene" uid="uid://c6w1do32qu3g4" path="res://scenes/Microgames/blowthecartridge/scenes2/game_boy.tscn" id="1_2g423"]
+[ext_resource type="Script" path="res://scenes/Microgames/blowthecartridge/scripts2/gameboy_easy.gd" id="1_xagu5"]
+
+[node name="Level2" type="Node2D"]
+position = Vector2(960, 540)
+script = ExtResource("1_xagu5")
+
+[node name="GameBoy" parent="." instance=ExtResource("1_2g423")]
+position = Vector2(0, 100)
+scale = Vector2(0.6, 0.6)
+amount_of_dirt_pieces = 10
+
+[node name="Camera2D" type="Camera2D" parent="."]

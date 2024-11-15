@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://bw5y0evbtor4o"]
+
+[ext_resource type="Script" path="res://scenes/Microgames/hotdogcontest/hot_dog_eater.gd" id="1_kbsyw"]
+[ext_resource type="Texture2D" uid="uid://bbcfi28ul4ugf" path="res://assets/images/HotDogStuff/HDBackground.png" id="1_ry1ou"]
+[ext_resource type="Texture2D" uid="uid://cd1lp5suhgovf" path="res://assets/images/HotDogStuff/HotDogMan.png" id="2_dd6yo"]
+[ext_resource type="PackedScene" uid="uid://c54of5w13vi05" path="res://scenes/Microgames/hotdogcontest/HotDogArmScene.tscn" id="2_yb573"]
+[ext_resource type="Texture2D" uid="uid://d174tpn7td2b0" path="res://assets/images/HotDogStuff/HDTopLayer.png" id="3_gh552"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea3uk"]
+atlas = ExtResource("2_dd6yo")
+region = Rect2(0, 0, 360, 278)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co8sn"]
+atlas = ExtResource("2_dd6yo")
+region = Rect2(360, 0, 360, 278)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fda6v"]
+atlas = ExtResource("2_dd6yo")
+region = Rect2(720, 0, 360, 278)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1r1w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea3uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8sn")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_fda6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co8sn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea3uk")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="HotDogEater" type="Node2D"]
+script = ExtResource("1_kbsyw")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(540, 540)
+texture = ExtResource("1_ry1ou")
+offset = Vector2(400, 0)
+
+[node name="HotDogArmScene" parent="." instance=ExtResource("2_yb573")]
+position = Vector2(724, 590)
+
+[node name="HotDogMan" type="AnimatedSprite2D" parent="."]
+position = Vector2(302, 576)
+sprite_frames = SubResource("SpriteFrames_y1r1w")
+frame = 4
+frame_progress = 1.0
+offset = Vector2(400, 0)
+
+[node name="PlayerNumber" type="Label" parent="."]
+offset_left = 570.0
+offset_top = 205.0
+offset_right = 762.0
+offset_bottom = 358.0
+theme_override_colors/font_color = Color(0.91, 0.273, 0.283617, 1)
+theme_override_colors/font_outline_color = Color(0.45098, 0.027451, 0.0352941, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 112
+text = "0
+"
+horizontal_alignment = 1
+
+[node name="DogEaterNumber" type="Label" parent="."]
+offset_left = 1130.0
+offset_top = 215.0
+offset_right = 1322.0
+offset_bottom = 368.0
+theme_override_colors/font_color = Color(0.352, 0.5104, 0.88, 1)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.215686, 0.568627, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 112
+text = "3
+"
+horizontal_alignment = 1
+
+[node name="TopLayer" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(540, 540)
+texture = ExtResource("3_gh552")
+offset = Vector2(400, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="WinGameTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="WinGameTimer" to="." method="_on_win_game_timer_timeout"]
