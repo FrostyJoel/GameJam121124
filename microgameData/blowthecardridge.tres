@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://prq3rykl4lhu"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://prq3rykl4lhu"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_165bj"]
 [ext_resource type="PackedScene" uid="uid://br7als71a1mn8" path="res://scenes/Microgames/blowthecartridge/scenes2/gameboy_easy.tscn" id="2_rxhtr"]
+[ext_resource type="PackedScene" uid="uid://damgsxwfki3qa" path="res://scenes/Microgames/blowthecartridge/scenes2/gameboy_normal.tscn" id="3_cmgg5"]
+[ext_resource type="PackedScene" uid="uid://bxjds750kito0" path="res://scenes/Microgames/blowthecartridge/scenes2/gameboy_hard.tscn" id="4_i86dy"]
 
 [resource]
 script = ExtResource("1_165bj")
 instruction = "Blow"
-variations = Array[PackedScene]([ExtResource("2_rxhtr")])
+variations = Array[PackedScene]([ExtResource("2_rxhtr"), ExtResource("3_cmgg5"), ExtResource("4_i86dy")])
