@@ -6,7 +6,7 @@
 [sub_resource type="ImageTexture" id="ImageTexture_buaxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bgsm4"]
-size = Vector2(21, 24)
+size = Vector2(31, 24)
 
 [node name="SheepBody2D" type="CharacterBody2D"]
 z_index = 1
@@ -18,7 +18,7 @@ script = ExtResource("1_jjh2v")
 texture = SubResource("ImageTexture_buaxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4.5)
+position = Vector2(-0.999982, -0.499998)
 rotation = 1.5708
 scale = Vector2(1, 0.7)
 shape = SubResource("RectangleShape2D_bgsm4")

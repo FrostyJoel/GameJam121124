@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dh30k60c82o45" path="res://assets/images/fencepiece 3.png" id="7_crjfh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_itkj5"]
-size = Vector2(0.585173, 7.49432)
+size = Vector2(0.749911, 9.55493)
 
 [node name="Fence" type="Node2D"]
 script = ExtResource("1_gewkd")
@@ -35,7 +35,7 @@ texture = ExtResource("3_ef8f3")
 position = Vector2(-16, 44)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(77.5529, -25.8193)
+position = Vector2(109.17, -18.0109)
 rotation = -0.024258
 scale = Vector2(189.3, 8.32082)
 shape = SubResource("RectangleShape2D_itkj5")
