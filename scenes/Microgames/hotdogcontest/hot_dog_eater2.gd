@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 				$HotDogMan.play("default")
 				$HotDogArmScene._EatingTheDogs()
 				CurrentDogsEaten += 1
+				$AudioStreamPlayer2D.stream = load("res://audio/HotdogGame/EatingNoise" + str(randi_range(1,3)) + ".mp3")
+				$AudioStreamPlayer2D.play()
 				$PlayerNumber.text = str(CurrentDogsEaten)
 				if CurrentDogsEaten > DogEaterNumber:
 					$PlayerNumber.add_theme_color_override("font_color", Color("GOLD"))
