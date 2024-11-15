@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 					print("YOU WIN")
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
@@ -64,6 +65,7 @@ func _process(delta: float) -> void:
 					print("YOU LOSE")
 					timer.stop()
 					$Square.modulate = Color(255,0,0)
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()					
 					gameended = true
 					result = false
@@ -72,6 +74,7 @@ func _process(delta: float) -> void:
 					print("YOU WIN")	
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
@@ -79,6 +82,7 @@ func _process(delta: float) -> void:
 					print("YOU LOSE")
 					timer.stop()
 					$Square.modulate = Color(255,0,0)
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()
 					gameended = true
 					result = false
@@ -87,6 +91,7 @@ func _process(delta: float) -> void:
 					print("YOU WIN")
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
@@ -94,6 +99,7 @@ func _process(delta: float) -> void:
 					print("YOU LOSE")
 					timer.stop()
 					$Square.modulate = Color(255,0,0)					
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()
 					gameended = true
 					result = false
@@ -103,6 +109,7 @@ func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
 	microgameEnded.emit(false)
 	$Square.modulate = Color(255,0,0)
+	$DotsRps.modulate = Color(1.3,0,0)
 	$EndTimer.start()
 	gameended = true
 

@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://ctxefxfbxi4v1"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://cghykce07b5xy"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_rbxhn"]
-[ext_resource type="PackedScene" uid="uid://dxn3l68pd10cs" path="res://scenes/rockpaperscissors.tscn" id="2_qxkfn"]
-[ext_resource type="PackedScene" uid="uid://by4s0v7jh1fro" path="res://scenes/rockpaperscissors2.tscn" id="3_cmic5"]
-[ext_resource type="PackedScene" uid="uid://dcgjcy58leuj6" path="res://scenes/rockpaperscissors3.tscn" id="4_o8pm5"]
+[ext_resource type="PackedScene" uid="uid://ccl1woy6gxx5n" path="res://scenes/rockpaperscissors.tscn" id="2_qxkfn"]
+[ext_resource type="PackedScene" uid="uid://c6hchbyic7ioh" path="res://scenes/rockpaperscissors2.tscn" id="3_cmic5"]
+[ext_resource type="PackedScene" uid="uid://cai4vv45erej8" path="res://scenes/rockpaperscissors3.tscn" id="4_o8pm5"]
 
 [resource]
 script = ExtResource("1_rbxhn")
