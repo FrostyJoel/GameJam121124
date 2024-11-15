@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccl1woy6gxx5n"]
+[gd_scene load_steps=9 format=3 uid="uid://ccl1woy6gxx5n"]
 
 [ext_resource type="Script" path="res://scripts/rockpaperscissors.gd" id="1_crxe6"]
 [ext_resource type="Texture2D" uid="uid://e88jyq8q8gl5" path="res://assets/images/Thoughtcloud.png" id="2_o5mnl"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="3_8xicg"]
 [ext_resource type="Texture2D" uid="uid://bj03wpmrypyop" path="res://assets/images/RockPaperScissors/DotsRPS.png" id="4_724jq"]
+[ext_resource type="Texture2D" uid="uid://cj2l5wlbadcs4" path="res://assets/images/RockPaperScissors/RPSOverlay.png" id="5_yvlaq"]
 
 [sub_resource type="Animation" id="Animation_qkewx"]
 resource_name = "MoveDots"
@@ -102,6 +103,9 @@ libraries = {
 "": SubResource("AnimationLibrary_tbgyk")
 }
 autoplay = "MoveDots"
+
+[node name="RpsOverlay" type="Sprite2D" parent="."]
+texture = ExtResource("5_yvlaq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
