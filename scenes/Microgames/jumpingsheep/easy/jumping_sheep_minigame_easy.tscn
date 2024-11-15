@@ -10,17 +10,17 @@
 size = Vector2(31, 41.25)
 
 [node name="JumpingSheepMinigame" type="Node2D"]
-position = Vector2(960, 540)
-scale = Vector2(5, 5)
 script = ExtResource("1_a81kf")
 
 [node name="SheepBody2D" parent="." instance=ExtResource("2_iwlx8")]
-position = Vector2(-125, 22)
+position = Vector2(19, 102)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 80)
+zoom = Vector2(4, 4)
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(-248, 4)
+position = Vector2(-104, 84)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(121, 35)
@@ -29,11 +29,11 @@ scale = Vector2(1.02005, -0.981161)
 shape = SubResource("WorldBoundaryShape2D_4gktq")
 
 [node name="Area2D" parent="." instance=ExtResource("3_uronb")]
-position = Vector2(1, 27)
+position = Vector2(145, 107)
 scale = Vector2(0.095858, 0.095858)
 
 [node name="WinArea" type="Area2D" parent="."]
-position = Vector2(-145, -79)
+position = Vector2(-1, 1)
 collision_layer = 2
 collision_mask = 2
 
