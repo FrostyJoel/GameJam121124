@@ -89,14 +89,12 @@ one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(117.75, -4.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xpdjr")
 
 [node name="Area2D2" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-117.625, -3.04999)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xpdjr")
 
 [connection signal="area_entered" from="SpaceShip/Hurtbox" to="." method="_on_hurtbox_area_entered"]
