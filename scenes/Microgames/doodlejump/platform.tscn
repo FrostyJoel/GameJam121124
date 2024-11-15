@@ -1,19 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjr4dyw1ekamf"]
 
+[ext_resource type="Script" path="res://scripts/DoodleJump/platform.gd" id="1_m6nio"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_nvs1p"]
-
-[sub_resource type="GDScript" id="GDScript_3x5gw"]
-script/source = "extends Node
-
-func _on_area_2d_body_entered(body) -> void:
-	pass
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bu3yj"]
 size = Vector2(132, 32)
 
 [node name="StaticBody2D" type="Node2D"]
-script = SubResource("GDScript_3x5gw")
+script = ExtResource("1_m6nio")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(7.49035e-07, 0.251337, 0.0200816, 1)
