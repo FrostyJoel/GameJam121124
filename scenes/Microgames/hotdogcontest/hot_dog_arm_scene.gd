@@ -12,7 +12,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if CanEat == true:
-		var X_value = ((int(Input.is_action_pressed("DirUp"))*2)-1)*4
+		var UpPressed = int(Input.is_action_pressed("DirUp")) + int(Input.is_action_just_pressed("PostiveHorizontal"))
+		var X_value = ((UpPressed*2)-1)*4
 		RotationSpeed = X_value * RotationMultiplier
 	rotation += RotationSpeed * delta 
 	rotation = clamp(rotation,-1.2,0)

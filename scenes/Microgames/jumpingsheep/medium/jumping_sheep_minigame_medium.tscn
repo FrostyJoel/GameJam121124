@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpm5arucp2pmh"]
+[gd_scene load_steps=7 format=3 uid="uid://bpm5arucp2pmh"]
 
 [ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_ju104"]
 [ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="2_ner5q"]
 [ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="3_alnmk"]
+[ext_resource type="Texture2D" uid="uid://b3jrf2i1ilrw0" path="res://scenes/Microgames/countthesheep/countthesheepbackground.png" id="3_srifw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gktq"]
 
@@ -19,6 +20,11 @@ position = Vector2(-125.4, 21.8)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-0.399997, -0.199997)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(9, -0.600006)
+scale = Vector2(0.105, 0.105)
+texture = ExtResource("3_srifw")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-248.4, 3.8)
@@ -45,6 +51,6 @@ shape = SubResource("RectangleShape2D_40clb")
 [node name="SheepBody2D2" parent="." instance=ExtResource("2_ner5q")]
 position = Vector2(-215.4, 21.8)
 
-[connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
 [connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
