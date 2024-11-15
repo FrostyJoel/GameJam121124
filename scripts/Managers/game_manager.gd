@@ -81,8 +81,6 @@ func LoseHealth():
 func SpawnNextMicroGame():
 	CheckScore()
 	$GameManager/TransitionTimer.start()
-	$GameMusicAudioPlayer.set_volume_db(24)
-	print("AUDIO?")
 
 # Checks score for speed up & boss triggers
 func CheckScore():
@@ -120,6 +118,8 @@ func _on_game_start_timer_timeout() -> void:
 func _on_transition_timer_timeout() -> void:
 	$GameManager/BubbleTimer.start()
 	DoDreamBubbles()
+	$GameMusicAudioPlayer.set_volume_db(18)
+	print("AUDIO?")
 
 # Small timer to wait for the dream bubbles
 func _on_bubble_timer_timeout() -> void:
