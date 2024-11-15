@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3hc3sytki4di"]
+
+[ext_resource type="Texture2D" uid="uid://cwp7cw36dujob" path="res://assets/images/controller/button_xbox_analog_l_direction_2.png" id="1_rq3vn"]
+[ext_resource type="Texture2D" uid="uid://b7kfef8da0s4a" path="res://assets/images/controller/button_xbox_analog_l_direction_4.png" id="2_0njso"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55653"]
+bg_color = Color(0.178212, 0.178212, 0.178212, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6g2r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rq3vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0njso")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BallTiltingUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -52.5
+offset_top = 58.0
+offset_right = 52.5
+offset_bottom = 162.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_55653")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/PanelContainer"]
+position = Vector2(53, 52)
+scale = Vector2(0.225, 0.225)
+sprite_frames = SubResource("SpriteFrames_o6g2r")
+autoplay = "default"
+frame_progress = 0.156299
