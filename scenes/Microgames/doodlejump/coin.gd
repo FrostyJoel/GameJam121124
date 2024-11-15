@@ -5,6 +5,8 @@ extends Area2D
 
 func _on_body_entered(body) -> void:
 	if (body.name == "Player"):
-		player.gameended = true
-		$"../EndTimer".start()
-		$"..".state = true
+		if (player.gameended == false):
+			player.gameended = true
+			$"../EndTimer".start()
+			$"..".state = true
+			queue_free()
