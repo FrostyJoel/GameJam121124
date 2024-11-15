@@ -41,29 +41,18 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="HotDogEater" type="Node2D"]
+[node name="HotDogEater2" type="Node2D"]
+position = Vector2(980, 540)
 script = ExtResource("1_kbsyw")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(540, 540)
 texture = ExtResource("1_ry1ou")
-offset = Vector2(400, 0)
-
-[node name="HotDogArmScene" parent="." instance=ExtResource("2_yb573")]
-position = Vector2(724, 590)
-
-[node name="HotDogMan" type="AnimatedSprite2D" parent="."]
-position = Vector2(302, 576)
-sprite_frames = SubResource("SpriteFrames_y1r1w")
-frame = 4
-frame_progress = 1.0
-offset = Vector2(400, 0)
 
 [node name="PlayerNumber" type="Label" parent="."]
-offset_left = 570.0
-offset_top = 205.0
-offset_right = 762.0
-offset_bottom = 358.0
+offset_left = -366.0
+offset_top = -335.0
+offset_right = -174.0
+offset_bottom = -182.0
 theme_override_colors/font_color = Color(0.91, 0.273, 0.283617, 1)
 theme_override_colors/font_outline_color = Color(0.45098, 0.027451, 0.0352941, 1)
 theme_override_constants/outline_size = 20
@@ -73,10 +62,10 @@ text = "0
 horizontal_alignment = 1
 
 [node name="DogEaterNumber" type="Label" parent="."]
-offset_left = 1130.0
-offset_top = 215.0
-offset_right = 1322.0
-offset_bottom = 368.0
+offset_left = 194.0
+offset_top = -325.0
+offset_right = 386.0
+offset_bottom = -172.0
 theme_override_colors/font_color = Color(0.352, 0.5104, 0.88, 1)
 theme_override_colors/font_outline_color = Color(0.0666667, 0.215686, 0.568627, 1)
 theme_override_constants/outline_size = 20
@@ -85,11 +74,19 @@ text = "3
 "
 horizontal_alignment = 1
 
+[node name="HotDogArmScene" parent="." instance=ExtResource("2_yb573")]
+position = Vector2(-212, 50)
+
+[node name="HotDogMan" type="AnimatedSprite2D" parent="."]
+position = Vector2(-634, 36)
+sprite_frames = SubResource("SpriteFrames_y1r1w")
+frame = 4
+frame_progress = 1.0
+offset = Vector2(400, 0)
+
 [node name="TopLayer" type="Sprite2D" parent="."]
 z_index = 5
-position = Vector2(540, 540)
 texture = ExtResource("3_gh552")
-offset = Vector2(400, 0)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 7.0
@@ -98,6 +95,9 @@ one_shot = true
 [node name="WinGameTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-540, -540)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WinGameTimer" to="." method="_on_win_game_timer_timeout"]
