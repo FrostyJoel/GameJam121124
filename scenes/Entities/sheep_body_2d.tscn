@@ -18,8 +18,9 @@ script = ExtResource("1_jjh2v")
 texture = SubResource("ImageTexture_buaxq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 4.5)
+position = Vector2(-1, 4.5)
 rotation = 1.5708
+scale = Vector2(1, 0.7)
 shape = SubResource("RectangleShape2D_bgsm4")
 
 [node name="Sheep-png" type="Sprite2D" parent="."]

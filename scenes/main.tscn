@@ -1,40 +1,120 @@
-[gd_scene load_steps=16 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=26 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_ygwc3"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_fgo63"]
 [ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/Managers/MicrogameManager.tscn" id="3_512op"]
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_wl5e3"]
 [ext_resource type="Resource" uid="uid://i0q1k0gt88qf" path="res://microgameData/Fishing.tres" id="6_2lell"]
-[ext_resource type="Resource" uid="uid://ctxefxfbxi4v1" path="res://microgameData/rockpaperscissor.tres" id="6_s6to6"]
+[ext_resource type="Resource" uid="uid://cghykce07b5xy" path="res://microgameData/rockpaperscissor.tres" id="6_s6to6"]
 [ext_resource type="Resource" uid="uid://cmp1vxrjjfxf8" path="res://microgameData/pokemon.tres" id="7_pcwx1"]
 [ext_resource type="Resource" uid="uid://wi7adwugqg4b" path="res://microgameData/defendtheflag.tres" id="8_ht2pl"]
 [ext_resource type="PackedScene" uid="uid://bjg0dscobd4p1" path="res://scenes/Managers/ui_manager.tscn" id="9_hnekt"]
 [ext_resource type="Resource" uid="uid://26i0gvs3yeyd" path="res://microgameData/countingsheep.tres" id="9_yjgvv"]
 [ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="10_iotxq"]
 [ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="10_ktn6t"]
-[ext_resource type="Resource" uid="uid://dfdkefjcllbbw" path="res://microgameData/mazetilting.tres" id="11_w4cjo"]
+[ext_resource type="Resource" uid="uid://cdjpp0kec4sny" path="res://microgameData/HotDogEatingContest.tres" id="10_r7yy6"]
+[ext_resource type="Resource" uid="uid://yuc3mj7u6g6d" path="res://microgameData/mazetilting.tres" id="11_w4cjo"]
 [ext_resource type="Resource" uid="uid://oeijiif7vtu4" path="res://microgameData/jumping_sheep.tres" id="12_l1xe1"]
 [ext_resource type="Resource" uid="uid://prq3rykl4lhu" path="res://microgameData/blowthecardridge.tres" id="13_v27xj"]
+[ext_resource type="Resource" uid="uid://hwv85pkrppst" path="res://microgameData/doodle_jump.tres" id="15_78ed2"]
+[ext_resource type="PackedScene" uid="uid://dctyt5vlsptag" path="res://scenes/main_UI.tscn" id="17_yfuwa"]
+[ext_resource type="Texture2D" uid="uid://q32olkjb2rpg" path="res://assets/UI/thought bubble growing sprite sheet.png" id="19_cvurd"]
+[ext_resource type="Texture2D" uid="uid://b5e0d5dibu7f1" path="res://assets/UI/Minigame Border.png" id="20_ugx14"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
+atlas = ExtResource("19_cvurd")
+region = Rect2(0, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kufe"]
+atlas = ExtResource("19_cvurd")
+region = Rect2(529, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4104h"]
+atlas = ExtResource("19_cvurd")
+region = Rect2(1058, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjey2"]
+atlas = ExtResource("19_cvurd")
+region = Rect2(1587, 0, 529, 538)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x0b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyie4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kufe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4104h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjey2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud")]
 script = ExtResource("1_ygwc3")
 maxHealth = 1
+dreamBubbles = NodePath("DreamBubbles")
+microgameCloud = NodePath("MicrogameCloud")
 
 [node name="GameManager" parent="." instance=ExtResource("2_fgo63")]
 position = Vector2(-3, -5)
 
+[node name="GameStartTimer" type="Timer" parent="GameManager"]
+wait_time = 4.0
+one_shot = true
+
+[node name="TransitionTimer" type="Timer" parent="GameManager"]
+wait_time = 3.0
+one_shot = true
+
+[node name="BubbleTimer" type="Timer" parent="GameManager"]
+wait_time = 0.35
+one_shot = true
+
+[node name="BubbleLeaveTimer" type="Timer" parent="GameManager"]
+wait_time = 0.35
+one_shot = true
+
 [node name="MicrogameManager" parent="." instance=ExtResource("3_512op")]
-position = Vector2(0, 2)
-microgames = Array[ExtResource("4_wl5e3")]([ExtResource("6_s6to6"), ExtResource("6_2lell"), ExtResource("7_pcwx1"), ExtResource("8_ht2pl"), ExtResource("9_yjgvv"), ExtResource("10_iotxq"), ExtResource("11_w4cjo"), ExtResource("12_l1xe1"), ExtResource("13_v27xj")])
+z_index = 99
+microgames = Array[ExtResource("4_wl5e3")]([ExtResource("10_iotxq"), ExtResource("13_v27xj"), ExtResource("9_yjgvv"), ExtResource("8_ht2pl"), ExtResource("6_2lell"), ExtResource("10_r7yy6"), ExtResource("12_l1xe1"), ExtResource("11_w4cjo"), ExtResource("7_pcwx1"), ExtResource("6_s6to6"), ExtResource("15_78ed2")])
 
 [node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("9_hnekt")]
 
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("10_ktn6t")
 
+[node name="MainUi" parent="." instance=ExtResource("17_yfuwa")]
+z_index = -1
+position = Vector2(960, 540)
+
+[node name="DreamBubbles" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(960, 500)
+sprite_frames = SubResource("SpriteFrames_2x0b2")
+
+[node name="MicrogameCloud" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(960, 540)
+scale = Vector2(1.1, 1.01)
+texture = ExtResource("20_ugx14")
+
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]
 [connection signal="onScoreUpdate" from="." to="UiManager" method="_on_node_2d_on_score_update"]
+[connection signal="timeout" from="GameManager/GameStartTimer" to="." method="_on_game_start_timer_timeout"]
+[connection signal="timeout" from="GameManager/TransitionTimer" to="." method="_on_transition_timer_timeout"]
+[connection signal="timeout" from="GameManager/BubbleTimer" to="." method="_on_bubble_timer_timeout"]
+[connection signal="timeout" from="GameManager/BubbleLeaveTimer" to="." method="_on_bubble_leave_timer_timeout"]
 [connection signal="onMicroGameLoaded" from="MicrogameManager" to="UiManager" method="_on_microgame_manager_on_micro_game_loaded"]
 [connection signal="onMicroGameUnloaded" from="MicrogameManager" to="UiManager" method="_on_microgame_manager_on_micro_game_unloaded"]
 [connection signal="restartGame" from="UiManager" to="." method="_on_ui_manager_restart_game"]

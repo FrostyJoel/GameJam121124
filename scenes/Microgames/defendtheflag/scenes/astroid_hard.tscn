@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://cv733x3v6ty5y"]
+
+[ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/astroid_easy.gd" id="1_3mn8e"]
+[ext_resource type="PackedScene" uid="uid://dngta4t20csb5" path="res://scenes/Microgames/defendtheflag/scenes/space_ship.tscn" id="2_t4ffm"]
+[ext_resource type="PackedScene" uid="uid://85os7ld5ybji" path="res://scenes/Microgames/defendtheflag/scenes/spawner.tscn" id="3_owrft"]
+[ext_resource type="Script" path="res://scenes/Microgames/defendtheflag/scripts/Spawner_Medium.gd" id="4_0ldd6"]
+
+[node name="Astroid_Normal" type="Node2D"]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
+script = ExtResource("1_3mn8e")
+
+[node name="SpaceShip" parent="." instance=ExtResource("2_t4ffm")]
+
+[node name="Spawner" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(-203, -115)
+
+[node name="Spawner2_Medium" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(-151, 123)
+script = ExtResource("4_0ldd6")
+
+[node name="Spawner3" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(94, 119)
+
+[node name="Spawner4_Medium" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(212, -32)
+script = ExtResource("4_0ldd6")
+
+[node name="Spawner5" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(144, -174)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Spawner6" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(-254, 12)
+script = ExtResource("4_0ldd6")
+
+[node name="Spawner7" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(-2, -141)
+min_range = 2.0
+max_range = 6.0
+
+[node name="Spawner8_Medium" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(197, 108)
+script = ExtResource("4_0ldd6")
+
+[node name="Spawner9" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(-1, 115)
+min_range = 4.0
+max_range = 8.0
+
+[node name="Spawner10" parent="." instance=ExtResource("3_owrft")]
+position = Vector2(196, -111)
+script = ExtResource("4_0ldd6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+autostart = true
+
+[node name="FailTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="SpaceShip/Hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
+[connection signal="timeout" from="FailTimer" to="." method="_on_fail_timer_timeout"]
+
+[editable path="SpaceShip"]
