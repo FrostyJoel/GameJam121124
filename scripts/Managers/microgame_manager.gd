@@ -25,12 +25,10 @@ func StartSpawningTimer() -> void:
 
 # Spawns a random microgame
 func SpawnMicrogame():
-	print("SpawnMinigame")
 	var index = GetRandomIndex()
 	var variationIndex = GetVariationIndex(index)
 	var variationToSpawn = microgames[index].variations[variationIndex]
 	
-	print(variationIndex)
 	currentMicrogame = variationToSpawn.instantiate()
 	add_child(currentMicrogame)
 	
