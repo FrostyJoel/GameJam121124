@@ -19,6 +19,7 @@ var temp = null
 
 @export var dreamBubbles : AnimatedSprite2D
 @export var microgameCloud : Sprite2D
+@export var cloudFrame : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -68,6 +69,7 @@ func AfterMicrogame():
 	$GameMusicAudioPlayer.set_volume_db(10)
 	DoDreamBubbleReverse()
 	microgameCloud.visible = false
+	cloudFrame.visible = false
 
 func LoseHealth():
 	if (currentHealth > 1):
@@ -124,6 +126,7 @@ func _on_transition_timer_timeout() -> void:
 # Small timer to wait for the dream bubbles
 func _on_bubble_timer_timeout() -> void:
 	microgameCloud.visible = true
+	cloudFrame.visible = true
 	if (currentScore == 0):
 		StartGame()
 	else:
