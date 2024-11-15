@@ -79,10 +79,10 @@ func LoseHealth():
 	onHealthUpdate.emit(currentHealth)
 
 func SpawnNextMicroGame():
-	$GameMusicAudioPlayer.set_volume_db(24)
-	print("AUDIO?")
 	CheckScore()
 	$GameManager/TransitionTimer.start()
+	$GameMusicAudioPlayer.set_volume_db(24)
+	print("AUDIO?")
 
 # Checks score for speed up & boss triggers
 func CheckScore():
