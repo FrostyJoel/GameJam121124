@@ -1,0 +1,160 @@
+[gd_scene load_steps=22 format=3 uid="uid://3ejohihppwxe"]
+
+[ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_m6sv7"]
+[ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_bp2tw"]
+[ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/Managers/MicrogameManager.tscn" id="3_wqino"]
+[ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_clve7"]
+[ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="5_qqclb"]
+[ext_resource type="Texture2D" uid="uid://bfrnbhodp5vrw" path="res://assets/UI/ThoughtCorner1.png" id="11_suwjn"]
+[ext_resource type="AudioStream" uid="uid://b05taja1kxuok" path="res://audio/Win Sound.wav" id="11_xw544"]
+[ext_resource type="AudioStream" uid="uid://blml6a6v7oqrq" path="res://audio/Lose Sound.wav" id="12_ceonc"]
+[ext_resource type="Texture2D" uid="uid://xu1yww7j5qx0" path="res://assets/UI/ThoughtCorner2.png" id="12_wn106"]
+[ext_resource type="AudioStream" uid="uid://3jpjrp03tpyu" path="res://audio/Game Song.wav" id="13_gna1e"]
+[ext_resource type="Texture2D" uid="uid://t7d71yblh58" path="res://assets/UI/THoughtCorner3.png" id="13_rs482"]
+[ext_resource type="PackedScene" uid="uid://bjg0dscobd4p1" path="res://scenes/Managers/ui_manager.tscn" id="16_0if2h"]
+[ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="17_dp6xe"]
+[ext_resource type="PackedScene" uid="uid://dctyt5vlsptag" path="res://scenes/main_UI.tscn" id="18_bhv1s"]
+[ext_resource type="Texture2D" uid="uid://q32olkjb2rpg" path="res://assets/UI/thought bubble growing sprite sheet.png" id="19_v7ebb"]
+[ext_resource type="Texture2D" uid="uid://b5e0d5dibu7f1" path="res://assets/UI/Minigame Border.png" id="20_q2e7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
+atlas = ExtResource("19_v7ebb")
+region = Rect2(0, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kufe"]
+atlas = ExtResource("19_v7ebb")
+region = Rect2(529, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4104h"]
+atlas = ExtResource("19_v7ebb")
+region = Rect2(1058, 0, 529, 538)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjey2"]
+atlas = ExtResource("19_v7ebb")
+region = Rect2(1587, 0, 529, 538)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x0b2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kyie4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kufe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4104h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjey2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud", "cloudFrame")]
+script = ExtResource("1_m6sv7")
+maxHealth = 1
+dreamBubbles = NodePath("DreamBubbles")
+microgameCloud = NodePath("MicrogameCloud")
+cloudFrame = NodePath("CloudFrame")
+
+[node name="GameManager" parent="." instance=ExtResource("2_bp2tw")]
+position = Vector2(-3, -5)
+
+[node name="GameStartTimer" type="Timer" parent="GameManager"]
+wait_time = 4.0
+one_shot = true
+
+[node name="TransitionTimer" type="Timer" parent="GameManager"]
+wait_time = 3.0
+one_shot = true
+
+[node name="BubbleTimer" type="Timer" parent="GameManager"]
+wait_time = 0.35
+one_shot = true
+
+[node name="BubbleLeaveTimer" type="Timer" parent="GameManager"]
+wait_time = 0.35
+one_shot = true
+
+[node name="MicrogameManager" parent="." instance=ExtResource("3_wqino")]
+z_index = 99
+microgames = Array[ExtResource("4_clve7")]([ExtResource("5_qqclb")])
+
+[node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("16_0if2h")]
+
+[node name="SaveManager" type="Node" parent="."]
+script = ExtResource("17_dp6xe")
+
+[node name="MainUi" parent="." instance=ExtResource("18_bhv1s")]
+z_index = -1
+position = Vector2(960, 540)
+
+[node name="DreamBubbles" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(960, 500)
+sprite_frames = SubResource("SpriteFrames_2x0b2")
+
+[node name="MicrogameCloud" type="Sprite2D" parent="."]
+visible = false
+z_index = 4
+position = Vector2(960, 540)
+scale = Vector2(1.1, 1.01)
+texture = ExtResource("20_q2e7b")
+
+[node name="CloudFrame" type="Node2D" parent="."]
+visible = false
+z_index = 120
+position = Vector2(-1, 0)
+
+[node name="Frame" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(493, -1.00001)
+rotation = 0.221895
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_suwjn")
+
+[node name="Frame2" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(1500, 1089)
+rotation = 0.221895
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("12_wn106")
+
+[node name="Frame3" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(433, 1060)
+rotation = -0.356355
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_rs482")
+
+[node name="Frame4" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(1451, -3.00002)
+rotation = 2.09196
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("13_rs482")
+
+[node name="WinAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xw544")
+volume_db = 24.0
+
+[node name="LoseAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ceonc")
+volume_db = 24.0
+
+[node name="GameMusicAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_gna1e")
+volume_db = 18.0
+autoplay = true
+
+[connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
+[connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]
+[connection signal="onScoreUpdate" from="." to="UiManager" method="_on_node_2d_on_score_update"]
+[connection signal="timeout" from="GameManager/GameStartTimer" to="." method="_on_game_start_timer_timeout"]
+[connection signal="timeout" from="GameManager/TransitionTimer" to="." method="_on_transition_timer_timeout"]
+[connection signal="timeout" from="GameManager/BubbleTimer" to="." method="_on_bubble_timer_timeout"]
+[connection signal="timeout" from="GameManager/BubbleLeaveTimer" to="." method="_on_bubble_leave_timer_timeout"]
+[connection signal="onMicroGameLoaded" from="MicrogameManager" to="UiManager" method="_on_microgame_manager_on_micro_game_loaded"]
+[connection signal="onMicroGameUnloaded" from="MicrogameManager" to="UiManager" method="_on_microgame_manager_on_micro_game_unloaded"]
+[connection signal="restartGame" from="UiManager" to="." method="_on_ui_manager_restart_game"]
+[connection signal="restartGame" from="UiManager" to="UiManager" method="_on_restart_game"]

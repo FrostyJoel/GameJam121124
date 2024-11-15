@@ -11,13 +11,12 @@ script = ExtResource("1_6pr1u")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Control" parent="." instance=ExtResource("2_vqisk")]
-offset_left = 115.0
-offset_top = -499.0
-offset_right = 1115.0
-offset_bottom = 501.0
+offset_left = 195.0
+offset_right = 1195.0
+scale = Vector2(0.4, 0.4)
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 5.0
 one_shot = true
 
 [node name="Countthesheepbackground" type="Sprite2D" parent="."]

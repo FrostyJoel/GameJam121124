@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://s4o7c2rf0s8"]
 
-[ext_resource type="Texture2D" uid="uid://b3tcjyjq6w7oc" path="res://assets/images/Circle.png" id="1_8c2a5"]
 [ext_resource type="Script" path="res://scenes/Microgames/doodlejump/coin.gd" id="1_sayv5"]
+[ext_resource type="Texture2D" uid="uid://g6nrt3ilwil1" path="res://assets/images/StarIcon.png" id="2_bdlsa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5mg"]
 radius = 17.0294
@@ -11,7 +11,9 @@ script = ExtResource("1_sayv5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.877224, 0.759431, 0.185821, 1)
-texture = ExtResource("1_8c2a5")
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(0.237458, 0.237458)
+texture = ExtResource("2_bdlsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yf5mg")
