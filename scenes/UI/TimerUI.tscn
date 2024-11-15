@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv8vcluoohkeu"]
+[gd_scene load_steps=7 format=3 uid="uid://dv8vcluoohkeu"]
 
 [ext_resource type="Script" path="res://scripts/UI/timer_ui.gd" id="1_8iehj"]
 [ext_resource type="Texture2D" uid="uid://bnecg1heuqxq0" path="res://assets/UI/timer-bold (1).svg" id="1_c2d5n"]
+[ext_resource type="FontFile" uid="uid://doismeynb03k1" path="res://ui/Fonts/Dangrek-Regular.ttf" id="2_c3mey"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjbeu"]
 bg_color = Color(0.466181, 0.466181, 0.466181, 1)
@@ -61,6 +62,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 0.0784314)
+theme_override_fonts/font = ExtResource("2_c3mey")
 theme_override_font_sizes/font_size = 650
 text = "10"
 horizontal_alignment = 1
