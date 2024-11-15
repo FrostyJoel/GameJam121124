@@ -1,10 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://3ejohihppwxe"]
+[gd_scene load_steps=19 format=3 uid="uid://3ejohihppwxe"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_m6sv7"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_bp2tw"]
 [ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/Managers/MicrogameManager.tscn" id="3_wqino"]
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_clve7"]
-[ext_resource type="Resource" uid="uid://26i0gvs3yeyd" path="res://microgameData/countingsheep.tres" id="7_jp8ql"]
+[ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="5_qqclb"]
+[ext_resource type="AudioStream" uid="uid://b05taja1kxuok" path="res://audio/Win Sound.wav" id="11_xw544"]
+[ext_resource type="AudioStream" uid="uid://blml6a6v7oqrq" path="res://audio/Lose Sound.wav" id="12_ceonc"]
+[ext_resource type="AudioStream" uid="uid://3jpjrp03tpyu" path="res://audio/Game Song.wav" id="13_gna1e"]
 [ext_resource type="PackedScene" uid="uid://bjg0dscobd4p1" path="res://scenes/Managers/ui_manager.tscn" id="16_0if2h"]
 [ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="17_dp6xe"]
 [ext_resource type="PackedScene" uid="uid://dctyt5vlsptag" path="res://scenes/main_UI.tscn" id="18_bhv1s"]
@@ -74,7 +77,7 @@ one_shot = true
 
 [node name="MicrogameManager" parent="." instance=ExtResource("3_wqino")]
 z_index = 99
-microgames = Array[ExtResource("4_clve7")]([ExtResource("7_jp8ql")])
+microgames = Array[ExtResource("4_clve7")]([ExtResource("5_qqclb")])
 
 [node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("16_0if2h")]
 
@@ -97,6 +100,19 @@ z_index = 4
 position = Vector2(960, 540)
 scale = Vector2(1.1, 1.01)
 texture = ExtResource("20_q2e7b")
+
+[node name="WinAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_xw544")
+volume_db = 24.0
+
+[node name="LoseAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ceonc")
+volume_db = 24.0
+
+[node name="GameMusicAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_gna1e")
+volume_db = 18.0
+autoplay = true
 
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]

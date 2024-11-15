@@ -29,7 +29,18 @@ var Button_Array : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$Timer.start()
+	
+	#Needed to find and enableTimer
+	var uiManager = get_tree().get_nodes_in_group("UiManager")
+	for node in uiManager:
+		# Check the node has a save function.
+		if !node.has_method("Enabletimer"):
+			print("persistent node '%s' is missing a Enabletimer() function, skipped" % node.name)
+			continue
+		
+		node.call("Enabletimer", $Timer)
+	
 	for n in AmountOfInputs:
 		var ActiveButtonFromEnum = randi_range(0, Input_Keys.size()-1)
 		Button_Array.append(ActiveButtonFromEnum)
@@ -83,6 +94,7 @@ func _set_next_active_button():
 		Button_To_Press = Button_Array[ActiveArraySelection]
 		ActiveArraySelection = ActiveArraySelection + 1
 	else:
+		$Timer.stop()
 		sparksSprite.visible = false
 		win = true
 		$"After Game Timer".start()
@@ -101,3 +113,7 @@ func _on_after_game_timer_timeout() -> void:
 		microgameEnded.emit(true)
 	else:
 		microgameEnded.emit(false)
+
+
+func _on_timer_timeout() -> void:
+	_bomb_exploded()

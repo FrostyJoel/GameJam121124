@@ -98,4 +98,9 @@ scale = Vector2(0.375, 0.375)
 [node name="After Game Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
 [connection signal="timeout" from="After Game Timer" to="." method="_on_after_game_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
