@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw5y0evbtor4o"]
+[gd_scene load_steps=12 format=3 uid="uid://bw5y0evbtor4o"]
 
 [ext_resource type="Script" path="res://scenes/Microgames/hotdogcontest/hot_dog_eater.gd" id="1_kbsyw"]
 [ext_resource type="Texture2D" uid="uid://bbcfi28ul4ugf" path="res://assets/images/HotDogStuff/HDBackground.png" id="1_ry1ou"]
+[ext_resource type="Texture2D" uid="uid://drs0cdaik2xqg" path="res://assets/images/controller/button_xbox_dpad_dark_1.png" id="2_2oyl7"]
 [ext_resource type="Texture2D" uid="uid://cd1lp5suhgovf" path="res://assets/images/HotDogStuff/HotDogMan.png" id="2_dd6yo"]
 [ext_resource type="PackedScene" uid="uid://c54of5w13vi05" path="res://scenes/Microgames/hotdogcontest/HotDogArmScene.tscn" id="2_yb573"]
 [ext_resource type="Texture2D" uid="uid://d174tpn7td2b0" path="res://assets/images/HotDogStuff/HDTopLayer.png" id="3_gh552"]
+[ext_resource type="Texture2D" uid="uid://irbhbm57pttb" path="res://assets/images/controller/button_xbox_digital_a_5.png" id="7_rn246"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ea3uk"]
 atlas = ExtResource("2_dd6yo")
@@ -44,6 +46,12 @@ animations = [{
 [node name="HotDogEater2" type="Node2D"]
 position = Vector2(980, 540)
 script = ExtResource("1_kbsyw")
+
+[node name="ButtonXboxDpadDark1" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(-101, -459)
+scale = Vector2(0.30625, 0.29375)
+texture = ExtResource("2_2oyl7")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_ry1ou")
@@ -98,6 +106,11 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-540, -540)
+
+[node name="ButtonXboxDigitalA5" type="Sprite2D" parent="."]
+position = Vector2(86, -449)
+scale = Vector2(0.283773, 0.295651)
+texture = ExtResource("7_rn246")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="WinGameTimer" to="." method="_on_win_game_timer_timeout"]
