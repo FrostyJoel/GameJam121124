@@ -16,12 +16,8 @@ func _ready() -> void:
 	for n in CurrentAmountOfSheep:
 		var _sheep_instance = _sheep.instantiate()
 		get_tree().current_scene.add_child(_sheep_instance)
-		_sheep_instance.global_position.x = randf_range(-500, 400)
-		_sheep_instance.global_position.y = randf_range(-500, 500)
-		_sheep_instance.rotation = randi_range(0, 359)
-		var Sheep_Size_Set = randf_range(1, 2.5)
-		_sheep_instance.scale.x = Sheep_Size_Set
-		_sheep_instance.scale.y = Sheep_Size_Set
+		_sheep_instance.global_position.x = randf_range(650, 1000)
+		_sheep_instance.global_position.y = randf_range(200, 800)
 		SheepsArray.append(_sheep_instance)
 	$CooldownTimer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.

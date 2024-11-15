@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgvn8y262ouhe"]
+[gd_scene load_steps=3 format=3 uid="uid://dgvn8y262ouhe"]
 
-[ext_resource type="Texture2D" uid="uid://q5lmt6be6x16" path="res://assets/images/Sheep-PNG.png" id="1_jsq6c"]
+[ext_resource type="Script" path="res://scenes/Microgames/countthesheep/count_sheep.gd" id="1_lnjij"]
+[ext_resource type="SpriteFrames" uid="uid://ba7f5vekcpy3u" path="res://scenes/Microgames/countthesheep/Sheep_Sprite_Frames.tres" id="1_nonby"]
 
 [node name="Count_Sheep" type="Node2D"]
+z_index = 5
+scale = Vector2(1.75, 1.75)
+script = ExtResource("1_lnjij")
 
-[node name="SheepPicture" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_jsq6c")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+sprite_frames = ExtResource("1_nonby")
+frame_progress = 0.0990029

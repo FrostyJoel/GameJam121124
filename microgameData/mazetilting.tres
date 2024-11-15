@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://yuc3mj7u6g6d"]
+[gd_resource type="Resource" script_class="MicrogameData" load_steps=5 format=3 uid="uid://yuc3mj7u6g6d"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_y0j8e"]
 [ext_resource type="PackedScene" uid="uid://o38qh6jveygv" path="res://scenes/Microgames/mazetilting/easy/MazeTiltingEasy.tscn" id="2_51po3"]
+[ext_resource type="PackedScene" uid="uid://dyn7kff6los64" path="res://scenes/Microgames/mazetilting/medium/MazeTiltingMedium.tscn" id="3_kgyjv"]
+[ext_resource type="PackedScene" uid="uid://bjve71dk4rx0m" path="res://scenes/Microgames/mazetilting/hard/MazeTiltingHard.tscn" id="4_v5wus"]
 
 [resource]
 script = ExtResource("1_y0j8e")
 instruction = "Tilt"
-variations = Array[PackedScene]([ExtResource("2_51po3")])
+variations = Array[PackedScene]([ExtResource("2_51po3"), ExtResource("3_kgyjv"), ExtResource("4_v5wus")])

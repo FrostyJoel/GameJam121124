@@ -1,6 +1,7 @@
 extends Node
 
 @onready var progress_bar: ProgressBar = $Control/PanelContainer/HBoxContainer/ProgressBar
+@onready var labeltext: Label = $Control/Label
 var timerRef: Timer = null
 var percentage_of_time
 
@@ -24,3 +25,5 @@ func _process(delta: float) -> void:
 				(1-timerRef.get_time_left() / timerRef.get_wait_time()) * 100
 			)
 			progress_bar.value = percentage_of_time
+		labeltext.text = str("%.0f" % timerRef.get_time_left())
+		print(timerRef.get_time_left())

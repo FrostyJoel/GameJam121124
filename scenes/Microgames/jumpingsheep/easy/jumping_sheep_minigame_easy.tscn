@@ -41,6 +41,6 @@ collision_mask = 2
 position = Vector2(264, 107)
 shape = SubResource("RectangleShape2D_40clb")
 
-[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
 [connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
 [connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]

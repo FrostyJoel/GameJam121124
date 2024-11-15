@@ -1,17 +1,103 @@
-[gd_scene load_steps=3 format=3 uid="uid://b10mqefnp705t"]
+[gd_scene load_steps=12 format=3 uid="uid://b10mqefnp705t"]
 
 [ext_resource type="Script" path="res://scripts/Fishing/fishing.gd" id="1_2xsly"]
-[ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_h481k"]
+[ext_resource type="Texture2D" uid="uid://bmwwxteedylrw" path="res://assets/Fishing/Microgame_Fishing_CaughtCarp.png" id="2_e7inc"]
+[ext_resource type="Texture2D" uid="uid://dn88sr8gup35p" path="res://assets/Fishing/Microgame_Fishing_CaughtFrog.png" id="2_ip8g1"]
+[ext_resource type="Texture2D" uid="uid://5erwrltlxslf" path="res://assets/Fishing/Microgame_Fishing_Background.png" id="2_m4ydx"]
+[ext_resource type="Texture2D" uid="uid://djx1iimh1mifl" path="res://assets/Fishing/Microgame_Fishing_CaughtEel.png" id="3_c6bmt"]
+[ext_resource type="Texture2D" uid="uid://bdwq8rxaikt6y" path="res://assets/Fishing/Microgame_Fishing_Bobber.png" id="3_q7nvq"]
+[ext_resource type="PackedScene" uid="uid://6xyikmddaqrn" path="res://scenes/Fishing/FishSilhouette.tscn" id="4_muc3y"]
 
-[node name="Fishing" type="Node2D"]
+[sub_resource type="Animation" id="Animation_kwmtc"]
+resource_name = "Bobber_Bob"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bobber:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.5, 2.2, 3),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 0), Vector2(0, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5gbhe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bobber:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_d72v4"]
+resource_name = "Bobber_Hold"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bobber:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Vector2(0, 3), Vector2(0, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7c0v1"]
+_data = {
+"Bobber_Bob": SubResource("Animation_kwmtc"),
+"Bobber_Hold": SubResource("Animation_d72v4"),
+"RESET": SubResource("Animation_5gbhe")
+}
+
+[node name="Fishing" type="Node2D" node_paths=PackedStringArray("debug_square", "caught_fish")]
 script = ExtResource("1_2xsly")
+debug_square = NodePath("Bobber")
+caught_fish = NodePath("CaughtFish")
+fishSprite1 = ExtResource("2_e7inc")
+fishSprite2 = ExtResource("3_c6bmt")
+fishSprite3 = ExtResource("2_ip8g1")
 
-[node name="DebugSquare" type="Sprite2D" parent="."]
+[node name="BG" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("2_h481k")
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("2_m4ydx")
+
+[node name="Bobber" type="Sprite2D" parent="."]
+position = Vector2(960, 510)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("3_q7nvq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bobber"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7c0v1")
+}
+autoplay = "Bobber_Bob"
 
 [node name="InputButton" type="Sprite2D" parent="."]
-position = Vector2(342, 342)
+z_index = 4
+position = Vector2(700, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="FishSilhouette" parent="." instance=ExtResource("4_muc3y")]
+position = Vector2(662, 769)
+
+[node name="FishSilhouette2" parent="." instance=ExtResource("4_muc3y")]
+position = Vector2(1247, 893)
+flip_x = true
 
 [node name="BobberTimer" type="Timer" parent="."]
 one_shot = true
@@ -21,6 +107,15 @@ one_shot = true
 
 [node name="TotalTime" type="Timer" parent="."]
 
+[node name="AfterGameTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CaughtFish" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(960, 540)
+scale = Vector2(15, 15)
+
 [connection signal="timeout" from="BobberTimer" to="." method="_on_bobber_timer_timeout"]
 [connection signal="timeout" from="FishGetAwayTimer" to="." method="_on_fish_get_away_timer_timeout"]
 [connection signal="timeout" from="TotalTime" to="." method="_on_total_time_timeout"]
+[connection signal="timeout" from="AfterGameTimer" to="." method="_on_after_game_timer_timeout"]

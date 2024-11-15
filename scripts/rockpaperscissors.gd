@@ -6,12 +6,12 @@ extends microgame_base
 @onready var playersprite: Sprite2D = $Player/PlayerSprite
 @onready var opponentsprite: Sprite2D = $Opponent/OpponentSprite
 
-var rocktexture = preload("res://assets/images/Rock.png")
-var rockflippedtexture = preload("res://assets/images/RockFlipped.png")
-var papertexture = preload("res://assets/images/Paper.png")
-var paperflippedtexture = preload("res://assets/images/PaperFlipped.png")
-var scissortexture = preload("res://assets/images/Scissor.png")
-var scissorflippedtexture = preload("res://assets/images/ScissorFlipped.png")
+var rocktexture = preload("res://assets/images/RockPaperScissors/rock.png")
+var rockflippedtexture = preload("res://assets/images/RockPaperScissors/rock.png")
+var papertexture = preload("res://assets/images/RockPaperScissors/paper.png")
+var paperflippedtexture = preload("res://assets/images/RockPaperScissors/paper.png")
+var scissortexture = preload("res://assets/images/RockPaperScissors/Scissors.png")
+var scissorflippedtexture = preload("res://assets/images/RockPaperScissors/Scissors.png")
 var gameended = false
 var result
 
@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 					print("YOU WIN")
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
@@ -64,6 +65,7 @@ func _process(delta: float) -> void:
 					print("YOU LOSE")
 					timer.stop()
 					$Square.modulate = Color(255,0,0)
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()					
 					gameended = true
 					result = false
@@ -72,6 +74,7 @@ func _process(delta: float) -> void:
 					print("YOU WIN")	
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
@@ -79,6 +82,7 @@ func _process(delta: float) -> void:
 					print("YOU LOSE")
 					timer.stop()
 					$Square.modulate = Color(255,0,0)
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()
 					gameended = true
 					result = false
@@ -87,13 +91,15 @@ func _process(delta: float) -> void:
 					print("YOU WIN")
 					timer.stop()
 					$Square.modulate = Color(0,255,0)
+					$DotsRps.modulate = Color(0,1.3,0)
 					$EndTimer.start()
 					gameended = true
 					result = true
 				else:
 					print("YOU LOSE")
 					timer.stop()
-					$Square.modulate = Color(255,0,0)					
+					$Square.modulate = Color(255,0,0)
+					$DotsRps.modulate = Color(1.3,0,0)
 					$EndTimer.start()
 					gameended = true
 					result = false
@@ -103,6 +109,7 @@ func _on_timer_timeout() -> void:
 	print("YOU LOSE") # Replace with function body.
 	microgameEnded.emit(false)
 	$Square.modulate = Color(255,0,0)
+	$DotsRps.modulate = Color(1.3,0,0)
 	$EndTimer.start()
 	gameended = true
 

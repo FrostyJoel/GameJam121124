@@ -1,38 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccl1woy6gxx5n"]
+[gd_scene load_steps=8 format=3 uid="uid://ccl1woy6gxx5n"]
 
 [ext_resource type="Script" path="res://scripts/rockpaperscissors.gd" id="1_crxe6"]
 [ext_resource type="Texture2D" uid="uid://e88jyq8q8gl5" path="res://assets/images/Thoughtcloud.png" id="2_o5mnl"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="3_8xicg"]
+[ext_resource type="Texture2D" uid="uid://bj03wpmrypyop" path="res://assets/images/RockPaperScissors/DotsRPS.png" id="4_724jq"]
+
+[sub_resource type="Animation" id="Animation_qkewx"]
+resource_name = "MoveDots"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DotsRps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(869, -352), Vector2(700, -300)]
+}
+
+[sub_resource type="Animation" id="Animation_lg2p6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DotsRps:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(869, -352)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbgyk"]
+_data = {
+"MoveDots": SubResource("Animation_qkewx"),
+"RESET": SubResource("Animation_lg2p6")
+}
 
 [node name="RPS" type="Node2D"]
+position = Vector2(960, 540)
 script = ExtResource("1_crxe6")
+
+[node name="DotsRps" type="Sprite2D" parent="."]
+position = Vector2(869, -352)
+texture = ExtResource("4_724jq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" type="Label" parent="."]
-offset_left = -347.0
-offset_top = 409.0
-offset_right = -289.0
-offset_bottom = 432.0
+offset_left = -341.0
+offset_top = 342.0
+offset_right = -283.0
+offset_bottom = 365.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="Player"]
+scale = Vector2(0.7, 0.7)
 
 [node name="Opponent" type="Label" parent="."]
-offset_left = 328.0
-offset_top = -393.0
-offset_right = 416.0
-offset_bottom = -370.0
+offset_left = 311.0
+offset_top = -360.0
+offset_right = 399.0
+offset_bottom = -337.0
 text = "
 "
 
 [node name="OpponentSprite" type="Sprite2D" parent="Opponent"]
+scale = Vector2(0.7, 0.7)
+flip_h = true
+flip_v = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="Square" type="Sprite2D" parent="."]
-modulate = Color(0.288021, 0.553859, 0.802437, 1)
+modulate = Color(0.72, 0.72, 0.72, 1)
 self_modulate = Color(0.992157, 1, 1, 1)
 z_index = -2
 position = Vector2(1, 0)
@@ -40,6 +87,7 @@ scale = Vector2(33.75, 33.75)
 texture = ExtResource("3_8xicg")
 
 [node name="Thoughtcloud" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(227, -317)
 scale = Vector2(1.53208, 1.27656)
@@ -48,6 +96,12 @@ texture = ExtResource("2_o5mnl")
 [node name="EndTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tbgyk")
+}
+autoplay = "MoveDots"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]

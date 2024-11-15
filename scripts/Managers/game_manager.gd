@@ -16,6 +16,9 @@ signal onScoreUpdate(newScore:int)
 
 var timesSpedUp : int
 
+@export var dreamBubbles : AnimatedSprite2D
+@export var microgameCloud : Sprite2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
@@ -24,7 +27,8 @@ func _ready() -> void:
 	init()
 
 func init() -> void:
-	StartGame()
+	timesSpedUp = 0
+	$GameManager/GameStartTimer.start()
 
 # Tells the microgame manager to start spawning microgames
 func StartGame():
@@ -41,7 +45,6 @@ func _on_ui_manager_restart_game() -> void:
 	init()
 
 # Tells the UI to show the current microgame timer
-# TODO
 func ShowTimer(time: float):
 	pass
 
@@ -49,11 +52,17 @@ func ShowTimer(time: float):
 # Functions for winning and losing microgames, called from the microgame manager
 func MicrogameLose():
 	print("Microgame Loss...")
+	AfterMicrogame()
 	LoseHealth()
 
 func MicrogameWin():
 	print("Microgame Won!")
-	SpawnNextMicroGame()
+	AfterMicrogame()
+	$GameManager/TransitionTimer.start()
+
+func AfterMicrogame():
+	DoDreamBubbleReverse()
+	microgameCloud.visible = false
 
 func LoseHealth():
 	if (currentHealth > 1):
@@ -67,8 +76,7 @@ func LoseHealth():
 
 func SpawnNextMicroGame():
 	CheckScore()
-	$UiManager.EnableUI()
-	$MicrogameManager.StartSpawningTimer()
+	$GameManager/TransitionTimer.start()
 
 # Checks score for speed up & boss triggers
 func CheckScore():
@@ -85,3 +93,38 @@ func GameOver():
 	onGameOver.emit(currentScore)
 	$SaveManager.save_game()
 	Engine.time_scale = 1
+
+
+func DoDreamBubbles():
+	dreamBubbles.visible = true
+	dreamBubbles.play()
+
+func DoDreamBubbleReverse():
+	dreamBubbles.visible = true
+	dreamBubbles.play_backwards()
+	$GameManager/BubbleLeaveTimer.start()
+
+
+# Initial timer when the player starts the game for the first time
+func _on_game_start_timer_timeout() -> void:
+	$GameManager/BubbleTimer.start()
+	DoDreamBubbles()
+
+# Timer for transitions between microgames
+func _on_transition_timer_timeout() -> void:
+	$GameManager/BubbleTimer.start()
+	DoDreamBubbles()
+
+# Small timer to wait for the dream bubbles
+func _on_bubble_timer_timeout() -> void:
+	microgameCloud.visible = true
+	if (currentScore == 0):
+		StartGame()
+	else:
+		$UiManager.EnableUI()
+		$MicrogameManager.StartSpawningTimer()
+	dreamBubbles.visible = false
+
+# Small timer for when the bubble leaves
+func _on_bubble_leave_timer_timeout() -> void:
+	dreamBubbles.visible = false
