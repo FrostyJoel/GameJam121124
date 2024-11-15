@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=32 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_ygwc3"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_fgo63"]
@@ -12,17 +12,20 @@
 [ext_resource type="Resource" uid="uid://26i0gvs3yeyd" path="res://microgameData/countingsheep.tres" id="9_yjgvv"]
 [ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="10_iotxq"]
 [ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="10_ktn6t"]
-[ext_resource type="Resource" uid="uid://cvt5oc4m66d47" path="res://microgameData/HotDogEatingContest.tres" id="10_r7yy6"]
+[ext_resource type="Resource" uid="uid://cdjpp0kec4sny" path="res://microgameData/HotDogEatingContest.tres" id="10_r7yy6"]
 [ext_resource type="Resource" uid="uid://yuc3mj7u6g6d" path="res://microgameData/mazetilting.tres" id="11_w4cjo"]
 [ext_resource type="Resource" uid="uid://oeijiif7vtu4" path="res://microgameData/jumping_sheep.tres" id="12_l1xe1"]
 [ext_resource type="Resource" uid="uid://prq3rykl4lhu" path="res://microgameData/blowthecardridge.tres" id="13_v27xj"]
 [ext_resource type="Resource" uid="uid://hwv85pkrppst" path="res://microgameData/doodle_jump.tres" id="15_78ed2"]
-[ext_resource type="PackedScene" path="res://scenes/main_UI.tscn" id="17_yfuwa"]
+[ext_resource type="PackedScene" uid="uid://dctyt5vlsptag" path="res://scenes/main_UI.tscn" id="17_yfuwa"]
 [ext_resource type="Texture2D" uid="uid://q32olkjb2rpg" path="res://assets/UI/thought bubble growing sprite sheet.png" id="19_cvurd"]
 [ext_resource type="Texture2D" uid="uid://b5e0d5dibu7f1" path="res://assets/UI/Minigame Border.png" id="20_ugx14"]
+[ext_resource type="Texture2D" uid="uid://bfrnbhodp5vrw" path="res://assets/UI/ThoughtCorner1.png" id="21_bjoha"]
 [ext_resource type="AudioStream" uid="uid://b05taja1kxuok" path="res://audio/Win Sound.wav" id="21_fwsem"]
 [ext_resource type="AudioStream" uid="uid://blml6a6v7oqrq" path="res://audio/Lose Sound.wav" id="22_rfnov"]
 [ext_resource type="AudioStream" uid="uid://3jpjrp03tpyu" path="res://audio/Game Song.wav" id="23_w55f4"]
+[ext_resource type="Texture2D" uid="uid://xu1yww7j5qx0" path="res://assets/UI/ThoughtCorner2.png" id="23_wl88f"]
+[ext_resource type="Texture2D" uid="uid://t7d71yblh58" path="res://assets/UI/THoughtCorner3.png" id="24_e7at5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
 atlas = ExtResource("19_cvurd")
@@ -60,11 +63,12 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud")]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("dreamBubbles", "microgameCloud", "cloudFrame")]
 script = ExtResource("1_ygwc3")
 maxHealth = 3
 dreamBubbles = NodePath("DreamBubbles")
 microgameCloud = NodePath("MicrogameCloud")
+cloudFrame = NodePath("CloudFrame")
 
 [node name="GameManager" parent="." instance=ExtResource("2_fgo63")]
 position = Vector2(-3, -5)
@@ -110,6 +114,35 @@ z_index = 4
 position = Vector2(960, 540)
 scale = Vector2(1.1, 1.01)
 texture = ExtResource("20_ugx14")
+
+[node name="CloudFrame" type="Node2D" parent="."]
+visible = false
+z_index = 120
+position = Vector2(-1, 0)
+
+[node name="Frame" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(493, -1.00001)
+rotation = 0.221895
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("21_bjoha")
+
+[node name="Frame2" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(1500, 1089)
+rotation = 0.221895
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("23_wl88f")
+
+[node name="Frame3" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(433, 1060)
+rotation = -0.356355
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_e7at5")
+
+[node name="Frame4" type="Sprite2D" parent="CloudFrame"]
+position = Vector2(1451, -3.00002)
+rotation = 2.09196
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("24_e7at5")
 
 [node name="WinAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("21_fwsem")
