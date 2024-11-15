@@ -77,6 +77,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 			$AnimationPlayer.play("WorkingScreen")
 		elif win_condition_met == false:
 			$BrokenScreen.show()
+			$BrokenAudioPlayer.play()
 			$EndOfGameTimer.start()
 	if anim_name == "WorkingScreen":
 		$DingAudioPlayer.play()
@@ -86,9 +87,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func _on_game_timer_timeout() -> void:
 	if win_condition_met == false:
 		game_done()
-		
-		
-		
 
 
 func _on_end_of_game_timer_timeout() -> void:
