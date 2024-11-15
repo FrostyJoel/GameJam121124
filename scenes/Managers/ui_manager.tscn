@@ -51,8 +51,6 @@ corner_radius_bottom_left = 10
 [node name="UiManager" type="Node" groups=["Ui"]]
 script = ExtResource("1_kkol2")
 
-[node name="TimerUi" parent="." instance=ExtResource("2_4bp77")]
-
 [node name="Health Amount" type="Label" parent="."]
 offset_right = 426.0
 offset_bottom = 26.0
@@ -172,6 +170,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_b7gdo")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_gbirg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ebfsq")
 text = "Main Menu"
+
+[node name="TimerUi" parent="." instance=ExtResource("2_4bp77")]
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
 
 [connection signal="pressed" from="You Lose/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="You Lose/Button2" to="." method="_on_button_2_pressed"]

@@ -15,12 +15,16 @@ signal onHealthUpdate(newHealth:int)
 signal onScoreUpdate(newScore:int)
 
 var timesSpedUp : int
+var temp = null
 
 @export var dreamBubbles : AnimatedSprite2D
 @export var microgameCloud : Sprite2D
+@export var cloudFrame : Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$GirlAnimations/AnimationPlayer.play("sleeping")
+	$GameMusicAudioPlayer.play()
 	$MicrogameManager.microGameWin.connect(MicrogameWin) #Connect micro game outcome signals
 	$MicrogameManager.microGameLose.connect(MicrogameLose)
 	$SaveManager.load_game()
@@ -52,17 +56,24 @@ func ShowTimer(time: float):
 # Functions for winning and losing microgames, called from the microgame manager
 func MicrogameLose():
 	print("Microgame Loss...")
+	$GirlAnimations/AnimationPlayer.play("loselife")
+	$LoseAudioPlayer.play()
 	AfterMicrogame()
 	LoseHealth()
 
 func MicrogameWin():
 	print("Microgame Won!")
+	$GirlAnimations/AnimationPlayer.play("sleeping")
+	CheckScore()
+	$WinAudioPlayer.play()
 	AfterMicrogame()
 	$GameManager/TransitionTimer.start()
 
 func AfterMicrogame():
+	$GameMusicAudioPlayer.set_volume_db(10)
 	DoDreamBubbleReverse()
 	microgameCloud.visible = false
+	cloudFrame.visible = false
 
 func LoseHealth():
 	if (currentHealth > 1):
@@ -72,7 +83,6 @@ func LoseHealth():
 		GameOver()
 	
 	onHealthUpdate.emit(currentHealth)
-	
 
 func SpawnNextMicroGame():
 	CheckScore()
@@ -81,6 +91,7 @@ func SpawnNextMicroGame():
 # Checks score for speed up & boss triggers
 func CheckScore():
 	currentScore += 1 # Add one to score
+	print(currentScore)
 	onScoreUpdate.emit(currentScore)
 	
 	if (currentScore >= (speedUpScoreThreshold * (timesSpedUp + 1))):
@@ -90,6 +101,7 @@ func CheckScore():
 
 # Called when the player loses all health
 func GameOver():
+	$GirlAnimations/AnimationPlayer.play("GameOverBad")
 	onGameOver.emit(currentScore)
 	$SaveManager.save_game()
 	Engine.time_scale = 1
@@ -114,10 +126,13 @@ func _on_game_start_timer_timeout() -> void:
 func _on_transition_timer_timeout() -> void:
 	$GameManager/BubbleTimer.start()
 	DoDreamBubbles()
+	$GirlAnimations/AnimationPlayer.play("sleeping")
+	$GameMusicAudioPlayer.set_volume_db(18)
 
 # Small timer to wait for the dream bubbles
 func _on_bubble_timer_timeout() -> void:
 	microgameCloud.visible = true
+	cloudFrame.visible = true
 	if (currentScore == 0):
 		StartGame()
 	else:
