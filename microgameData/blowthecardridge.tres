@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="MicrogameData" load_steps=3 format=3 uid="uid://prq3rykl4lhu"]
 
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="1_165bj"]
-[ext_resource type="PackedScene" uid="uid://br7als71a1mn8" path="res://scenes/Microgames/blowthecartridge/scenes2/level_2.tscn" id="2_rxhtr"]
+[ext_resource type="PackedScene" uid="uid://br7als71a1mn8" path="res://scenes/Microgames/blowthecartridge/scenes2/gameboy_easy.tscn" id="2_rxhtr"]
 
 [resource]
 script = ExtResource("1_165bj")
