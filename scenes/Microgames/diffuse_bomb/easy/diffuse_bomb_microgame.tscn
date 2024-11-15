@@ -1,0 +1,101 @@
+[gd_scene load_steps=13 format=3 uid="uid://x0dnuqnd6lde"]
+
+[ext_resource type="Script" path="res://scripts/Microgames/diffuse_bomb/easy/diffuse_bomb_microgame.gd" id="1_uolc8"]
+[ext_resource type="PackedScene" uid="uid://d3el6nun0snxo" path="res://scenes/Microgames/diffuse_bomb/easy/bomb_order_easy.tscn" id="2_1tgqm"]
+[ext_resource type="Texture2D" uid="uid://b8i4s3gxvl2ln" path="res://assets/DiffuseBomb/Microgame_Bomb_BG.png" id="2_x6t5y"]
+[ext_resource type="Texture2D" uid="uid://bq4bhriok6dgi" path="res://assets/DiffuseBomb/Microgame_Bomb_Bomb.png" id="3_ods5p"]
+[ext_resource type="Texture2D" uid="uid://0hxdio548di" path="res://assets/DiffuseBomb/Microgame_Bomb_Spark01.png" id="4_ub7pa"]
+[ext_resource type="Texture2D" uid="uid://dcfad5hxxotmv" path="res://assets/DiffuseBomb/Microgame_Bomb_Spark02.png" id="5_oc5wr"]
+[ext_resource type="Texture2D" uid="uid://ctseahva8bpb6" path="res://assets/DiffuseBomb/Microgame_Bomb_Explosion01.png" id="6_q3js8"]
+[ext_resource type="Texture2D" uid="uid://bj5d1ld88xo4b" path="res://assets/DiffuseBomb/Microgame_Bomb_CommandBG.png" id="6_t584m"]
+[ext_resource type="Texture2D" uid="uid://c7ncgc46msr1r" path="res://assets/DiffuseBomb/Microgame_Bomb_Explosion02.png" id="7_ufw3m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vlodc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ub7pa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oc5wr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv01g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_q3js8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ufw3m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85tik"]
+size = Vector2(1080, 1080)
+
+[node name="Diffuse_Bomb_Microgame2" type="Node2D" node_paths=PackedStringArray("sparksSprite", "explosionSprite")]
+script = ExtResource("1_uolc8")
+sparksSprite = NodePath("Bomb/Sparks")
+explosionSprite = NodePath("Explosion")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("2_x6t5y")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(960, 545)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("3_ods5p")
+
+[node name="Sparks" type="AnimatedSprite2D" parent="Bomb"]
+z_index = 2
+position = Vector2(571.429, -389.286)
+rotation = -3.14159
+scale = Vector2(1.78571, 1.78571)
+sprite_frames = SubResource("SpriteFrames_vlodc")
+autoplay = "default"
+frame_progress = 0.572686
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 3
+position = Vector2(960, 450)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_nv01g")
+autoplay = "default"
+
+[node name="BackgroundSquare" type="StaticBody2D" parent="."]
+z_index = 5
+
+[node name="BackgroundCollision" type="CollisionShape2D" parent="BackgroundSquare"]
+visible = false
+z_index = -1
+position = Vector2(964, 540)
+shape = SubResource("RectangleShape2D_85tik")
+
+[node name="BG" type="Sprite2D" parent="BackgroundSquare"]
+position = Vector2(960, 844)
+scale = Vector2(1.335, 1.00385)
+texture = ExtResource("6_t584m")
+
+[node name="BombOrder" parent="BackgroundSquare" instance=ExtResource("2_1tgqm")]
+offset_left = 513.0
+offset_top = 749.0
+offset_right = 2929.0
+offset_bottom = 1229.0
+scale = Vector2(0.375, 0.375)
+
+[node name="After Game Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="After Game Timer" to="." method="_on_after_game_timer_timeout"]

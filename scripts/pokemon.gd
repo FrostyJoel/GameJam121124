@@ -47,92 +47,63 @@ func _process(delta: float) -> void:
 	if gameended == false:
 		if Input.is_action_just_pressed("DirLeft") or Input.is_action_just_pressed("NegativeHorizontal"):
 			if currentlabel == move_2:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_1
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 			elif currentlabel == move_4:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_3
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 				
 		if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PositiveHorizontal"):
 			if currentlabel == move_1:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_2
-				currentlabel.add_theme_color_override("font_color", Color(255,0,0))		
+				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 			elif currentlabel == move_3:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_4
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 				
 		if Input.is_action_just_pressed("DirUp") or Input.is_action_just_pressed("PostiveVertical"):
 			if currentlabel == move_3:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_1
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 			elif currentlabel == move_4:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_2
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 				
 		if Input.is_action_just_pressed("DirDown") or Input.is_action_just_pressed("NegativeVertical"):
 			if currentlabel == move_1:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_3
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 			elif currentlabel == move_2:
-				currentlabel.add_theme_color_override("font_color", Color(255,255,255))
+				currentlabel.add_theme_color_override("font_color", Color(0,0,0))
 				currentlabel = move_4
 				currentlabel.add_theme_color_override("font_color", Color(255,0,0))
 		
 		if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
 			if currentlabel.get_meta("Tag") == "good":
-				print("you win")
-				microgameEnded.emit(true)
+				$WinAnimationPlayer.play("WinGame")
+				#print("you win")
+				#microgameEnded.emit(true)
+				#timer.stop()
+				#gameended = true
+			else:
+				$WinAnimationPlayer.play("LoseGame")
+				#print("you lose")
+				#microgameEnded.emit(false)
+				#gameended = true
+			
+
+func _EndGame(win: bool) -> void:
+				print(str(win))
+				microgameEnded.emit(win)
 				timer.stop()
 				gameended = true
-			else:
-				print("you lose")
-				microgameEnded.emit(false)
-				gameended = true
-			
-	if Input.is_action_just_pressed("DirRight") or Input.is_action_just_pressed("PositiveHorizontal"):
-		if currentlabel == move_1:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_2
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))		
-		elif currentlabel == move_3:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_4
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-			
-	if Input.is_action_just_pressed("DirUp") or Input.is_action_just_pressed("PositiveVertical"):
-		if currentlabel == move_3:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_1
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-		elif currentlabel == move_4:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_2
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-			
-	if Input.is_action_just_pressed("DirDown") or Input.is_action_just_pressed("NegativeVertical"):
-		if currentlabel == move_1:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_3
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-		elif currentlabel == move_2:
-			currentlabel.add_theme_color_override("font_color", Color(255,255,255))
-			currentlabel = move_4
-			currentlabel.add_theme_color_override("font_color", Color(255,0,0))
-	
-	if Input.is_action_just_pressed("Action1") or Input.is_action_just_pressed("Action2"):
-		if currentlabel.get_meta("Tag") == "good":
-			print("you win")
-			microgameEnded.emit(true)
-		else:
-			print("you lose")
-			microgameEnded.emit(false)
 
 # Fail state when timer runs out
 func _on_timer_timeout() -> void:

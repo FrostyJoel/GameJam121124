@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwcomim0lfya8"]
+
+[ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_a81kf"]
+[ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="2_iwlx8"]
+[ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="3_uronb"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gktq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40clb"]
+size = Vector2(31, 41.25)
+
+[node name="JumpingSheepMinigame" type="Node2D"]
+script = ExtResource("1_a81kf")
+
+[node name="SheepBody2D" parent="." instance=ExtResource("2_iwlx8")]
+position = Vector2(19, 102)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 80)
+zoom = Vector2(4, 4)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-104, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(121, 35)
+rotation = 3.14159
+scale = Vector2(1.02005, -0.981161)
+shape = SubResource("WorldBoundaryShape2D_4gktq")
+
+[node name="Area2D" parent="." instance=ExtResource("3_uronb")]
+position = Vector2(145, 107)
+scale = Vector2(0.095858, 0.095858)
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(-1, 1)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(264, 107)
+shape = SubResource("RectangleShape2D_40clb")
+
+[connection signal="body_entered" from="WinArea" to="." method="_on_win_area_body_entered"]
+[connection signal="body_entered" from="WinArea" to="." method="_on_fence_body_entered"]
+[connection signal="body_entered" from="WinArea" to="WinArea" method="_on_body_entered"]
