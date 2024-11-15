@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpjtbxilmg04s"]
+[gd_scene load_steps=10 format=3 uid="uid://cpjtbxilmg04s"]
 
 [ext_resource type="Script" path="res://scenes/UI/main_menu.gd" id="1_4ku65"]
+[ext_resource type="Texture2D" uid="uid://b3jrf2i1ilrw0" path="res://scenes/Microgames/countthesheep/countthesheepbackground.png" id="2_go5bc"]
 [ext_resource type="FontFile" uid="uid://doismeynb03k1" path="res://ui/Fonts/Dangrek-Regular.ttf" id="2_u2ro0"]
 [ext_resource type="Script" path="res://scripts/UI/button_setfocus.gd" id="2_xofhs"]
+[ext_resource type="Texture2D" uid="uid://t02mucg4650m" path="res://assets/UI/LogoCool.png" id="4_medfj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_108nf"]
 font = ExtResource("2_u2ro0")
@@ -51,7 +53,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ku65")
 
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -56.0
+offset_top = -16.0
+offset_right = 1992.0
+offset_bottom = 2032.0
+texture = ExtResource("2_go5bc")
+
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,12 +91,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -149.0
-offset_top = 52.0
-offset_right = 149.0
-offset_bottom = 194.0
+offset_left = -252.0
+offset_top = 79.0
+offset_right = 46.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.6, 1.6)
 theme_override_constants/separation = 10
 
 [node name="ButtonStart" type="Button" parent="VBoxContainer"]
@@ -124,6 +136,15 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3y2uu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_kwct8")
 theme_override_styles/normal = SubResource("StyleBoxFlat_he6oy")
 text = "Quit Game"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 290.0
+offset_top = 215.0
+offset_right = 1250.0
+offset_bottom = 515.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("4_medfj")
 
 [connection signal="pressed" from="VBoxContainer/ButtonStart" to="." method="_on_button_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
