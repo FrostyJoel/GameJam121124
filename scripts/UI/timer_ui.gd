@@ -20,10 +20,10 @@ func DisableTimer() -> void:
 
 func _process(delta: float) -> void:
 	if timerRef != null:
-		if timerRef.get_time_left() > 0:
-			percentage_of_time = (
-				(1-timerRef.get_time_left() / timerRef.get_wait_time()) * 100
-			)
-			progress_bar.value = percentage_of_time
+		#if timerRef.get_time_left() > 0:
+			#percentage_of_time = (
+				#(1-timerRef.get_time_left() / timerRef.get_wait_time()) * 100
+			#)
+			#progress_bar.value = percentage_of_time
 		labeltext.text = str("%.0f" % timerRef.get_time_left())
 		print(timerRef.get_time_left())
