@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ejlfx4ll6agq"]
+[gd_scene load_steps=37 format=3 uid="uid://ejlfx4ll6agq"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_ygwc3"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_fgo63"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://t7d71yblh58" path="res://assets/UI/THoughtCorner3.png" id="24_e7at5"]
 [ext_resource type="PackedScene" path="res://assets/girl_animations.tscn" id="27_cuawq"]
 [ext_resource type="VideoStream" path="res://assets/Videos/PassMicrogame.ogv" id="28_lhh8a"]
+[ext_resource type="Texture2D" uid="uid://dmadd30x80lt3" path="res://assets/Videos/Loselast.jpg" id="29_18sn2"]
+[ext_resource type="Texture2D" uid="uid://bwgur67ghowl1" path="res://assets/Videos/Passlast.jpg" id="30_hmxy4"]
+[ext_resource type="Texture2D" uid="uid://dahn72cuqsuvf" path="res://assets/Videos/Gameoverlast.jpg" id="30_rosjc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kyie4"]
 atlas = ExtResource("19_cvurd")
@@ -65,10 +68,13 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("videoStream", "dreamBubbles", "microgameCloud", "cloudFrame")]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("videoStream", "lossLast", "winLast", "gameoverLast", "dreamBubbles", "microgameCloud", "cloudFrame")]
 script = ExtResource("1_ygwc3")
 maxHealth = 3
 videoStream = NodePath("VideoStreamPlayer")
+lossLast = NodePath("VideoLastFrames/LossLast")
+winLast = NodePath("VideoLastFrames/winLast")
+gameoverLast = NodePath("VideoLastFrames/GameOverLast")
 dreamBubbles = NodePath("DreamBubbles")
 microgameCloud = NodePath("MicrogameCloud")
 cloudFrame = NodePath("CloudFrame")
@@ -92,18 +98,38 @@ one_shot = true
 wait_time = 0.35
 one_shot = true
 
-[node name="MicrogameManager" parent="." instance=ExtResource("3_512op")]
-z_index = 99
-microgames = Array[ExtResource("4_wl5e3")]([ExtResource("10_iotxq"), ExtResource("13_v27xj"), ExtResource("9_yjgvv"), ExtResource("8_ht2pl"), ExtResource("6_2lell"), ExtResource("10_r7yy6"), ExtResource("12_l1xe1"), ExtResource("11_w4cjo"), ExtResource("7_pcwx1"), ExtResource("6_s6to6"), ExtResource("15_78ed2")])
-
-[node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("9_hnekt")]
-
 [node name="SaveManager" type="Node" parent="."]
 script = ExtResource("10_ktn6t")
 
 [node name="MainUi" parent="." instance=ExtResource("17_yfuwa")]
+visible = false
 z_index = -1
 position = Vector2(960, 540)
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("29_18sn2")
+
+[node name="MicrogameManager" parent="." instance=ExtResource("3_512op")]
+z_index = 99
+microgames = Array[ExtResource("4_wl5e3")]([ExtResource("10_iotxq"), ExtResource("13_v27xj"), ExtResource("9_yjgvv"), ExtResource("8_ht2pl"), ExtResource("6_2lell"), ExtResource("10_r7yy6"), ExtResource("12_l1xe1"), ExtResource("11_w4cjo"), ExtResource("7_pcwx1"), ExtResource("6_s6to6"), ExtResource("15_78ed2")])
+
+[node name="VideoLastFrames" type="Node2D" parent="."]
+
+[node name="LossLast" type="Sprite2D" parent="VideoLastFrames"]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("29_18sn2")
+
+[node name="winLast" type="Sprite2D" parent="VideoLastFrames"]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("30_hmxy4")
+
+[node name="GameOverLast" type="Sprite2D" parent="VideoLastFrames"]
+visible = false
+position = Vector2(960, 540)
+texture = ExtResource("30_rosjc")
 
 [node name="DreamBubbles" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -165,10 +191,13 @@ position = Vector2(1013, 569)
 scale = Vector2(0.6, 0.6)
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 stream = ExtResource("28_lhh8a")
 autoplay = true
+
+[node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("9_hnekt")]
 
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]
