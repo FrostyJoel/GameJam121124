@@ -64,6 +64,7 @@ func MicrogameLose():
 func MicrogameWin():
 	print("Microgame Won!")
 	$GirlAnimations/AnimationPlayer.play("sleeping")
+	CheckScore()
 	$WinAudioPlayer.play()
 	AfterMicrogame()
 	$GameManager/TransitionTimer.start()
@@ -90,6 +91,7 @@ func SpawnNextMicroGame():
 # Checks score for speed up & boss triggers
 func CheckScore():
 	currentScore += 1 # Add one to score
+	print(currentScore)
 	onScoreUpdate.emit(currentScore)
 	
 	if (currentScore >= (speedUpScoreThreshold * (timesSpedUp + 1))):
@@ -126,7 +128,6 @@ func _on_transition_timer_timeout() -> void:
 	DoDreamBubbles()
 	$GirlAnimations/AnimationPlayer.play("sleeping")
 	$GameMusicAudioPlayer.set_volume_db(18)
-	print("AUDIO?")
 
 # Small timer to wait for the dream bubbles
 func _on_bubble_timer_timeout() -> void:

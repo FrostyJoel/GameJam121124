@@ -26,4 +26,4 @@ func _process(delta: float) -> void:
 			#)
 			#progress_bar.value = percentage_of_time
 		labeltext.text = str("%.0f" % timerRef.get_time_left())
-		print(timerRef.get_time_left())
+		#print(timerRef.get_time_left())
