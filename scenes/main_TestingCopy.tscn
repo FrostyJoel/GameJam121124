@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://3ejohihppwxe"]
+[gd_scene load_steps=23 format=3 uid="uid://3ejohihppwxe"]
 
 [ext_resource type="Script" path="res://scripts/Managers/game_manager.gd" id="1_m6sv7"]
 [ext_resource type="PackedScene" uid="uid://c07fwhm0tiuqn" path="res://scenes/Managers/GameManager.tscn" id="2_bp2tw"]
 [ext_resource type="PackedScene" uid="uid://islw187lc0mp" path="res://scenes/Managers/MicrogameManager.tscn" id="3_wqino"]
 [ext_resource type="Script" path="res://scripts/MicrogameData.gd" id="4_clve7"]
-[ext_resource type="Resource" uid="uid://bapq7wk0pwxhw" path="res://microgameData/diffuse_bomb.tres" id="5_qqclb"]
+[ext_resource type="Resource" uid="uid://26i0gvs3yeyd" path="res://microgameData/countingsheep.tres" id="5_o37ts"]
 [ext_resource type="Texture2D" uid="uid://bfrnbhodp5vrw" path="res://assets/UI/ThoughtCorner1.png" id="11_suwjn"]
 [ext_resource type="AudioStream" uid="uid://b05taja1kxuok" path="res://audio/Win Sound.wav" id="11_xw544"]
 [ext_resource type="AudioStream" uid="uid://blml6a6v7oqrq" path="res://audio/Lose Sound.wav" id="12_ceonc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://t7d71yblh58" path="res://assets/UI/THoughtCorner3.png" id="13_rs482"]
 [ext_resource type="PackedScene" uid="uid://bjg0dscobd4p1" path="res://scenes/Managers/ui_manager.tscn" id="16_0if2h"]
 [ext_resource type="Script" path="res://scripts/Managers/save_manager.gd" id="17_dp6xe"]
+[ext_resource type="PackedScene" path="res://assets/girl_animations.tscn" id="17_wm76m"]
 [ext_resource type="PackedScene" uid="uid://dctyt5vlsptag" path="res://scenes/main_UI.tscn" id="18_bhv1s"]
 [ext_resource type="Texture2D" uid="uid://q32olkjb2rpg" path="res://assets/UI/thought bubble growing sprite sheet.png" id="19_v7ebb"]
 [ext_resource type="Texture2D" uid="uid://b5e0d5dibu7f1" path="res://assets/UI/Minigame Border.png" id="20_q2e7b"]
@@ -81,7 +82,7 @@ one_shot = true
 
 [node name="MicrogameManager" parent="." instance=ExtResource("3_wqino")]
 z_index = 99
-microgames = Array[ExtResource("4_clve7")]([ExtResource("5_qqclb")])
+microgames = Array[ExtResource("4_clve7")]([ExtResource("5_o37ts")])
 
 [node name="UiManager" parent="." groups=["Persist"] instance=ExtResource("16_0if2h")]
 
@@ -147,6 +148,10 @@ stream = ExtResource("13_gna1e")
 volume_db = 18.0
 autoplay = true
 
+[node name="GirlAnimations" parent="." instance=ExtResource("17_wm76m")]
+position = Vector2(1013, 569)
+scale = Vector2(0.6, 0.6)
+
 [connection signal="onGameOver" from="." to="UiManager" method="_on_node_2d_on_game_over"]
 [connection signal="onHealthUpdate" from="." to="UiManager" method="_on_node_2d_on_health_update"]
 [connection signal="onScoreUpdate" from="." to="UiManager" method="_on_node_2d_on_score_update"]
@@ -158,3 +163,5 @@ autoplay = true
 [connection signal="onMicroGameUnloaded" from="MicrogameManager" to="UiManager" method="_on_microgame_manager_on_micro_game_unloaded"]
 [connection signal="restartGame" from="UiManager" to="." method="_on_ui_manager_restart_game"]
 [connection signal="restartGame" from="UiManager" to="UiManager" method="_on_restart_game"]
+
+[editable path="GirlAnimations"]
