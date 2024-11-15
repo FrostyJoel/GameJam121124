@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6w1do32qu3g4"]
+[gd_scene load_steps=18 format=3 uid="uid://c6w1do32qu3g4"]
 
 [ext_resource type="Script" path="res://scenes/Microgames/blowthecartridge/scripts2/game_boy.gd" id="1_abhwc"]
 [ext_resource type="Texture2D" uid="uid://dem8p6oerqgm8" path="res://scenes/Microgames/blowthecartridge/assets2/Game Boy Cartridge.png" id="1_ufv6p"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://5cbvskv1o0ut" path="res://scenes/Microgames/blowthecartridge/assets2/Game Boy Working Screen.png" id="6_72bu5"]
 [ext_resource type="Texture2D" uid="uid://doy1jhks51305" path="res://scenes/Microgames/blowthecartridge/assets2/Game Boy Broken Screen.png" id="7_twn5u"]
 [ext_resource type="AudioStream" uid="uid://btaia048g2u84" path="res://scenes/Microgames/blowthecartridge/assets2/Game Boy Working.wav" id="8_0txfw"]
+[ext_resource type="AudioStream" uid="uid://d16iicqmer0n6" path="res://scenes/Microgames/blowthecartridge/assets2/Game Boy Broken.wav" id="9_ktw60"]
+[ext_resource type="AudioStream" uid="uid://cny4s330kkv4x" path="res://scenes/Microgames/blowthecartridge/assets2/Blowing Sound.mp3" id="10_rwdkj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0hxo"]
 
@@ -190,6 +192,20 @@ texture = ExtResource("7_twn5u")
 
 [node name="DingAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_0txfw")
+volume_db = 22.214
+
+[node name="CartridgeTopLeft" type="Node2D" parent="."]
+position = Vector2(-326, 96)
+
+[node name="CartridgeBottomRight" type="Node2D" parent="."]
+position = Vector2(323, 156)
+
+[node name="BrokenAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ktw60")
+
+[node name="BlowingAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_rwdkj")
+volume_db = 20.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="PressTimer" to="." method="_on_press_timer_timeout"]

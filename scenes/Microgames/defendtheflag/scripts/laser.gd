@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Laser
 
-@export var speed: int = 200
+@export var speed: int = 1000
 
 func _ready():
 	$CollisionShape2D.disabled = true

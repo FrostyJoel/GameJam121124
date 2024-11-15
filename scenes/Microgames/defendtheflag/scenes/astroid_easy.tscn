@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://85os7ld5ybji" path="res://scenes/Microgames/defendtheflag/scenes/spawner.tscn" id="3_xsbay"]
 
 [node name="Level1" type="Node2D"]
+position = Vector2(960, 540)
+scale = Vector2(5, 5)
 script = ExtResource("1_gehws")
 
 [node name="SpaceShip" parent="." instance=ExtResource("2_8pkkc")]
@@ -52,7 +54,6 @@ min_range = 4.0
 max_range = 8.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 8.0
