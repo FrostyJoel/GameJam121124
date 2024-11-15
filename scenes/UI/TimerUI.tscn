@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv8vcluoohkeu"]
+[gd_scene load_steps=7 format=3 uid="uid://dv8vcluoohkeu"]
 
 [ext_resource type="Script" path="res://scripts/UI/timer_ui.gd" id="1_8iehj"]
 [ext_resource type="Texture2D" uid="uid://bnecg1heuqxq0" path="res://assets/UI/timer-bold (1).svg" id="1_c2d5n"]
+[ext_resource type="FontFile" uid="uid://doismeynb03k1" path="res://ui/Fonts/Dangrek-Regular.ttf" id="2_c3mey"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjbeu"]
 bg_color = Color(0.466181, 0.466181, 0.466181, 1)
@@ -35,11 +36,13 @@ corner_radius_top_right = 9
 corner_radius_bottom_right = 9
 corner_radius_bottom_left = 9
 
-[node name="TimerUi" type="Node"]
+[node name="TimerUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_8iehj")
 
 [node name="Control" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,6 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Control"]
+z_index = 305
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,13 +64,17 @@ offset_bottom = 443.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 0.0784314)
+theme_override_colors/font_color = Color(1, 1, 1, 0.298039)
+theme_override_colors/font_outline_color = Color(0.556863, 0.556863, 0.556863, 0.164706)
+theme_override_constants/outline_size = 60
+theme_override_fonts/font = ExtResource("2_c3mey")
 theme_override_font_sizes/font_size = 650
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 43.0
 offset_top = 51.0

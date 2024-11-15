@@ -466,7 +466,7 @@ _data = {
 }
 
 [node name="Pokemon" type="Node2D"]
-position = Vector2(1, 1)
+position = Vector2(960, 540)
 script = ExtResource("1_3ltjo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
