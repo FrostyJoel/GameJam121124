@@ -8,7 +8,15 @@ const DogEaterNumber = 3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start()
-
+	$DogEaterNumber.text = str(DogEaterNumber)
+	#Needed to find and enableTimer
+	var uiManager = get_tree().get_nodes_in_group("Uijj")
+	for node in uiManager:
+		# Check the node has a save function.
+		if !node.has_method("Enabletimer"):
+			print("persistent node '%s' is missing a Enabletimer() function, skipped" % node.name)
+			continue
+		node.call("Enabletimer",7)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,6 +27,8 @@ func _process(delta: float) -> void:
 				$HotDogMan.play("default")
 				$HotDogArmScene._EatingTheDogs()
 				CurrentDogsEaten += 1
+				$AudioStreamPlayer2D.stream = load("res://audio/Hotdog/EatingNoise" + str(randi_range(1,3)) + ".mp3")
+				$AudioStreamPlayer2D.play()
 				$PlayerNumber.text = str(CurrentDogsEaten)
 				if CurrentDogsEaten > DogEaterNumber:
 					$PlayerNumber.add_theme_color_override("font_color", Color("GOLD"))
