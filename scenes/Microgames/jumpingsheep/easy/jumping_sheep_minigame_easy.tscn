@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Jumping_Sheep/jumping_sheep_minigame.gd" id="1_a81kf"]
 [ext_resource type="PackedScene" uid="uid://r5ir2trq03s" path="res://scenes/Entities/sheep_body_2d.tscn" id="2_iwlx8"]
-[ext_resource type="Texture2D" uid="uid://b3jrf2i1ilrw0" path="res://scenes/Microgames/countthesheep/countthesheepbackground.png" id="3_nomni"]
+[ext_resource type="Texture2D" uid="uid://cy43qaqvpoas8" path="res://scenes/Microgames/jumpingsheep/easy/Untitled_Artwork.png" id="3_j3arm"]
 [ext_resource type="PackedScene" uid="uid://bosl8d4kbi348" path="res://scenes/Entities/fence.tscn" id="3_uronb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gktq"]
@@ -23,7 +23,7 @@ position = Vector2(192.2, 107.8)
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(193.2, 108)
 scale = Vector2(0.105, 0.105)
-texture = ExtResource("3_nomni")
+texture = ExtResource("3_j3arm")
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(-55.8, 111.8)
