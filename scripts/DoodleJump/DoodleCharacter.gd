@@ -14,10 +14,11 @@ func _ready() -> void:
 	$"../GameTimer".start()
 	
 func _process(delta: float) -> void:
-	if not screenend:
-		if (position.y - playerbase < maxheight):
-			maxheight = position.y - playerbase
-			camera_2d.position.y = camerabase + maxheight
+	pass
+	#if not screenend:
+		#if (position.y - playerbase < maxheight):
+			#maxheight = position.y - playerbase
+			#camera_2d.position.y = camerabase + maxheight
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

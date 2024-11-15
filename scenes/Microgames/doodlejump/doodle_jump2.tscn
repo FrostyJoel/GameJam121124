@@ -1,17 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvj1wtiee5chy"]
+[gd_scene load_steps=8 format=3 uid="uid://7hnfy0vxgs72"]
 
 [ext_resource type="Script" path="res://scripts/DoodleJump/doodle_jump.gd" id="1_w2wwb"]
 [ext_resource type="Texture2D" uid="uid://bmt7s8boduf3b" path="res://assets/images/Square.png" id="2_axiwi"]
+[ext_resource type="Texture2D" uid="uid://rlyaa5uqppun" path="res://assets/images/doodlebackground.png" id="2_batfd"]
 [ext_resource type="PackedScene" uid="uid://bjr4dyw1ekamf" path="res://scenes/Microgames/doodlejump/platform.tscn" id="3_4ccws"]
 [ext_resource type="Script" path="res://scripts/DoodleJump/DoodleCharacter.gd" id="4_eio4l"]
 [ext_resource type="PackedScene" uid="uid://s4o7c2rf0s8" path="res://scenes/Microgames/doodlejump/coin.tscn" id="5_1h1cq"]
-
-[sub_resource type="GDScript" id="GDScript_3x5gw"]
-script/source = "extends Node
-
-func _on_area_2d_body_entered(body) -> void:
-	pass
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qv7mp"]
 size = Vector2(34, 35)
@@ -23,91 +17,76 @@ script = ExtResource("1_w2wwb")
 [node name="Square" type="Sprite2D" parent="."]
 modulate = Color(0.701448, 0.790884, 0.672883, 1)
 z_index = -1
-position = Vector2(64, -154.845)
-scale = Vector2(33.7499, 72.8847)
-texture = ExtResource("2_axiwi")
+position = Vector2(72, 175.625)
+scale = Vector2(0.527, 0.527)
+texture = ExtResource("2_batfd")
 
-[node name="Platforms" type="Node" parent="."]
-script = SubResource("GDScript_3x5gw")
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(-900, -208)
 
-[node name="StaticBody2D" parent="Platforms" instance=ExtResource("3_4ccws")]
-position = Vector2(890, 841)
-script = null
-
-[node name="StaticBody2D2" parent="Platforms" instance=ExtResource("3_4ccws")]
-position = Vector2(1267, 629)
-script = null
-
-[node name="StaticBody2D3" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D20" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(579, 552)
-script = null
 
-[node name="StaticBody2D5" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D21" parent="Platforms" instance=ExtResource("3_4ccws")]
+position = Vector2(890, 841)
+
+[node name="StaticBody2D22" parent="Platforms" instance=ExtResource("3_4ccws")]
+position = Vector2(1267, 629)
+
+[node name="StaticBody2D24" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(805, 454)
-script = null
 
-[node name="StaticBody2D6" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D25" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(1050, 386)
-script = null
 
-[node name="StaticBody2D7" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D26" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(1314, 460)
-script = null
 
-[node name="StaticBody2D8" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D27" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(1105, 746)
-script = null
 
-[node name="StaticBody2D9" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D28" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(990, 575)
-script = null
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Platforms/StaticBody2D9"]
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Platforms/StaticBody2D28"]
+enable_node_path = NodePath("")
 
-[node name="StaticBody2D10" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D29" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(734, 672)
-script = null
 
-[node name="StaticBody2D11" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D32" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(716, 276)
-script = null
 
-[node name="StaticBody2D12" parent="Platforms" instance=ExtResource("3_4ccws")]
-position = Vector2(503, 215)
-script = null
-
-[node name="StaticBody2D16" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D34" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(688, 107)
-script = null
 
-[node name="StaticBody2D17" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D35" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(1093, 98)
-script = null
 
-[node name="StaticBody2D13" parent="Platforms" instance=ExtResource("3_4ccws")]
+[node name="StaticBody2D36" parent="Platforms" instance=ExtResource("3_4ccws")]
 position = Vector2(968, 232)
-script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(70, 176)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 z_index = 5
+position = Vector2(-9, 569)
 script = ExtResource("4_eio4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(0, 387)
+modulate = Color(1, 0.764706, 0.819608, 1)
+position = Vector2(0, 1)
 texture = ExtResource("2_axiwi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 386.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_qv7mp")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Player"]
-position = Vector2(0, 386)
 
 [node name="Area2D" parent="." instance=ExtResource("5_1h1cq")]
-position = Vector2(0, -356)
+position = Vector2(7, -211)
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 8.0
@@ -116,7 +95,7 @@ one_shot = true
 [node name="EndTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="screen_exited" from="Platforms/StaticBody2D9/VisibleOnScreenEnabler2D" to="Player" method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[connection signal="screen_exited" from="Platforms/StaticBody2D28/VisibleOnScreenEnabler2D" to="Player" method="_on_visible_on_screen_enabler_2d_screen_exited"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D" to="Player" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
