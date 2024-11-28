@@ -6,6 +6,8 @@ extends Node
 @onready var you_lose: Label = $"You Lose"
 @onready var final_score: Label = $"You Lose/FinalScore"
 @onready var high_score: Label = $"You Lose/HighScore"
+@onready var microgame_popup: Label = $Microgame_Popup
+
 
 @export var healthIcon1 : TextureRect
 @export var healthIcon2 : TextureRect
@@ -39,6 +41,14 @@ func UpdateScoreUI(newScore:int) -> void:
 	if newScore > highScore:
 		highScore = newScore
 
+func UpdateMicrogamePopup(newPopup:String) -> void:
+	microgame_popup.text = newPopup
+
+func HideMicroGamePopUp() -> void:
+	microgame_popup.visible = false
+
+func ShowMicroGamePopUp() -> void:
+	microgame_popup.visible = true
 
 func EnableFinalScore(finalScore:int) -> void:
 	DisableUI()

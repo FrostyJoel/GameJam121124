@@ -1,10 +1,12 @@
 extends Node2D
 
 @export var microgames : Array[MicrogameData]
+@onready var ui_manager = $"../UiManager"
 
 var timesPicked : Array[int]
 var lastPickedMicrogame : int = 999
 var currentMicrogame : Node
+var index : int
 
 signal microGameWin
 signal microGameLose
@@ -23,13 +25,23 @@ func init() -> void:
 func StartSpawningTimer() -> void:
 	$BetweenMicrogames.start()
 
+func ShowHint() -> void:
+	index = GetRandomIndex()
+	ui_manager.ShowMicroGamePopUp()
+	ui_manager.microgame_popup.text = microgames[index].instruction
+	$AfterWordPopUp.start()
+
 # Spawns a random microgame
 func SpawnMicrogame():
-	var index = GetRandomIndex()
+	ui_manager.HideMicroGamePopUp()
 	var variationIndex = GetVariationIndex(index)
 	var variationToSpawn = microgames[index].variations[variationIndex]
 	
+	
 	currentMicrogame = variationToSpawn.instantiate()
+
+	
+	
 	add_child(currentMicrogame)
 	
 	# Add one to times picked
@@ -74,4 +86,8 @@ func MicrogameOver(win: bool) -> void:
 	onMicroGameUnloaded.emit()
 
 func _on_between_microgames_timeout() -> void:
+	ShowHint()
+
+
+func _on_after_word_pop_up_timeout() -> void:
 	SpawnMicrogame()

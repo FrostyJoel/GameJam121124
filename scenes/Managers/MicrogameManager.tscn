@@ -9,4 +9,8 @@ script = ExtResource("1_vlvpw")
 wait_time = 0.1
 one_shot = true
 
+[node name="AfterWordPopUp" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="BetweenMicrogames" to="." method="_on_between_microgames_timeout"]
+[connection signal="timeout" from="AfterWordPopUp" to="." method="_on_after_word_pop_up_timeout"]

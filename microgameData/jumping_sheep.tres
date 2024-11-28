@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("1_2rgsp")
-instruction = ""
+instruction = "Jump"
 variations = Array[PackedScene]([ExtResource("2_pymwq"), ExtResource("3_wm33c"), ExtResource("4_e2moq")])

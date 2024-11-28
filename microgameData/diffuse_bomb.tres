@@ -7,5 +7,5 @@
 
 [resource]
 script = ExtResource("1_qd0nd")
-instruction = "Diffuse!"
+instruction = "Diffuse"
 variations = Array[PackedScene]([ExtResource("2_nkm2h"), ExtResource("3_pi22e"), ExtResource("4_ubiqe")])
